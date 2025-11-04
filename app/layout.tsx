@@ -1,34 +1,23 @@
+import "@/styles/global.css";
+
+import Header from "@/layout/Header";
 import type { Metadata } from "next";
-import "@/app/ui/global.css";
-import { inter } from "@/app/ui/fonts";
+import { NextIntlClientProvider } from "next-intl";
+import Socials from "@/components/sections/Socials";
+import { inter } from "@/styles/fonts";
+import { metadataKeywords } from "@/lib/constants/metadata-constants";
 
 export const metadata: Metadata = {
   title: "Abdulrahman Ismael | Portfolio",
   description:
     "Abdulrahman Ismael's Portfolio - Personal Info, Contact Info, Projects, Freelancing",
-  authors: [{ name: "Abdulrahman Ismael", url: "" }],
-  keywords: [
-    "portfolio",
-    "software",
-    "engineer",
-    "frontend",
-    "front-end",
-    "web",
-    "development",
-    "website",
-    "abdulrahman",
-    "react",
-    "next",
-    "react.js",
-    "next.js",
-    "typescript",
-    "javascript",
-    "tailwind",
-    "html",
-    "css",
-    "sass",
-    "scss",
+  authors: [
+    {
+      name: "Abdulrahman Ismael",
+      url: "https://www.linkedin.com/in/abdulrahmanismael/",
+    },
   ],
+  keywords: metadataKeywords,
   creator: "Abdulrahman Ismael",
 };
 
@@ -38,11 +27,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased`}>
-        <div className="container">
-          <main>{children}</main>
-        </div>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${inter.className} antialiased overflow-x-hidden`}
+        suppressHydrationWarning
+      >
+        <NextIntlClientProvider>
+          <Header />
+          <main>
+            <div className="container">{children}</div>
+          </main>
+        </NextIntlClientProvider>
+        <Socials />
       </body>
     </html>
   );

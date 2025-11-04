@@ -1,0 +1,86 @@
+{
+  "Header": {
+    "titles": {
+      "en": {
+        "showcase": "Introduction",
+        "about": "About",
+        "skills": "Skills"
+      },
+      "ar": {
+        "showcase": "مقدمة",
+        "about": "معلومات عني",
+        "skills": "المهارات"
+      }
+    }
+  },
+  "Home": {
+    "en": {
+      "name": "Abdulrahman Ismael",
+      "profession": "Web Developer & Passionate Software Engineer",
+      "buttons": {
+        "downloadCV": "Download CV",
+        "whoAmI": "Who Am I?"
+      }
+    },
+    "ar": {
+      "name": "عبدالرحمن إسماعيل",
+      "profession": "مطور ويب و مهندس برمجيات شغوف",
+      "buttons": {
+        "downloadCV": "تحميل السيرة الذاتية",
+        "whoAmI": "من أنا؟"
+      }
+    }
+  },
+
+  "Portfolio": {
+    "Showcase": {
+      "en": {
+        "title": "Welcome, I am Abdulrahman Ismael",
+        "small": "Web Developer & Passionate Software Engineer",
+        "brief": "I care about building clean, reliable web experiences that make sense. Every project is a chance to solve problems with clarity, from structure to design to the smallest interaction. I focus on what works, what scales, and what feels right to use."
+      },
+
+      "ar": {
+        "title": "السلام عليكم، إسمي عبدالرحمن إسماعيل",
+        "small": "مطور ويب ومهندس برمجيات شغوف",
+        "brief": "أهتم ببناء مواقع ويب نظيفة وآمنة سهلة الإستخدام. كل مشروع هو فرصة لحل المشكلات بأفضل طريقة، من الهيكل إلى التصميم إلى أصغر جزء. أركز على ما يعمل، وما يمكن أن يتوسع، وما أشعر بأنه صحيح للاستخدام."
+      }
+    },
+    "Skills": {
+      "en": {
+        "title": "SKills",
+        "subTitle": "Technologies & Tools"
+      },
+      "ar": {
+        "title": "المهاارات",
+        "subTitle": "المهارات التكنولوجية والأدوات"
+      }
+    },
+    "About": {
+      "en": {
+        "title": "About Me",
+        "subTitle": "Get to know me further",
+        "titleBox": "Who Am I",
+        "profession": "Front-End Web Developer & Software Engineer",
+        "desc": "I'm a passionate developer with expertise in building modern web applications using React, Next.js, and TypeScript. With a keen eye for design and user experience, I create seamless digital experiences that combine functionality with aesthetics. I love solving complex problems and bringing innovative ideas to life through clean, efficient code.",
+        "contactTitle": "Get In Touch",
+        "contactEmail": "Email",
+        "contactPhone": "Phone",
+        "contactLocation": "Location",
+        "location": "Cairo, Egypt"
+      },
+      "ar": {
+        "title": "معلومات عني",
+        "subTitle": "اعرفني اكثر",
+        "titleBox": "من أنا",
+        "profession": "مطور واجهات أمامية ومهندس برمجيات",
+        "desc": "أنا مطور شغوف ولدي خبرة في بناء تطبيقات ويب حديثة باستخدام React و Next.js و TypeScript. مع اهتمام كبير بالتصميم وتجربة المستخدم، أقوم بإنشاء تجارب رقمية سلسة تجمع بين الوظائف والجماليات. أحب حل المشكلات المعقدة وإحياء الأفكار المبتكرة من خلال كود نظيف وفعال.",
+        "contactTitle": "تواصل معي",
+        "contactEmail": "البريد الإلكتروني",
+        "contactPhone": "الهاتف",
+        "contactLocation": "الموقع",
+        "location": "القاهرة، مصر"
+      }
+    }
+  }
+}
