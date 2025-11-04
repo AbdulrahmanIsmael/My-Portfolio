@@ -1,6 +1,6 @@
 "use client";
 
-import { HiDownload, HiLocationMarker, HiMail, HiPhone } from "react-icons/hi";
+import { HiLocationMarker, HiMail, HiPhone } from "react-icons/hi";
 
 import DownloadCV from "./DownloadCV";
 import { I_appStore } from "@/stores/types/appStore-types";

@@ -3,7 +3,6 @@
 import { I_appStore } from "@/stores/types/appStore-types";
 import PersonalDetails from "@/components/sections/PersonalDetails";
 import PersonalImage from "@/components/sections/PersonalImage";
-import Socials from "@/components/sections/Socials";
 import { bitcountGridSingle } from "@/styles/fonts";
 import useAppStore from "@/stores/store";
 

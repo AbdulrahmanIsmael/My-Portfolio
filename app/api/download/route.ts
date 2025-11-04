@@ -1,12 +1,13 @@
 export const runtime = "nodejs";
 
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+
 import fs from "fs";
 import path from "path";
 
-export async function GET(req: any) {
+export async function GET(req: NextRequest) {
   const filename = req.nextUrl.searchParams.get("filename");
-  const filePath = path.join(process.cwd(), "public", "files", filename);
+  const filePath = path.join(process.cwd(), "public", "files", filename!);
 
   try {
     const fileBuffer = fs.readFileSync(filePath);

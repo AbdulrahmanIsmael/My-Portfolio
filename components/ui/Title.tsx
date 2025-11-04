@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import useAppStore from "@/stores/store";
 
 const Title = ({ children, subtitle, align = "center" }: I_titleProps) => {
-  const { lightMode, arabicLang } = useAppStore((state) => state as I_appStore);
+  const { lightMode } = useAppStore((state) => state as I_appStore);
 
   const alignmentClasses = {
     left: "text-left items-start",

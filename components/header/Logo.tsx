@@ -26,7 +26,7 @@ const Logo = () => {
 
   useEffect(() => {
     shineLogoOnRender();
-  }, []);
+  }, [shineLogoOnRender]);
 
   return (
     <Link
