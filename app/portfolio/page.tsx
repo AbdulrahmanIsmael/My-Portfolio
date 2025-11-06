@@ -2,6 +2,7 @@
 
 import About from "@/components/sections/About";
 import { I_appStore } from "@/stores/types/appStore-types";
+import Projects from "@/components/sections/Projects";
 import Showcase from "@/components/sections/Showcase";
 import Skills from "@/components/sections/Skills";
 import { bitcountGridSingle } from "@/styles/fonts";
@@ -22,6 +23,7 @@ const Portfolio = () => {
       <Showcase />
       <About />
       <Skills />
+      <Projects />
     </section>
   );
 };

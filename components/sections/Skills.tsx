@@ -34,6 +34,7 @@ import { I_appStore } from "@/stores/types/appStore-types";
 import { RiCursorLine } from "react-icons/ri";
 import { TbBrandRedux } from "react-icons/tb";
 import Title from "@/components/ui/Title";
+import { categories } from "@/lib/constants/skills-constants";
 import { motion } from "framer-motion";
 import useAppStore from "@/stores/store";
 import { useTranslations } from "next-intl";
@@ -43,10 +44,12 @@ const Skills = () => {
   const aboutMessages = useTranslations(
     `Portfolio.Skills.${arabicLang ? "ar" : "en"}`
   );
+  const catLang = aboutMessages("categories");
+  const cats = categories[catLang as keyof typeof categories];
 
   const skillCategories = [
     {
-      category: "Frontend",
+      category: cats["frontend"],
       skills: [
         { name: "HTML", icon: SiHtml5, color: "#E34F26" },
         { name: "CSS", icon: SiCss3, color: "#1572B6" },
@@ -62,7 +65,7 @@ const Skills = () => {
       ],
     },
     {
-      category: "Backend",
+      category: cats["backend"],
       skills: [
         { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
         { name: "PHP", icon: SiPhp, color: "#777BB4" },
@@ -71,7 +74,7 @@ const Skills = () => {
       ],
     },
     {
-      category: "Tools & Editors",
+      category: cats["tools"],
       skills: [
         { name: "Git", icon: SiGit, color: "#F05032" },
         { name: "Webpack", icon: SiWebpack, color: "#8DD6F9" },
@@ -83,7 +86,7 @@ const Skills = () => {
       ],
     },
     {
-      category: "Office Suite",
+      category: cats["office"],
       skills: [
         { name: "Word", icon: PiMicrosoftWordLogo, color: "#2B579A" },
         { name: "Excel", icon: PiMicrosoftExcelLogo, color: "#217346" },
@@ -95,7 +98,7 @@ const Skills = () => {
       ],
     },
     {
-      category: "Operating Systems",
+      category: cats["op"],
       skills: [
         { name: "Windows", icon: PiWindowsLogo, color: "#0078D4" },
         { name: "Linux", icon: SiLinux, color: "#FCC624" },

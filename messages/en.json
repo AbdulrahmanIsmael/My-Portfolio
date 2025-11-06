@@ -49,11 +49,13 @@
     "Skills": {
       "en": {
         "title": "SKills",
-        "subTitle": "Technologies & Tools"
+        "subTitle": "Technologies & Tools",
+        "categories": "enCat"
       },
       "ar": {
         "title": "المهاارات",
-        "subTitle": "المهارات التكنولوجية والأدوات"
+        "subTitle": "المهارات التكنولوجية والأدوات",
+        "categories": "arCat"
       }
     },
     "About": {
@@ -80,6 +82,92 @@
         "contactPhone": "الهاتف",
         "contactLocation": "الموقع",
         "location": "القاهرة، مصر"
+      }
+    },
+    "Projects": {
+      "en": {
+        "title": "Projects",
+        "subTitle": "Personal Projects I've worked on",
+        "projects": {
+          "1": {
+            "title": "iQuiz - Quizzes Platform",
+            "description": "A platform to create and solve Quizzes",
+            "image": "/assets/images/iquiz.png",
+            "category": "Quizzes APP"
+          },
+          "2": {
+            "title": "Cinemania - Movies Platform",
+            "description": "A movies platform to explore and stay updated with the latest movies and TV shows",
+            "image": "/assets/images/cinema.png",
+            "category": "Movies Platform"
+          },
+          "3": {
+            "title": "Teryaq - Graduation Project",
+            "description": "A smart medicine box that streamlines medication management for patients",
+            "image": "/assets/images/teryaq.png",
+            "category": "Graduation Project"
+          },
+          "4": {
+            "title": "Events APP",
+            "description": "A platform to view the most important events with their details",
+            "image": "/assets/images/events.png",
+            "category": "Events APP"
+          },
+          "5": {
+            "title": "TodoGo - Todo-List APP",
+            "description": "An App to manage tasks, earn points for completed tasks, and stay organized",
+            "image": "/assets/images/todogo.png",
+            "category": "Todo APP"
+          },
+          "6": {
+            "title": "Tozan - Landing Page for startups",
+            "description": "A Landing page in Next.js and Tailwind CSS for startups and companies",
+            "image": "/assets/images/tozan.png",
+            "category": "Landing Page"
+          }
+        }
+      },
+      "ar": {
+        "title": "المشاريع الشخصية",
+        "subTitle": "مشاريع شخصية قمت بالعمل عليها",
+        "projects": {
+          "1": {
+            "title": "iQuiz - منصة الاختبارات",
+            "description": "منصة لإنشاء وحل الاختبارات التفاعلية",
+            "image": "/assets/images/iquiz.png",
+            "category": "تطبيق اختبارات"
+          },
+          "2": {
+            "title": "Cinemania - منصة الأفلام",
+            "description": "منصة لاستكشاف ومتابعة أحدث الأفلام والمسلسلات",
+            "image": "/assets/images/cinemania.png",
+            "category": "منصة أفلام"
+          },
+          "3": {
+            "title": "ترياق - مشروع التخرج",
+            "description": "صندوق دواء ذكي يسهل إدارة الأدوية للمرضى",
+            "image": "/assets/images/teryaq.png",
+            "category": "مشروع تخرج"
+          },
+          "4": {
+            "title": "تطبيق الفعاليات",
+            "description": "منصة لعرض أهم الفعاليات مع تفاصيلها",
+            "image": "/assets/images/events.png",
+            "category": "تطبيق فعاليات"
+          },
+          "5": {
+            "title": "TodoGo - تطبيق قائمة المهام",
+            "description": "تطبيق لإدارة المهام وكسب النقاط عند إتمامها والبقاء منظماً. أضف وعدل واحذف المهام بواجهة سهلة الاستخدام",
+            "image": "/assets/images/todo.png",
+            "category": "تطبيق مهام"
+          },
+          "6": {
+            "title": "توزان - صفحة هبوط للشركات الناشئة",
+            "description": "صفحة هبوط مصممة بـ Next.js و Tailwind CSS للشركات الناشئة والمؤسسات",
+            "image": "/assets/images/tozan.png",
+            "category": "صفحة هبوط"
+          }
+        }
       }
     }
   }
