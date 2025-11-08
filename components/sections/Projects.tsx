@@ -77,11 +77,30 @@ const Projects = () => {
       liveUrl: "https://tozan-landing-page.vercel.app/",
       githubUrl: "https://github.com/AbdulrahmanIsmael/tozan-landing-page",
     },
+    {
+      id: 7,
+      title: projectMessages("projects.7.title"),
+      description: projectMessages("projects.7.description"),
+      image: projectMessages("projects.7.image"),
+      tech: ["Pug", "Sass", "JS", "Gulp"],
+      category: projectMessages("projects.7.category"),
+      githubUrl:
+        "https://github.com/AbdulrahmanIsmael/News-Website_Newslyverse",
+    },
+    {
+      id: 8,
+      title: projectMessages("projects.8.title"),
+      description: projectMessages("projects.8.description"),
+      image: projectMessages("projects.8.image"),
+      tech: ["HTML5", "CSS3", "JS", "Gulp"],
+      category: projectMessages("projects.8.category"),
+      githubUrl: "https://github.com/AbdulrahmanIsmael/shippr-ecommerce",
+    },
   ];
 
   return (
-    <section id="projects" className="py-20 flex flex-col gap-5">
-      <div className="container mx-auto">
+    <section id="projects" className="py-20">
+      <div className="container mx-auto flex flex-col gap-5">
         <Title
           subtitle={projectMessages("subTitle")}
           align={arabicLang ? "right" : "left"}
@@ -102,7 +121,7 @@ const Projects = () => {
               {/* Card */}
               <div
                 className={`
-                relative overflow-hidden rounded-2xl h-[450px]
+                relative overflow-hidden rounded-2xl h-[550px]
                 ${
                   lightMode
                     ? "bg-primaryDark text-textDark"
@@ -129,14 +148,16 @@ const Projects = () => {
 
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4">
-                    <Link
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors"
-                    >
-                      <FiExternalLink className="w-6 h-6 text-white" />
-                    </Link>
+                    {project.liveUrl && (
+                      <Link
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors"
+                      >
+                        <FiExternalLink className="w-6 h-6 text-white" />
+                      </Link>
+                    )}
                     <Link
                       href={project.githubUrl}
                       target="_blank"
@@ -179,6 +200,48 @@ const Projects = () => {
                   >
                     {project.description}
                   </p>
+                  {/* Tech Stack Section */}
+                  <div className="pt-3 border-t border-subtleLight/20">
+                    <h4
+                      className={`text-xs font-semibold mb-2 uppercase tracking-wide ${
+                        lightMode ? "text-textDark/50" : "text-textLight/50"
+                      }`}
+                    >
+                      {arabicLang ? "التقنيات المستخدمة" : "Tech Stack"}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech) => {
+                        //const techInfo = techIcons[tech];
+                        return (
+                          <div
+                            key={tech}
+                            className={`
+                            flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium
+                            transition-all duration-300 hover:scale-105
+                            ${
+                              lightMode
+                                ? "bg-primaryLight/10"
+                                : "bg-primaryDark/10"
+                            }
+                          `}
+                            title={tech}
+                          >
+                            {/*techInfo && (
+                              <techInfo.icon
+                                className="w-4 h-4"
+                                style={{
+                                  color: lightMode
+                                    ? techInfo.color
+                                    : techInfo.color,
+                                }}
+                              />
+                            )*/}
+                            <span>{tech}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
 
                 {/* Bottom colored line */}

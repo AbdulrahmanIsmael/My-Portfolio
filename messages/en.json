@@ -4,12 +4,16 @@
       "en": {
         "showcase": "Introduction",
         "about": "About",
-        "skills": "Skills"
+        "skills": "Skills",
+        "projects": "Projects",
+        "experience": "Experience"
       },
       "ar": {
         "showcase": "مقدمة",
         "about": "معلومات عني",
-        "skills": "المهارات"
+        "skills": "المهارات",
+        "projects": "المشاريع",
+        "experience": "الخبرات"
       }
     }
   },
@@ -84,6 +88,68 @@
         "location": "القاهرة، مصر"
       }
     },
+
+    "Experience": {
+      "en": {
+        "title": "Experience",
+        "subTitle": "My professional journey",
+        "freelance": {
+          "title": "Freelance Front-End Developer",
+          "company": "Aydin Labs",
+          "location": "Remote - Cairo, Egypt",
+          "date": "October 2025",
+          "description": "Working remotely on cutting-edge AI and CRM projects, building responsive and interactive user interfaces, and collaborating with backend developers to integrate APIs.",
+          "project1": {
+            "name": "AI Agent Dashboard",
+            "desc": "Built the Charts Section using Next.js, TailwindCSS, TypeScript, and Recharts for a Dashboard page in an AI Agent and CRM project."
+          },
+          "project2": {
+            "name": "Logo Diffusion (AI Image Platform)",
+            "desc": "Developed the entire front-end of the Mockup Workspace using React, Zustand, and TailwindCSS. Built the full UI of the workspace, integrated it with the backend API, and implemented logic to send image data to the API and display generated results."
+          }
+        },
+        "training": {
+          "title": "Web Developer Trainee",
+          "company": "Egypt Future Work Is Digital – ITIDA",
+          "location": "Remote Internship – Cairo, Egypt",
+          "date": "December 2022 - February 2023",
+          "description": "Intensive training program focused on full-stack web development, enhancing both frontend and backend skills through hands-on projects.",
+          "achievement1": "Enhanced frontend and backend development skills through structured training",
+          "achievement2": "Gained hands-on experience in project planning, API integration, and building user interfaces",
+          "achievement3": "Completed 2 real-world projects including Weather Journal App and Mock Freelance Client Project"
+        }
+      },
+      "ar": {
+        "title": "الخبرات",
+        "subTitle": "رحلتي المهنية",
+        "freelance": {
+          "title": "مطور واجهات أمامية مستقل",
+          "company": "Aydin Labs",
+          "location": "عن بعد - القاهرة، مصر",
+          "date": "أكتوبر 2025",
+          "description": "العمل عن بعد على مشاريع الذكاء الاصطناعي وإدارة علاقات العملاء، وبناء واجهات مستخدم تفاعلية ومتجاوبة، والتعاون مع مطوري الواجهة الخلفية والربط بالAPIs.",
+          "project1": {
+            "name": "لوحة تحكم AI Agent",
+            "desc": "بناء قسم الرسوم البيانية باستخدام Next.js و TailwindCSS و TypeScript و Recharts لصفحة لوحة التحكم في مشروع AI Agent وإدارة علاقات العملاء."
+          },
+          "project2": {
+            "name": "Logo Diffusion (منصة صور بالذكاء الاصطناعي)",
+            "desc": "تطوير الواجهة الأمامية الكاملة لمساحة عمل Mockup باستخدام React و Zustand و TailwindCSS. بناء واجهة المستخدم الكاملة للمساحة، ودمجها مع API الخلفية، وتنفيذ المنطق لإرسال بيانات الصور إلى API وعرض النتائج المُنتجة."
+          }
+        },
+        "training": {
+          "title": "متدرب تطوير ويب",
+          "company": "مستقبل مصر العمل رقمي – ITIDA",
+          "location": "تدريب عن بعد – القاهرة، مصر",
+          "date": "ديسمبر 2022 - فبراير 2023",
+          "description": "برنامج تدريبي مكثف يركز على تطوير الويب الكامل، وتعزيز مهارات الواجهة الأمامية والخلفية من خلال مشاريع عملية.",
+          "achievement1": "تحسين مهارات تطوير الواجهة الأمامية والخلفية من خلال التدريب المنظم",
+          "achievement2": "اكتساب خبرة عملية في تخطيط المشاريع ودمج API وبناء واجهات المستخدم",
+          "achievement3": "إكمال مشروعين حقيقيين بما في ذلك تطبيق Weather Journal ومشروع عميل مستقل تجريبي"
+        }
+      }
+    },
+
     "Projects": {
       "en": {
         "title": "Projects",
@@ -124,6 +190,18 @@
             "description": "A Landing page in Next.js and Tailwind CSS for startups and companies",
             "image": "/assets/images/tozan.png",
             "category": "Landing Page"
+          },
+          "7": {
+            "title": "Newslyverse - News Website",
+            "description": "A news website with a user-friendly design that provides top headlines of the day and breaking news",
+            "image": "/assets/images/news.png",
+            "category": "News Website"
+          },
+          "8": {
+            "title": "Shippr - E-commerce store",
+            "description": "An online ecommerce store where customers may purchase a variety of products",
+            "image": "/assets/images/ecommerce.png",
+            "category": "ecommerce store"
           }
         }
       },
@@ -166,6 +244,18 @@
             "description": "صفحة هبوط مصممة بـ Next.js و Tailwind CSS للشركات الناشئة والمؤسسات",
             "image": "/assets/images/tozan.png",
             "category": "صفحة هبوط"
+          },
+          "7": {
+            "title": "Newslyverse - موقع الأخبار",
+            "description": "موقع أخبار بتصميم سهل الاستخدام يوفر أهم عناوين اليوم والأخبار العاجلة",
+            "image": "/assets/images/news.png",
+            "category": "موقع أخبار"
+          },
+          "8": {
+            "title": "Shippr - متجر إلكتروني",
+            "description": "متجر إلكتروني حيث يمكن للعملاء شراء مجموعة متنوعة من المنتجات",
+            "image": "/assets/images/ecommerce.png",
+            "category": "متجر إلكتروني"
           }
         }
       }

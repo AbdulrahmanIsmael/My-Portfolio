@@ -43,6 +43,14 @@ const Header = () => {
       value: headerMessages("skills"),
       href: "#skills",
     },
+    {
+      value: headerMessages("projects"),
+      href: "#projects",
+    },
+    {
+      value: headerMessages("experience"),
+      href: "#experience",
+    },
   ];
 
   return (
