@@ -6,14 +6,16 @@
         "about": "About",
         "skills": "Skills",
         "projects": "Projects",
-        "experience": "Experience"
+        "experience": "Experience",
+        "contact": "Contact"
       },
       "ar": {
         "showcase": "مقدمة",
         "about": "معلومات عني",
         "skills": "المهارات",
         "projects": "المشاريع",
-        "experience": "الخبرات"
+        "experience": "الخبرات",
+        "contact": "للتواصل"
       }
     }
   },
@@ -258,6 +260,69 @@
             "category": "متجر إلكتروني"
           }
         }
+      }
+    },
+
+    "Contact": {
+      "en": {
+        "title": "Get In Touch",
+        "subTitle": "Let's work together",
+        "detailsTitle": "Contact Information",
+        "email": "Email",
+        "phone": "Phone",
+        "location": "Location",
+        "socialTitle": "Follow Me",
+        "formTitle": "Send Me a Message",
+        "nameLabel": "Name",
+        "namePlaceholder": "Your name",
+        "emailLabel": "Email",
+        "emailPlaceholder": "your.email@example.com",
+        "phoneLabel": "Phone",
+        "phonePlaceholder": "+20 123 456 7890",
+        "reasonLabel": "Reason for Contact",
+        "reasonPlaceholder": "Select a reason",
+        "reasonJob": "Job Opportunity",
+        "reasonFreelance": "Freelance Project",
+        "reasonCollaboration": "Collaboration",
+        "reasonQuestion": "General Question",
+        "reasonOther": "Other",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Tell me about your project or inquiry...",
+        "optional": "Optional",
+        "send": "Send Message",
+        "sending": "Sending...",
+        "successMessage": "Message sent successfully! I'll get back to you soon.",
+        "errorMessage": "Failed to send message. Please try again."
+      },
+      "ar": {
+        "title": "تواصل معي",
+        "subTitle": "لنعمل معاً",
+        "detailsTitle": "معلومات التواصل",
+        "email": "البريد الإلكتروني",
+        "phone": "الهاتف",
+        "location": "الموقع",
+        "socialTitle": "تابعني",
+        "formTitle": "أرسل لي رسالة",
+        "nameLabel": "الاسم",
+        "namePlaceholder": "اسمك",
+        "emailLabel": "البريد الإلكتروني",
+        "emailPlaceholder": "your.email@example.com",
+        "phoneLabel": "الهاتف",
+        "phonePlaceholder": "+20 123 456 7890",
+        "reasonLabel": "سبب التواصل",
+        "reasonPlaceholder": "اختر سبباً",
+        "reasonJob": "فرصة عمل",
+        "reasonFreelance": "مشروع مستقل",
+        "reasonCollaboration": "تعاون",
+        "reasonQuestion": "سؤال عام",
+        "reasonOther": "أخرى",
+        "messageLabel": "الرسالة",
+        "messagePlaceholder": "أخبرني عن مشروعك أو استفسارك...",
+        "optional": "اختياري",
+        "send": "إرسال الرسالة",
+        "sending": "جاري الإرسال...",
+        "successMessage": "تم إرسال الرسالة بنجاح! سأتواصل معك قريباً.",
+        "errorMessage": "فشل إرسال الرسالة. يرجى المحاولة مرة أخرى."
       }
     }
   }

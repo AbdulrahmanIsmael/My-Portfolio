@@ -1,5 +1,6 @@
 import "@/styles/global.css";
 
+import Footer from "@/layout/Footer";
 import Header from "@/layout/Header";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
@@ -37,6 +38,7 @@ export default function RootLayout({
           <main>
             <div className="container">{children}</div>
           </main>
+          <Footer />
         </NextIntlClientProvider>
         <Socials />
       </body>

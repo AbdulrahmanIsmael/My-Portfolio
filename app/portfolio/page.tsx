@@ -1,6 +1,7 @@
 "use client";
 
 import About from "@/components/sections/About";
+import Contact from "@/components/sections/Contact";
 import Experience from "@/components/sections/Experience";
 import { I_appStore } from "@/stores/types/appStore-types";
 import Projects from "@/components/sections/Projects";
@@ -26,6 +27,7 @@ const Portfolio = () => {
       <Skills />
       <Projects />
       <Experience />
+      <Contact />
     </section>
   );
 };
