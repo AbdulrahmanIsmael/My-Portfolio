@@ -20,3 +20,14 @@ html {
   --color-textDark: #222;
   --color-subtleDark: #4a5568;
 }
+
+::-webkit-scrollbar {
+  background-color: var(--color-primaryLight);
+  width: 0.25rem;
+}
+
+/* Scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-accentDark);
+  border-radius: 0.5rem;
+}
