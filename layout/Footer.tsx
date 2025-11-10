@@ -19,7 +19,6 @@ const Footer = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { scrollY } = useScroll();
 
-  // Show button after scrolling 300px
   useEffect(() => {
     return scrollY.on("change", (latest) => {
       setShowScrollTop(latest > 300);
@@ -58,12 +57,15 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: arabicLang ? "الرئيسية" : "Home", href: "#home" },
-    { name: arabicLang ? "عني" : "About", href: "#about" },
-    { name: arabicLang ? "المهارات" : "Skills", href: "#skills" },
-    { name: arabicLang ? "المشاريع" : "Projects", href: "#projects" },
-    { name: arabicLang ? "الخبرات" : "Experience", href: "#experience" },
-    { name: arabicLang ? "تواصل" : "Contact", href: "#contact" },
+    { name: arabicLang ? "الرئيسية" : "Home", href: "portfolio/#home" },
+    { name: arabicLang ? "عني" : "About", href: "portfolio/#about" },
+    { name: arabicLang ? "المهارات" : "Skills", href: "portfolio/#skills" },
+    { name: arabicLang ? "المشاريع" : "Projects", href: "portfolio/#projects" },
+    {
+      name: arabicLang ? "الخبرات" : "Experience",
+      href: "portfolio/#experience",
+    },
+    { name: arabicLang ? "تواصل" : "Contact", href: "portfolio/#contact" },
   ];
 
   const currentYear = new Date().getFullYear();
