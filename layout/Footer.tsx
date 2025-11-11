@@ -278,7 +278,7 @@ const Footer = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col md:flex-row items-center justify-between gap-4"
+            className="flex flex-col md:flex-row justify-center items-center gap-4"
           >
             <p
               className={`text-sm ${
@@ -289,38 +289,6 @@ const Footer = () => {
                 <>© {currentYear} عبدالرحمن إسماعيل. جميع الحقوق محفوظة.</>
               ) : (
                 <>© {currentYear} Abdulrahman Ismael. All rights reserved.</>
-              )}
-            </p>
-
-            <p
-              className={`text-sm ${
-                lightMode ? "text-textDark/60" : "text-textLight/60"
-              }`}
-            >
-              {arabicLang ? (
-                <>
-                  صُنع بـ{" "}
-                  <span
-                    className={
-                      lightMode ? "text-accentDark" : "text-accentLight"
-                    }
-                  >
-                    ❤️
-                  </span>{" "}
-                  باستخدام Next.js
-                </>
-              ) : (
-                <>
-                  Made with{" "}
-                  <span
-                    className={
-                      lightMode ? "text-accentDark" : "text-accentLight"
-                    }
-                  >
-                    ❤️
-                  </span>{" "}
-                  using Next.js
-                </>
               )}
             </p>
           </motion.div>
