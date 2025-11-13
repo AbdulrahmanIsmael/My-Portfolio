@@ -48,7 +48,7 @@ const Contact = () => {
     {
       icon: HiLocationMarker,
       label: contactMessages("location"),
-      value: "Cairo, Egypt",
+      value: "King Faisal St ,Giza, Egypt",
       href: null,
     },
   ];
