@@ -75,7 +75,7 @@
         "contactEmail": "Email",
         "contactPhone": "Phone",
         "contactLocation": "Location",
-        "location": "Cairo, Egypt"
+        "location": "King Faisal St, Giza, Egypt"
       },
       "ar": {
         "title": "معلومات عني",
@@ -87,7 +87,7 @@
         "contactEmail": "البريد الإلكتروني",
         "contactPhone": "الهاتف",
         "contactLocation": "الموقع",
-        "location": "القاهرة، مصر"
+        "location": "شارع الملك فيصل، الجيزة، مصر"
       }
     },
 
