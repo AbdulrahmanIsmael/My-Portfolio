@@ -97,7 +97,7 @@ const Header = () => {
             paddingBottom: isScrolled ? "0.75rem" : "1.25rem",
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="container mx-auto flex items-center justify-between px-4"
+          className="container mx-auto flex max-[320px]:flex-col gap-y-3 items-center justify-between px-4"
         >
           <Logo />
 
@@ -139,17 +139,21 @@ const Header = () => {
           </nav>
 
           {/* Desktop Switchers */}
-          <div className="hidden lg:flex flex-col items-center gap-3">
+          <div
+            className={`${
+              pathname === "/portfolio" && "hidden"
+            } lg:flex flex-col items-center gap-3`}
+          >
             <Switchers type="mode">
               <MdDarkMode
-                className="absolute right-15 top-1/2 -translate-y-1/2"
+                className="absolute left-0 top-1/2 -translate-y-1/2"
                 size={25}
                 fill="gray"
               />
               <MdLightMode
                 size={25}
                 fill="yellow"
-                className="absolute left-15 top-1/2 -translate-y-1/2"
+                className="absolute right-0 top-1/2 -translate-y-1/2"
               />
             </Switchers>
 
@@ -157,16 +161,16 @@ const Header = () => {
               <Image
                 src="/assets/icons/english.png"
                 alt="English Language"
-                className="absolute right-15 top-1/2 -translate-y-1/2"
-                width={25}
-                height={25}
+                className="absolute left-0 top-1/2 -translate-y-1/2 ml-0.5"
+                width={20}
+                height={20}
               />
               <Image
                 src="/assets/icons/arabic.png"
                 alt="Arabic Language"
-                width={25}
-                height={25}
-                className="absolute left-15 top-1/2 -translate-y-1/2"
+                width={20}
+                height={20}
+                className="absolute right-0 top-1/2 -translate-y-1/2 mr-0.5"
               />
             </Switchers>
           </div>
@@ -174,6 +178,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           {pathname !== "/" && (
             <button
+              type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`cursor-pointer 
                 lg:hidden p-2 rounded-lg transition-colors
@@ -281,21 +286,21 @@ const Header = () => {
                 />
 
                 {/* Switchers */}
-                <div className="pl-10">
+                <div>
                   <div className="mb-3">
                     <p className="text-sm font-medium mb-3 opacity-70">
                       {arabicLang ? "المظهر" : "Theme"}
                     </p>
                     <Switchers type="mode">
                       <MdDarkMode
-                        className="absolute right-15 top-1/2 -translate-y-1/2"
+                        className="absolute left-0 top-1/2 -translate-y-1/2"
                         size={25}
                         fill="gray"
                       />
                       <MdLightMode
                         size={25}
                         fill="yellow"
-                        className="absolute left-15 top-1/2 -translate-y-1/2"
+                        className="absolute right-0 top-1/2 -translate-y-1/2"
                       />
                     </Switchers>
                   </div>
@@ -308,16 +313,16 @@ const Header = () => {
                       <Image
                         src="/assets/icons/english.png"
                         alt="English Language"
-                        className="absolute right-15 top-1/2 -translate-y-1/2"
-                        width={25}
-                        height={25}
+                        className="absolute left-0 top-1/2 -translate-y-1/2 ml-0.5"
+                        width={20}
+                        height={20}
                       />
                       <Image
                         src="/assets/icons/arabic.png"
                         alt="Arabic Language"
-                        width={25}
-                        height={25}
-                        className="absolute left-15 top-1/2 -translate-y-1/2"
+                        width={20}
+                        height={20}
+                        className="absolute right-0 top-1/2 -translate-y-1/2 mr-0.5"
                       />
                     </Switchers>
                   </div>

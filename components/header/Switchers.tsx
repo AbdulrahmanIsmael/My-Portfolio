@@ -31,7 +31,7 @@ const Switchers = ({
 
   return (
     <div
-      className={`cursor-pointer relative w-13 h-6 ${
+      className={`cursor-pointer relative w-14 h-6 ${
         lightMode ? "bg-subtleLight" : "bg-white"
       } rounded-4xl`}
       id="mode-switcher"
