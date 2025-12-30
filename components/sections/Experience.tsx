@@ -48,6 +48,19 @@ const Experience = () => {
         experienceMessages("training.achievement3"),
       ],
     },
+    {
+      id: 3,
+      type: "work",
+      title: experienceMessages("internship.title"),
+      company: experienceMessages("internship.company"),
+      location: experienceMessages("internship.location"),
+      date: experienceMessages("internship.date"),
+      description: experienceMessages("internship.description"),
+      achievements: [
+        experienceMessages("internship.achievement1"),
+        experienceMessages("internship.achievement2"),
+      ],
+    },
   ];
 
   return (

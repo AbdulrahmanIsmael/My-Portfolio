@@ -119,6 +119,15 @@
           "achievement1": "Enhanced frontend and backend development skills through structured training",
           "achievement2": "Gained hands-on experience in project planning, API integration, and building user interfaces",
           "achievement3": "Completed 2 real-world projects including Weather Journal App and Mock Freelance Client Project"
+        },
+        "internship": {
+          "title": "Web Developer",
+          "company": "Ipda3 Tech",
+          "location": "Internship – Mansoura, Egypt",
+          "date": "August 2021 - September 2021",
+          "description": "Summer Internship whcih focused on developing my Front-end skills, gaining experience in working with a team in hands-on real projects and contributing successfully to the company.",
+          "achievement1": "Collaborated with the team to develop software solutions and features, debug, and test the code",
+          "achievement2": "Gained Experience and worked with HTML, CSS, JavaScript, and Bootstrap to build responsive web pages"
         }
       },
       "ar": {
