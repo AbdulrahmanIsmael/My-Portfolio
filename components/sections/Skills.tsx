@@ -7,6 +7,7 @@ import {
   PiWindowsLogo,
 } from "react-icons/pi";
 import {
+  SiAngular,
   SiBootstrap,
   SiCss3,
   SiFigma,
@@ -42,7 +43,7 @@ import { useTranslations } from "next-intl";
 const Skills = () => {
   const { arabicLang, lightMode } = useAppStore((state) => state as I_appStore);
   const aboutMessages = useTranslations(
-    `Portfolio.Skills.${arabicLang ? "ar" : "en"}`
+    `Portfolio.Skills.${arabicLang ? "ar" : "en"}`,
   );
   const catLang = aboutMessages("categories");
   const cats = categories[catLang as keyof typeof categories];
@@ -57,6 +58,7 @@ const Skills = () => {
         { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
         { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
         { name: "React", icon: SiReact, color: "#61DAFB" },
+        { name: "Angular", icon: SiAngular, color: "#E52A3A" },
         { name: "Redux", icon: SiRedux, color: "#764ABC" },
         { name: "Zustand", icon: TbBrandRedux, color: "#443E38" },
         { name: "Next.js", icon: SiNextdotjs, color: "#000000" },

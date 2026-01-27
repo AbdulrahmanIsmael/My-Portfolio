@@ -167,48 +167,54 @@
         "subTitle": "Personal Projects I've worked on",
         "projects": {
           "1": {
+            "title": "Seafarer Management System",
+            "description": "A management system for seafarers with features to view, edit, add, and control the activation period of seafarers.",
+            "image": "/assets/images/seafarer-management-system.png",
+            "category": "Management System"
+          },
+          "2": {
             "title": "iQuiz - Quizzes Platform",
             "description": "A platform to create and solve Quizzes",
             "image": "/assets/images/iquiz.png",
             "category": "Quizzes APP"
           },
-          "2": {
+          "3": {
             "title": "Cinemania - Movies Platform",
             "description": "A movies platform to explore and stay updated with the latest movies and TV shows",
             "image": "/assets/images/cinema.png",
             "category": "Movies Platform"
           },
-          "3": {
+          "4": {
             "title": "Teryaq - Graduation Project",
             "description": "A smart medicine box that streamlines medication management for patients",
             "image": "/assets/images/teryaq.png",
             "category": "Graduation Project"
           },
-          "4": {
-            "title": "Events APP",
+          "5": {
+            "title": "Events APP (Next.js)",
             "description": "A platform to view the most important events with their details",
             "image": "/assets/images/events.png",
             "category": "Events APP"
           },
-          "5": {
+          "6": {
             "title": "TodoGo - Todo-List APP",
             "description": "An App to manage tasks, earn points for completed tasks, and stay organized",
             "image": "/assets/images/todogo.png",
             "category": "Todo APP"
           },
-          "6": {
+          "7": {
             "title": "Tozan - Landing Page for startups",
             "description": "A Landing page in Next.js and Tailwind CSS for startups and companies",
             "image": "/assets/images/tozan.png",
             "category": "Landing Page"
           },
-          "7": {
+          "8": {
             "title": "Newslyverse - News Website",
             "description": "A news website with a user-friendly design that provides top headlines of the day and breaking news",
             "image": "/assets/images/news.png",
             "category": "News Website"
           },
-          "8": {
+          "9": {
             "title": "Shippr - E-commerce store",
             "description": "An online ecommerce store where customers may purchase a variety of products",
             "image": "/assets/images/ecommerce.png",
@@ -220,6 +226,12 @@
         "title": "المشاريع الشخصية",
         "subTitle": "مشاريع شخصية قمت بالعمل عليها",
         "projects": {
+          "0": {
+            "title": "نظام لإدارة البحارة",
+            "description": "نظام إدارة للبحارة مع مميزات لعرض، اضافة، تعديل والتحكم في وقت نشاط البحارة في العمل",
+            "image": "/assets/images/seafarer-management-system.png",
+            "category": "نظام إدارة"
+          },
           "1": {
             "title": "iQuiz - منصة الاختبارات",
             "description": "منصة لإنشاء وحل الاختبارات التفاعلية",
