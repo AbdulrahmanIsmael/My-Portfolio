@@ -23,14 +23,16 @@
     "en": {
       "name": "Abdulrahman Ismael",
       "profession": "Web Developer & Passionate Software Engineer",
+      "resume": "Please Download My Updated Resume",
       "buttons": {
-        "downloadCV": "Download CV",
+        "downloadCV": "Download Resume",
         "whoAmI": "Who Am I?"
       }
     },
     "ar": {
       "name": "عبدالرحمن إسماعيل",
       "profession": "مطور ويب و مهندس برمجيات شغوف",
+      "resume": "من فضلك حمل أحدث نسخة من سيرتي الذاتية",
       "buttons": {
         "downloadCV": "تحميل السيرة الذاتية",
         "whoAmI": "من أنا؟"

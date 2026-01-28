@@ -34,6 +34,13 @@ const PersonalDetails = () => {
       >
         {homeMessages("profession")}
       </p>
+      <p
+        className={`text-lg sm:text-xl md:text-2xl ${
+          lightMode ? "text-textDark" : "text-textLight"
+        } text-center`}
+      >
+        {homeMessages("resume")}
+      </p>
       <div className="mt-5 flex items-center gap-5 flex-wrap">
         <BtnLink href="portfolio">{homeMessages("buttons.whoAmI")}</BtnLink>
         <DownloadCV />
