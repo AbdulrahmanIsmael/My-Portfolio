@@ -193,30 +193,36 @@
             "category": "Graduation Project"
           },
           "5": {
+            "title": "Real-Time Assets Dashboard (Next.js)",
+            "description": "A real-time dashboard as your investment portfolio to view, control, sort or filter your assets, helping you to make critical decistion about your investments and your life",
+            "image": "/assets/images/dashboard.png",
+            "category": "Dashboard"
+          },
+          "6": {
             "title": "Events APP (Next.js)",
             "description": "A platform to view the most important events with their details",
             "image": "/assets/images/events.png",
             "category": "Events APP"
           },
-          "6": {
+          "7": {
             "title": "TodoGo - Todo-List APP",
             "description": "An App to manage tasks, earn points for completed tasks, and stay organized",
             "image": "/assets/images/todogo.png",
             "category": "Todo APP"
           },
-          "7": {
+          "8": {
             "title": "Tozan - Landing Page for startups",
             "description": "A Landing page in Next.js and Tailwind CSS for startups and companies",
             "image": "/assets/images/tozan.png",
             "category": "Landing Page"
           },
-          "8": {
+          "9": {
             "title": "Newslyverse - News Website",
             "description": "A news website with a user-friendly design that provides top headlines of the day and breaking news",
             "image": "/assets/images/news.png",
             "category": "News Website"
           },
-          "9": {
+          "10": {
             "title": "Shippr - E-commerce store",
             "description": "An online ecommerce store where customers may purchase a variety of products",
             "image": "/assets/images/ecommerce.png",
@@ -228,55 +234,61 @@
         "title": "المشاريع الشخصية",
         "subTitle": "مشاريع شخصية قمت بالعمل عليها",
         "projects": {
-          "0": {
+          "1": {
             "title": "نظام لإدارة البحارة",
             "description": "نظام إدارة للبحارة مع مميزات لعرض، اضافة، تعديل والتحكم في وقت نشاط البحارة في العمل",
             "image": "/assets/images/seafarer-management-system.png",
             "category": "نظام إدارة"
           },
-          "1": {
+          "2": {
             "title": "iQuiz - منصة الاختبارات",
             "description": "منصة لإنشاء وحل الاختبارات التفاعلية",
             "image": "/assets/images/iquiz.png",
             "category": "تطبيق اختبارات"
           },
-          "2": {
+          "3": {
             "title": "Cinemania - منصة الأفلام",
             "description": "منصة لاستكشاف ومتابعة أحدث الأفلام والمسلسلات",
             "image": "/assets/images/cinema.png",
             "category": "منصة أفلام"
           },
-          "3": {
+          "4": {
             "title": "ترياق - مشروع التخرج",
             "description": "صندوق دواء ذكي يسهل إدارة الأدوية للمرضى",
             "image": "/assets/images/teryaq.png",
             "category": "مشروع تخرج"
           },
-          "4": {
+          "5": {
+            "title": "لوحة تحكم الأصول في الوقت الحقيقي (Next.js)",
+            "description": "لوحة تحكم آنية تعمل كمحفظة استثمارية لعرض أصولك والتحكم فيها وفرزها أو تصفيتها، مما يساعدك على اتخاذ قرارات حاسمة بشأن استثماراتك وحياتك",
+            "image": "/assets/images/dashboard.png",
+            "category": "لوحة تحكم"
+          },
+          "6": {
             "title": "تطبيق الفعاليات",
             "description": "منصة لعرض أهم الفعاليات مع تفاصيلها",
             "image": "/assets/images/events.png",
             "category": "تطبيق فعاليات"
           },
-          "5": {
+          "7": {
             "title": "TodoGo - تطبيق قائمة المهام",
             "description": "تطبيق لإدارة المهام وكسب النقاط عند إتمامها والبقاء منظماً. أضف وعدل واحذف المهام بواجهة سهلة الاستخدام",
             "image": "/assets/images/todo.png",
             "category": "تطبيق مهام"
           },
-          "6": {
+          "8": {
             "title": "توزان - صفحة هبوط للشركات الناشئة",
             "description": "صفحة هبوط مصممة بـ Next.js و Tailwind CSS للشركات الناشئة والمؤسسات",
             "image": "/assets/images/tozan.png",
             "category": "صفحة هبوط"
           },
-          "7": {
+          "9": {
             "title": "Newslyverse - موقع الأخبار",
             "description": "موقع أخبار بتصميم سهل الاستخدام يوفر أهم عناوين اليوم والأخبار العاجلة",
             "image": "/assets/images/news.png",
             "category": "موقع أخبار"
           },
-          "8": {
+          "10": {
             "title": "Shippr - متجر إلكتروني",
             "description": "متجر إلكتروني حيث يمكن للعملاء شراء مجموعة متنوعة من المنتجات",
             "image": "/assets/images/ecommerce.png",
