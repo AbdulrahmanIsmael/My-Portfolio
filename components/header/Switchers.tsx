@@ -1,7 +1,6 @@
 "use client";
 
 import { I_appStore } from "@/stores/types/appStore-types";
-import { motion } from "framer-motion";
 import useAppStore from "@/stores/store";
 
 const Switchers = ({
@@ -12,8 +11,9 @@ const Switchers = ({
   type: string;
 }) => {
   // using the store
-  const { lightMode, toggleLightMode, arabicLang, toggleArabicLang } =
-    useAppStore((state) => state as I_appStore);
+  const { toggleLightMode, lightMode, toggleArabicLang } = useAppStore(
+    (state) => state as I_appStore,
+  );
 
   // handle toggling the switch
   const handleToggleSwitch = async () => {
@@ -31,22 +31,25 @@ const Switchers = ({
 
   return (
     <div
-      className={`cursor-pointer relative w-14 h-6 ${
-        lightMode ? "bg-subtleLight" : "bg-white"
-      } rounded-4xl`}
       id="mode-switcher"
       onClick={handleToggleSwitch}
+      className={`
+      relative inline-flex items-center gap-3
+      px-4 py-2
+      rounded-full
+      border-2 border-accentDark
+      cursor-pointer select-none
+      transition-all duration-300 ease-out
+      hover:scale-[1.03] active:scale-[0.98]
+      ${
+        lightMode
+          ? "bg-subtleLight/30 text-primaryLight hover:bg-subtleLight/40"
+          : "bg-primaryDark text-primaryLight hover:bg-primaryDark/90"
+      }
+      shadow-sm hover:shadow-md
+    `}
     >
-      <motion.div
-        initial={{ left: 0, right: "auto" }}
-        animate={
-          (type === "mode" && lightMode) || (type === "language" && arabicLang)
-            ? { right: 0, left: "auto" }
-            : { left: 0, right: "auto" }
-        }
-        transition={{ ease: "linear", duration: 0.15 }}
-        className={`absolute top-0 left-0 rounded-[100px] w-6 h-full bg-accentLight`}
-      ></motion.div>
+      <div className="absolute inset-0 rounded-full bg-white/5 pointer-events-none" />
       {children}
     </div>
   );

@@ -41,7 +41,7 @@ const PersonalDetails = () => {
       >
         {homeMessages("resume")}
       </p>
-      <div className="mt-5 flex items-center gap-5 flex-wrap">
+      <div className="mt-5 flex items-center justify-center gap-5 flex-wrap">
         <BtnLink href="portfolio">{homeMessages("buttons.whoAmI")}</BtnLink>
         <DownloadCV />
       </div>

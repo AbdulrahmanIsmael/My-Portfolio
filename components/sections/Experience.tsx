@@ -11,7 +11,7 @@ import { useTranslations } from "next-intl";
 const Experience = () => {
   const { arabicLang, lightMode } = useAppStore((state) => state as I_appStore);
   const experienceMessages = useTranslations(
-    `Portfolio.Experience.${arabicLang ? "ar" : "en"}`
+    `Portfolio.Experience.${arabicLang ? "ar" : "en"}`,
   );
 
   const experiences = [
