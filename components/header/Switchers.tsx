@@ -8,50 +8,43 @@ const Switchers = ({
   type,
 }: {
   children: React.ReactNode;
-  type: string;
+  type: "mode" | "language";
 }) => {
-  // using the store
   const { toggleLightMode, lightMode, toggleArabicLang } = useAppStore(
     (state) => state as I_appStore,
   );
 
-  // handle toggling the switch
-  const handleToggleSwitch = async () => {
-    switch (type) {
-      case "mode":
-        toggleLightMode();
-        break;
-      case "language":
-        toggleArabicLang();
-        break;
-      default:
-        break;
-    }
+  const handleToggleSwitch = () => {
+    if (type === "mode") toggleLightMode();
+    if (type === "language") toggleArabicLang();
   };
 
   return (
-    <div
-      id="mode-switcher"
+    <button
+      type="button"
       onClick={handleToggleSwitch}
       className={`
-      relative inline-flex items-center gap-3
-      px-4 py-2
-      rounded-full
-      border-2 border-accentDark
-      cursor-pointer select-none
-      transition-all duration-300 ease-out
-      hover:scale-[1.03] active:scale-[0.98]
-      ${
-        lightMode
-          ? "bg-subtleLight/30 text-primaryLight hover:bg-subtleLight/40"
-          : "bg-primaryDark text-primaryLight hover:bg-primaryDark/90"
-      }
-      shadow-sm hover:shadow-md
-    `}
+        cursor-pointer
+        relative flex items-center justify-center
+        w-10 h-10
+        rounded-full
+        border border-black/10 dark:border-white/10
+        backdrop-blur-md
+        transition-all duration-300 ease-out
+        hover:scale-105 active:scale-95
+        ${
+          lightMode
+            ? "bg-accentDark/60 hover:bg-accentHoverDark/80"
+            : "bg-accentLight/10  hover:bg-accentHoverLight/20"
+        }
+      `}
     >
-      <div className="absolute inset-0 rounded-full bg-white/5 pointer-events-none" />
-      {children}
-    </div>
+      <span className="absolute inset-0 rounded-full ring-2 ring-accentDark/5 pointer-events-none" />
+
+      <span className="relative flex items-center justify-center">
+        {children}
+      </span>
+    </button>
   );
 };
 

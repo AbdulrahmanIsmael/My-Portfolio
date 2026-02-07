@@ -139,48 +139,31 @@ const Header = () => {
           </nav>
 
           {/* Desktop Switchers */}
-          <div className={`max-md:hidden flex flex-col items-stretch gap-3`}>
+          <div className="max-md:hidden flex flex-col items-center gap-2">
             <Switchers type="mode">
-              <div className="flex items-center gap-2 transition-all duration-300">
-                {!lightMode ? (
-                  <>
-                    <MdLightMode
-                      size={26}
-                      className="text-orange-400 shrink-0"
-                    />
-                    <span className="text-sm lg:text-base font-semibold tracking-wide">
-                      Light Mode
-                    </span>
-                  </>
+              <span title={lightMode ? "Dark Mode" : "Light Mode"}>
+                {lightMode ? (
+                  <MdDarkMode size={26} />
                 ) : (
-                  <>
-                    <MdDarkMode size={26} className="text-gray-500 shrink-0" />
-                    <span className="text-sm lg:text-base font-semibold tracking-wide">
-                      Dark Mode
-                    </span>
-                  </>
+                  <MdLightMode size={26} fill="yellow" />
                 )}
-              </div>
+              </span>
             </Switchers>
 
             <Switchers type="language">
-              <div className="flex items-center gap-2 transition-opacity duration-300">
+              <span title={arabicLang ? "English" : "Arabic"}>
                 <Image
                   src={
                     arabicLang
                       ? "/assets/icons/english.png"
                       : "/assets/icons/arabic.png"
                   }
-                  alt={arabicLang ? "English Language" : "Arabic Language"}
+                  alt={arabicLang ? "Switch to English" : "Switch to Arabic"}
                   width={26}
                   height={26}
-                  className="shrink-0"
+                  className="transition-transform duration-300"
                 />
-
-                <span className="text-sm lg:text-base font-semibold tracking-wide">
-                  {arabicLang ? "English" : "Arabic"}
-                </span>
-              </div>
+              </span>
             </Switchers>
           </div>
 
@@ -301,29 +284,13 @@ const Header = () => {
                       {arabicLang ? "المظهر" : "Theme"}
                     </p>
                     <Switchers type="mode">
-                      <div className="flex items-center gap-2 transition-all duration-300">
-                        {!lightMode ? (
-                          <>
-                            <MdLightMode
-                              size={26}
-                              className="text-orange-400 shrink-0"
-                            />
-                            <span className="text-sm lg:text-base font-semibold tracking-wide">
-                              Light Mode
-                            </span>
-                          </>
+                      <span title={lightMode ? "Dark Mode" : "Light Mode"}>
+                        {lightMode ? (
+                          <MdDarkMode size={26} />
                         ) : (
-                          <>
-                            <MdDarkMode
-                              size={26}
-                              className="text-gray-500 shrink-0"
-                            />
-                            <span className="text-sm lg:text-base font-semibold tracking-wide">
-                              Dark Mode
-                            </span>
-                          </>
+                          <MdLightMode size={26} fill="yellow" />
                         )}
-                      </div>
+                      </span>
                     </Switchers>
                   </div>
 
@@ -332,7 +299,7 @@ const Header = () => {
                       {arabicLang ? "اللغة" : "Language"}
                     </p>
                     <Switchers type="language">
-                      <div className="flex items-center gap-2 transition-opacity duration-300">
+                      <span title={arabicLang ? "English" : "Arabic"}>
                         <Image
                           src={
                             arabicLang
@@ -340,17 +307,15 @@ const Header = () => {
                               : "/assets/icons/arabic.png"
                           }
                           alt={
-                            arabicLang ? "English Language" : "Arabic Language"
+                            arabicLang
+                              ? "Switch to English"
+                              : "Switch to Arabic"
                           }
                           width={26}
                           height={26}
-                          className="shrink-0"
+                          className="transition-transform duration-300"
                         />
-
-                        <span className="text-sm lg:text-base font-semibold tracking-wide">
-                          {arabicLang ? "English" : "Arabic"}
-                        </span>
-                      </div>
+                      </span>
                     </Switchers>
                   </div>
                 </div>
