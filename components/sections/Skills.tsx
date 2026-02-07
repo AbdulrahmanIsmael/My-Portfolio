@@ -33,6 +33,7 @@ import {
 import { DiVisualstudio } from "react-icons/di";
 import { I_appStore } from "@/stores/types/appStore-types";
 import { RiCursorLine } from "react-icons/ri";
+import { TbBrandReactNative } from "react-icons/tb";
 import { TbBrandRedux } from "react-icons/tb";
 import Title from "@/components/ui/Title";
 import { categories } from "@/lib/constants/skills-constants";
@@ -85,6 +86,12 @@ const Skills = () => {
         { name: "Figma", icon: SiFigma, color: "#F24E1E" },
         { name: "VS Code", icon: DiVisualstudio, color: "#007ACC" },
         { name: "Cursor", icon: RiCursorLine, color: "#000000" },
+      ],
+    },
+    {
+      category: cats["mobile"],
+      skills: [
+        { name: "React native", icon: TbBrandReactNative, color: "#61DAFB" },
       ],
     },
     {

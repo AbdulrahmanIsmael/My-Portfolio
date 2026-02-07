@@ -5,6 +5,7 @@ export const categories = {
     tools: "Tools & Editors",
     office: "Office Suite",
     op: "Operating Systems",
+    mobile: "Moblie Development",
   },
   arCat: {
     frontend: "الواجهة الأمامية",
@@ -12,5 +13,6 @@ export const categories = {
     tools: "الادوات",
     office: "أوفيس",
     op: "أنظمة التشغيل",
+    mobile: "تطوير تطبيقات الموبايل",
   },
 };
