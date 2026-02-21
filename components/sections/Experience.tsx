@@ -18,6 +18,15 @@ const Experience = () => {
     {
       id: 1,
       type: "work",
+      title: experienceMessages("work.title"),
+      company: experienceMessages("work.company"),
+      location: experienceMessages("work.location"),
+      date: experienceMessages("work.date"),
+      description: experienceMessages("work.description"),
+    },
+    {
+      id: 2,
+      type: "work",
       title: experienceMessages("freelance.title"),
       company: experienceMessages("freelance.company"),
       location: experienceMessages("freelance.location"),
@@ -35,7 +44,7 @@ const Experience = () => {
       ],
     },
     {
-      id: 2,
+      id: 3,
       type: "training",
       title: experienceMessages("training.title"),
       company: experienceMessages("training.company"),
@@ -49,7 +58,7 @@ const Experience = () => {
       ],
     },
     {
-      id: 3,
+      id: 4,
       type: "work",
       title: experienceMessages("internship.title"),
       company: experienceMessages("internship.company"),
@@ -78,7 +87,7 @@ const Experience = () => {
           {/* Vertical Line */}
           <div
             className={`absolute ${
-              arabicLang ? "right-[19px]" : "left-[19px]"
+              arabicLang ? "right-4.75" : "left-4.75"
             } top-0 bottom-0 w-0.5 ${
               lightMode ? "bg-subtleDark/30" : "bg-subtleLight/30"
             }`}

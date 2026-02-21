@@ -22,7 +22,7 @@
   "Home": {
     "en": {
       "name": "Abdulrahman Ismael",
-      "profession": "Web Developer & Passionate Software Engineer",
+      "profession": "Frontend & Software Engineer",
       "resume": "Please Download My Updated Resume",
       "buttons": {
         "downloadCV": "Download Resume",
@@ -31,7 +31,7 @@
     },
     "ar": {
       "name": "عبدالرحمن إسماعيل",
-      "profession": "مطور ويب و مهندس برمجيات شغوف",
+      "profession": "مهندس واجهة أمامية | مهندس برمجة",
       "resume": "من فضلك حمل أحدث نسخة من سيرتي الذاتية",
       "buttons": {
         "downloadCV": "تحميل السيرة الذاتية",
@@ -44,13 +44,13 @@
     "Showcase": {
       "en": {
         "title": "Welcome, I am Abdulrahman Ismael",
-        "small": "Web Developer & Passionate Software Engineer",
+        "small": "Frontend & Software Engineer",
         "brief": "I care about building clean, reliable web experiences that make sense. Every project is a chance to solve problems with clarity, from structure to design to the smallest interaction. I focus on what works, what scales, and what feels right to use."
       },
 
       "ar": {
         "title": "السلام عليكم، إسمي عبدالرحمن إسماعيل",
-        "small": "مطور ويب ومهندس برمجيات شغوف",
+        "small": "مهندس واجهة أمامية | مهندس برمجة",
         "brief": "أهتم ببناء مواقع ويب نظيفة وآمنة سهلة الإستخدام. كل مشروع هو فرصة لحل المشكلات بأفضل طريقة، من الهيكل إلى التصميم إلى أصغر جزء. أركز على ما يعمل، وما يمكن أن يتوسع، وما أشعر بأنه صحيح للاستخدام."
       }
     },
@@ -71,7 +71,7 @@
         "title": "About Me",
         "subTitle": "Get to know me further",
         "titleBox": "Who Am I",
-        "profession": "Front-End Web Developer & Software Engineer",
+        "profession": "Frontend & Software Engineer",
         "desc": "I'm a passionate developer with expertise in building modern web applications using React, Next.js, and TypeScript. With a keen eye for design and user experience, I create seamless digital experiences that combine functionality with aesthetics. I love solving complex problems and bringing innovative ideas to life through clean, efficient code.",
         "contactTitle": "Get In Touch",
         "contactEmail": "Email",
@@ -83,7 +83,7 @@
         "title": "معلومات عني",
         "subTitle": "اعرفني اكثر",
         "titleBox": "من أنا",
-        "profession": "مطور واجهات أمامية ومهندس برمجيات",
+        "profession": "مهندس واجهات أمامية ومهندس برمجيات",
         "desc": "أنا مطور شغوف ولدي خبرة في بناء تطبيقات ويب حديثة باستخدام React و Next.js و TypeScript. مع اهتمام كبير بالتصميم وتجربة المستخدم، أقوم بإنشاء تجارب رقمية سلسة تجمع بين الوظائف والجماليات. أحب حل المشكلات المعقدة وإحياء الأفكار المبتكرة من خلال كود نظيف وفعال.",
         "contactTitle": "تواصل معي",
         "contactEmail": "البريد الإلكتروني",
@@ -97,6 +97,13 @@
       "en": {
         "title": "Experience",
         "subTitle": "My professional journey",
+        "work": {
+          "title": "Frontend Engineer",
+          "company": "Taqnit - Al-M'alumat - تقنية المعلومات",
+          "location": "Mansoura, Egypt",
+          "date": "February 2026 - Present",
+          "description": "Working onsite with the team on saas projects, developing Frontend User Interfaces, Collaborating with Backend developers to integrate APIs, Maintaining SEO Optimized, optimal performance and keeping architecutre scalable and maintainable"
+        },
         "freelance": {
           "title": "Freelance Front-End Developer",
           "company": "Aydin Labs",
@@ -135,6 +142,13 @@
       "ar": {
         "title": "الخبرات",
         "subTitle": "رحلتي المهنية",
+        "work": {
+          "title": "مهندس واجهة أمامية",
+          "company": "Taqnit - Al-M'alumat - تقنية المعلومات",
+          "location": "المنصورة، مصر",
+          "date": "فبراير 2026 - مستمر",
+          "description": "العمل ميدانيًا ضمن فريق على مشاريع البرمجيات كخدمة (SaaS)، وتطوير واجهات المستخدم الأمامية (Frontend UI)، والتعاون مع مطوري الواجهات الخلفية (Backend) لدمج واجهات برمجة التطبيقات (APIs)، مع ضمان تحسين محركات البحث (SEO)، وتحقيق أفضل أداء ممكن، والحفاظ على بنية تقنية قابلة للتوسع وسهلة الصيانة."
+        },
         "freelance": {
           "title": "مطور واجهات أمامية مستقل",
           "company": "Aydin Labs",

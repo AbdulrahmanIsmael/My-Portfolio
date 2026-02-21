@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import Link from "next/link";
 import { SiTechcrunch } from "react-icons/si";
@@ -14,7 +14,7 @@ const Logo = () => {
       setLogoShine(bool);
     }, time);
   };
-  const shineLogoOnRender = (): void => {
+  const shineLogoOnRender = useCallback((): void => {
     for (let i = 1; i <= 4; i++) {
       const time = i * 200;
       const state = i % 2 === 1;
@@ -22,11 +22,11 @@ const Logo = () => {
 
       if (i === 4) toggleLogoShine(true, time + 1000);
     }
-  };
+  }, []);
 
   useEffect(() => {
     shineLogoOnRender();
-  }, []);
+  }, [shineLogoOnRender]);
 
   return (
     <Link
