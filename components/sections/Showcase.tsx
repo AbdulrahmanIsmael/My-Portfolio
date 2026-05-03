@@ -10,7 +10,7 @@ import { useTranslations } from "next-intl";
 const Showcase = () => {
   const { lightMode, arabicLang } = useAppStore((state) => state as I_appStore);
   const portfolioMessages = useTranslations(
-    `Portfolio.Showcase.${arabicLang ? "ar" : "en"}`
+    `Portfolio.Showcase.${arabicLang ? "ar" : "en"}`,
   );
 
   const socials = [
@@ -51,6 +51,14 @@ const Showcase = () => {
             className="text-lg md:text-xl lg:text-2xl font-medium tracking-wide text-center lg:text-start"
           >
             {portfolioMessages("small")}
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg md:text-xl lg:text-2xl bg-accentLight w-fit py-1 px-4 rounded-lg text-primaryLight dark:bg-accentDark dark:text-primaryDark font-medium tracking-wide text-center lg:text-start"
+          >
+            {portfolioMessages("openToWork")}
           </motion.p>
 
           <motion.p

@@ -22,7 +22,7 @@
   "Home": {
     "en": {
       "name": "Abdulrahman Ismael",
-      "profession": "Frontend & Software Engineer",
+      "profession": "Frontend Engineer",
       "resume": "Please Download My Updated Resume",
       "buttons": {
         "downloadCV": "Download Resume",
@@ -31,7 +31,7 @@
     },
     "ar": {
       "name": "عبدالرحمن إسماعيل",
-      "profession": "مهندس واجهة أمامية | مهندس برمجة",
+      "profession": "مهندس واجهة أمامية",
       "resume": "من فضلك حمل أحدث نسخة من سيرتي الذاتية",
       "buttons": {
         "downloadCV": "تحميل السيرة الذاتية",
@@ -44,24 +44,26 @@
     "Showcase": {
       "en": {
         "title": "Welcome, I am Abdulrahman Ismael",
-        "small": "Frontend & Software Engineer",
-        "brief": "I care about building clean, reliable web experiences that make sense. Every project is a chance to solve problems with clarity, from structure to design to the smallest interaction. I focus on what works, what scales, and what feels right to use."
+        "small": "Frontend Engineer",
+        "openToWork": "Open to Work",
+        "brief": "I build clean, high-performance web applications that scale. From component architecture to API integration and SEO optimization, I focus on writing code that is maintainable, accessible, and built to last — every detail from structure to interaction matters."
       },
 
       "ar": {
         "title": "السلام عليكم، إسمي عبدالرحمن إسماعيل",
-        "small": "مهندس واجهة أمامية | مهندس برمجة",
-        "brief": "أهتم ببناء مواقع ويب نظيفة وآمنة سهلة الإستخدام. كل مشروع هو فرصة لحل المشكلات بأفضل طريقة، من الهيكل إلى التصميم إلى أصغر جزء. أركز على ما يعمل، وما يمكن أن يتوسع، وما أشعر بأنه صحيح للاستخدام."
+        "small": "مهندس واجهة أمامية",
+        "openToWork": "متاح للعمل",
+        "brief": "أبني تطبيقات ويب نظيفة وعالية الأداء قابلة للتوسع. من هيكل المكونات إلى دمج الـ APIs وتحسين محركات البحث، أركز على كتابة كود قابل للصيانة وسهل الوصول ومصمم ليدوم — كل تفصيلة من البنية إلى التفاعل مهمة."
       }
     },
     "Skills": {
       "en": {
-        "title": "SKills",
+        "title": "Skills",
         "subTitle": "Technologies & Tools",
         "categories": "enCat"
       },
       "ar": {
-        "title": "المهاارات",
+        "title": "المهارات",
         "subTitle": "المهارات التكنولوجية والأدوات",
         "categories": "arCat"
       }
@@ -71,25 +73,25 @@
         "title": "About Me",
         "subTitle": "Get to know me further",
         "titleBox": "Who Am I",
-        "profession": "Frontend & Software Engineer",
-        "desc": "I'm a passionate developer with expertise in building modern web applications using React, Next.js, and TypeScript. With a keen eye for design and user experience, I create seamless digital experiences that combine functionality with aesthetics. I love solving complex problems and bringing innovative ideas to life through clean, efficient code.",
+        "profession": "Frontend Engineer",
+        "desc": "Frontend Engineer with hands-on experience architecting and delivering high-performance, scalable web applications across production environments. Proficient in React.js, Next.js, and Angular, with strong expertise in TypeScript, HTML5, and CSS3. I focus on translating UI/UX designs into clean, maintainable code, optimizing for performance, SEO, and accessibility, and delivering seamless cross-device experiences. I thrive in collaborative environments and am always seeking new challenges in growing teams.",
         "contactTitle": "Get In Touch",
         "contactEmail": "Email",
         "contactPhone": "Phone",
         "contactLocation": "Location",
-        "location": "King Faisal St, Giza, Egypt"
+        "location": "Faisal, Giza, Egypt"
       },
       "ar": {
         "title": "معلومات عني",
-        "subTitle": "اعرفني اكثر",
+        "subTitle": "اعرفني أكثر",
         "titleBox": "من أنا",
-        "profession": "مهندس واجهات أمامية ومهندس برمجيات",
-        "desc": "أنا مطور شغوف ولدي خبرة في بناء تطبيقات ويب حديثة باستخدام React و Next.js و TypeScript. مع اهتمام كبير بالتصميم وتجربة المستخدم، أقوم بإنشاء تجارب رقمية سلسة تجمع بين الوظائف والجماليات. أحب حل المشكلات المعقدة وإحياء الأفكار المبتكرة من خلال كود نظيف وفعال.",
+        "profession": "مهندس واجهة أمامية",
+        "desc": "مهندس واجهة أمامية لديه خبرة عملية في تصميم وتسليم تطبيقات ويب عالية الأداء وقابلة للتوسع في بيئات الإنتاج. أتقن React.js وNext.js وAngular، مع خبرة قوية في TypeScript وHTML5 وCSS3. أركز على تحويل تصاميم UI/UX إلى كود نظيف وقابل للصيانة، محسَّن للأداء وSEO وإمكانية الوصول، وأسعى دائماً لتحديات جديدة في فرق متنامية.",
         "contactTitle": "تواصل معي",
         "contactEmail": "البريد الإلكتروني",
         "contactPhone": "الهاتف",
         "contactLocation": "الموقع",
-        "location": "شارع الملك فيصل، الجيزة، مصر"
+        "location": "الفيصل، الجيزة، مصر"
       }
     },
 
@@ -99,44 +101,49 @@
         "subTitle": "My professional journey",
         "work": {
           "title": "Frontend Engineer",
-          "company": "Taqnit - Al-M'alumat - تقنية المعلومات",
+          "company": "Taqnit Al-M'alumat — تقنية المعلومات",
           "location": "Mansoura, Egypt",
-          "date": "February 2026 - Present",
-          "description": "Working onsite with the team on saas projects, developing Frontend User Interfaces, Collaborating with Backend developers to integrate APIs, Maintaining SEO Optimized, optimal performance and keeping architecutre scalable and maintainable"
+          "date": "January 2026 - May 2026",
+          "description": "Working onsite with the team on SaaS projects, developing frontend user interfaces, collaborating with backend developers to integrate APIs, and maintaining SEO-optimized, high-performance, scalable, and maintainable architecture.",
+          "achievement1": "Optimized the performance of a travel platform (Dubai), improving page navigation speed by 70–85% and significantly enhancing load times and overall user experience, while resolving critical frontend and dashboard issues to ensure system stability.",
+          "achievement2": "Architected and developed a full-scale travel platform (Saudi Arabia) from scratch using Next.js, defining component hierarchy, data-fetching conventions, and scalable project structure while integrating RESTful APIs and translating UI/UX designs into responsive, production-grade interfaces.",
+          "achievement3": "Achieved 100% Lighthouse scores in SEO and best practices and 95% in accessibility through advanced performance optimization techniques and modern web standards.",
+          "achievement4": "Designed and built a complete dashboard system for data management (CRUD operations), while leveraging AI-assisted tools to accelerate development and improve productivity.",
+          "achievement5": "Conducted regular code reviews with a focus on performance, scalability, and maintainability, ensuring consistent engineering standards across the frontend codebase."
         },
         "freelance": {
           "title": "Freelance Front-End Developer",
           "company": "Aydin Labs",
-          "location": "Remote - Cairo, Egypt",
-          "date": "October 2025",
-          "description": "Working remotely on cutting-edge AI and CRM projects, building responsive and interactive user interfaces, and collaborating with backend developers to integrate APIs.",
+          "location": "Remote — Cairo, Egypt",
+          "date": "September 2025 - October 2025",
+          "description": "Worked remotely on cutting-edge AI and CRM projects, building responsive and interactive user interfaces, and collaborating with backend developers to integrate RESTful APIs.",
           "project1": {
             "name": "AI Agent Dashboard",
-            "desc": "Built the Charts Section using Next.js, TailwindCSS, TypeScript, and Recharts for a Dashboard page in an AI Agent and CRM project."
+            "desc": "Developed interactive dashboard components for an AI Agent and CRM platform, building the Charts Section using Next.js, TypeScript, Tailwind CSS, and Recharts."
           },
           "project2": {
-            "name": "Logo Diffusion (AI Image Platform)",
-            "desc": "Developed the entire front-end of the Mockup Workspace using React, Zustand, and TailwindCSS. Built the full UI of the workspace, integrated it with the backend API, and implemented logic to send image data to the API and display generated results."
+            "name": "Logo Diffusion — AI Image Platform",
+            "desc": "Architected and implemented the complete frontend for an AI Image Platform's Mockup Workspace using React, Zustand, and Tailwind CSS. Designed the state management layer, built the full image processing and result display pipeline, and integrated the frontend with RESTful APIs."
           }
         },
         "training": {
           "title": "Web Developer Trainee",
           "company": "Egypt Future Work Is Digital – ITIDA",
-          "location": "Remote Internship – Cairo, Egypt",
+          "location": "Remote Internship — Cairo, Egypt",
           "date": "December 2022 - February 2023",
-          "description": "Intensive training program focused on full-stack web development, enhancing both frontend and backend skills through hands-on projects.",
-          "achievement1": "Enhanced frontend and backend development skills through structured training",
-          "achievement2": "Gained hands-on experience in project planning, API integration, and building user interfaces",
-          "achievement3": "Completed 2 real-world projects including Weather Journal App and Mock Freelance Client Project"
+          "description": "Intensive training program focused on full-stack web development, strengthening both frontend and backend skills through structured, hands-on projects.",
+          "achievement1": "Enhanced frontend and backend development skills through a structured, project-driven curriculum.",
+          "achievement2": "Gained hands-on experience in project planning, API integration, and building user interfaces.",
+          "achievement3": "Completed 2 real-world projects: a Weather Journal App and a mock freelance client project."
         },
         "internship": {
           "title": "Web Developer",
           "company": "Ipda3 Tech",
-          "location": "Internship – Mansoura, Egypt",
+          "location": "Internship — Mansoura, Egypt",
           "date": "August 2021 - September 2021",
-          "description": "Summer Internship whcih focused on developing my Front-end skills, gaining experience in working with a team in hands-on real projects and contributing successfully to the company.",
-          "achievement1": "Collaborated with the team to develop software solutions and features, debug, and test the code",
-          "achievement2": "Gained Experience and worked with HTML, CSS, JavaScript, and Bootstrap to build responsive web pages"
+          "description": "Summer internship focused on developing frontend skills and gaining experience working within a professional team on real, hands-on projects.",
+          "achievement1": "Collaborated with the development team to deliver software features, debug application code, and ensure functionality, stability, and performance.",
+          "achievement2": "Applied HTML, CSS, JavaScript, and Bootstrap to build responsive web pages in a professional environment."
         }
       },
       "ar": {
@@ -144,44 +151,49 @@
         "subTitle": "رحلتي المهنية",
         "work": {
           "title": "مهندس واجهة أمامية",
-          "company": "Taqnit - Al-M'alumat - تقنية المعلومات",
+          "company": "Taqnit Al-M'alumat — تقنية المعلومات",
           "location": "المنصورة، مصر",
-          "date": "فبراير 2026 - مستمر",
-          "description": "العمل ميدانيًا ضمن فريق على مشاريع البرمجيات كخدمة (SaaS)، وتطوير واجهات المستخدم الأمامية (Frontend UI)، والتعاون مع مطوري الواجهات الخلفية (Backend) لدمج واجهات برمجة التطبيقات (APIs)، مع ضمان تحسين محركات البحث (SEO)، وتحقيق أفضل أداء ممكن، والحفاظ على بنية تقنية قابلة للتوسع وسهلة الصيانة."
+          "date": "يناير 2026 - مستمر",
+          "description": "العمل ميدانيًا ضمن فريق على مشاريع SaaS، وتطوير واجهات المستخدم الأمامية، والتعاون مع مطوري الواجهات الخلفية لدمج الـ APIs، مع الحفاظ على بنية محسَّنة لمحركات البحث وعالية الأداء وقابلة للتوسع.",
+          "achievement1": "قمت بتحسين أداء منصة سفر (دبي)، مما أدى إلى زيادة سرعة التنقل بين الصفحات بنسبة 70–85% وتحسين أوقات التحميل وتجربة المستخدم، مع معالجة مشكلات حرجة في الواجهة الأمامية ولوحة التحكم لضمان استقرار النظام.",
+          "achievement2": "قمت بتصميم وتطوير منصة سفر متكاملة (المملكة العربية السعودية) من الصفر باستخدام Next.js، مع تحديد هيكل المكونات وآليات جلب البيانات وبنية مشروع قابلة للتوسع، ودمج RESTful APIs وتحويل تصاميم UI/UX إلى واجهات متجاوبة جاهزة للإنتاج.",
+          "achievement3": "حققت نتائج 100% في Lighthouse لكل من SEO وأفضل الممارسات، و95% في إمكانية الوصول، من خلال تقنيات متقدمة لتحسين الأداء والالتزام بمعايير الويب الحديثة.",
+          "achievement4": "قمت بتصميم وبناء نظام لوحة تحكم متكامل لإدارة البيانات (عمليات CRUD)، مع الاستفادة من أدوات مدعومة بالذكاء الاصطناعي لتسريع التطوير وزيادة الإنتاجية.",
+          "achievement5": "أجريت مراجعات دورية للكود مع التركيز على الأداء وقابلية التوسع وسهولة الصيانة، لضمان معايير هندسية متسقة عبر كود الواجهة الأمامية."
         },
         "freelance": {
           "title": "مطور واجهات أمامية مستقل",
           "company": "Aydin Labs",
-          "location": "عن بعد - القاهرة، مصر",
-          "date": "أكتوبر 2025",
-          "description": "العمل عن بعد على مشاريع الذكاء الاصطناعي وإدارة علاقات العملاء، وبناء واجهات مستخدم تفاعلية ومتجاوبة، والتعاون مع مطوري الواجهة الخلفية والربط بالAPIs.",
+          "location": "عن بعد — القاهرة، مصر",
+          "date": "سبتمبر 2025 - أكتوبر 2025",
+          "description": "العمل عن بعد على مشاريع الذكاء الاصطناعي وإدارة علاقات العملاء، وبناء واجهات مستخدم تفاعلية ومتجاوبة، والتعاون مع مطوري الواجهة الخلفية لدمج الـ RESTful APIs.",
           "project1": {
             "name": "لوحة تحكم AI Agent",
-            "desc": "بناء قسم الرسوم البيانية باستخدام Next.js و TailwindCSS و TypeScript و Recharts لصفحة لوحة التحكم في مشروع AI Agent وإدارة علاقات العملاء."
+            "desc": "تطوير مكونات لوحة تحكم تفاعلية لمنصة AI Agent وإدارة علاقات العملاء، وبناء قسم الرسوم البيانية باستخدام Next.js وTypeScript وTailwind CSS وRecharts."
           },
           "project2": {
-            "name": "Logo Diffusion (منصة صور بالذكاء الاصطناعي)",
-            "desc": "تطوير الواجهة الأمامية الكاملة لمساحة عمل Mockup باستخدام React و Zustand و TailwindCSS. بناء واجهة المستخدم الكاملة للمساحة، ودمجها مع API الخلفية، وتنفيذ المنطق لإرسال بيانات الصور إلى API وعرض النتائج المُنتجة."
+            "name": "Logo Diffusion — منصة صور بالذكاء الاصطناعي",
+            "desc": "تصميم وتنفيذ الواجهة الأمامية الكاملة لمساحة عمل Mockup في منصة صور بالذكاء الاصطناعي، باستخدام React وZustand وTailwind CSS. تصميم طبقة إدارة الحالة وبناء خط معالجة الصور وعرض النتائج، ودمج الواجهة مع RESTful APIs."
           }
         },
         "training": {
           "title": "متدرب تطوير ويب",
           "company": "مستقبل مصر العمل رقمي – ITIDA",
-          "location": "تدريب عن بعد – القاهرة، مصر",
+          "location": "تدريب عن بعد — القاهرة، مصر",
           "date": "ديسمبر 2022 - فبراير 2023",
-          "description": "برنامج تدريبي مكثف يركز على تطوير الويب الكامل، وتعزيز مهارات الواجهة الأمامية والخلفية من خلال مشاريع عملية.",
-          "achievement1": "تحسين مهارات تطوير الواجهة الأمامية والخلفية من خلال التدريب المنظم",
-          "achievement2": "اكتساب خبرة عملية في تخطيط المشاريع ودمج API وبناء واجهات المستخدم",
-          "achievement3": "إكمال مشروعين حقيقيين بما في ذلك تطبيق Weather Journal ومشروع عميل مستقل تجريبي"
+          "description": "برنامج تدريبي مكثف يركز على تطوير الويب الشامل، وتعزيز مهارات الواجهة الأمامية والخلفية من خلال مشاريع عملية منظمة.",
+          "achievement1": "تعزيز مهارات تطوير الواجهة الأمامية والخلفية من خلال منهج تدريبي منظم قائم على المشاريع.",
+          "achievement2": "اكتساب خبرة عملية في تخطيط المشاريع ودمج الـ APIs وبناء واجهات المستخدم.",
+          "achievement3": "إتمام مشروعين حقيقيين: تطبيق Weather Journal ومشروع عميل مستقل تجريبي."
         },
         "internship": {
           "title": "مطور ويب",
           "company": "Ipda3 Tech",
-          "location": "تدريب – المنصورة، مصر",
+          "location": "تدريب — المنصورة، مصر",
           "date": "أغسطس 2021 - سبتمبر 2021",
-          "description": "تدريب صيفي ركّز على تطوير مهاراتي في الواجهة الأمامية، واكتساب خبرة العمل ضمن فريق من خلال مشاريع حقيقية وتطبيقية، مع المساهمة بفعالية في تحقيق أهداف الشركة.",
-          "achievement1": "التعاون مع الفريق في تطوير حلول وميزات برمجية، واكتشاف الأخطاء وإصلاحها، واختبار الكود لضمان الجودة.",
-          "achievement2": "اكتساب خبرة عملية والعمل باستخدام HTML وCSS وJavaScript وBootstrap لبناء صفحات ويب متجاوبة."
+          "description": "تدريب صيفي ركّز على تطوير مهارات الواجهة الأمامية واكتساب خبرة العمل ضمن فريق محترف في مشاريع حقيقية.",
+          "achievement1": "التعاون مع فريق التطوير لتسليم الميزات البرمجية، وتصحيح الأخطاء، وضمان الاستقرار والأداء.",
+          "achievement2": "تطبيق HTML وCSS وJavaScript وBootstrap لبناء صفحات ويب متجاوبة في بيئة عمل احترافية."
         }
       }
     },
@@ -189,131 +201,131 @@
     "Projects": {
       "en": {
         "title": "Projects",
-        "subTitle": "Personal Projects I've worked on",
+        "subTitle": "Personal projects I've worked on",
         "projects": {
           "1": {
             "title": "Seafarer Management System",
-            "description": "A management system for seafarers with features to view, edit, add, and control the activation period of seafarers.",
+            "description": "An Angular-based management system for seafarers with a scalable component structure, service layer architecture, and comprehensive CRUD operations for managing seafarer data and activation periods.",
             "image": "/assets/images/seafarer-management-system.png",
             "category": "Management System"
           },
           "2": {
-            "title": "iQuiz - Quizzes Platform",
-            "description": "A platform to create and solve Quizzes",
+            "title": "iQuiz — Quizzes Platform",
+            "description": "A responsive and scalable quizzes platform built with TypeScript, Tailwind CSS, and Webpack, integrating Firebase for user authentication and data management.",
             "image": "/assets/images/iquiz.png",
-            "category": "Quizzes APP"
+            "category": "Quizzes App"
           },
           "3": {
-            "title": "Cinemania - Movies Platform",
-            "description": "A movies platform to explore and stay updated with the latest movies and TV shows",
+            "title": "Cinemania — Movies & TV Platform",
+            "description": "A responsive movie and TV discovery platform built with React Router and React Query, featuring filtering, dynamic routing, and a user-friendly interface for an engaging browsing experience.",
             "image": "/assets/images/cinema.png",
             "category": "Movies Platform"
           },
           "4": {
-            "title": "Teryaq - Graduation Project",
-            "description": "A smart medicine box that streamlines medication management for patients",
+            "title": "Teryaq — Graduation Project",
+            "description": "A responsive medication management web application built with React.js and Firebase, featuring real-time control, schedule customization, and an accessibility-focused design to help patients manage their medications.",
             "image": "/assets/images/teryaq.png",
             "category": "Graduation Project"
           },
           "5": {
-            "title": "Real-Time Assets Dashboard (Next.js)",
-            "description": "A real-time dashboard as your investment portfolio to view, control, sort or filter your assets, helping you to make critical decistion about your investments and your life",
+            "title": "Real-Time Assets Dashboard",
+            "description": "A real-time investment portfolio dashboard built with Next.js, featuring efficient filtering and sorting, data caching for performance optimization, and a clean architecture with clear separation of concerns.",
             "image": "/assets/images/dashboard.png",
             "category": "Dashboard"
           },
           "6": {
-            "title": "Events APP (Next.js)",
-            "description": "A platform to view the most important events with their details",
+            "title": "Events App",
+            "description": "A platform to browse and explore important events with their full details, built with Next.js for fast, server-rendered pages.",
             "image": "/assets/images/events.png",
-            "category": "Events APP"
+            "category": "Events App"
           },
           "7": {
-            "title": "TodoGo - Todo-List APP",
-            "description": "An App to manage tasks, earn points for completed tasks, and stay organized",
+            "title": "TodoGo — Todo List App",
+            "description": "A task management app where you can add, edit, and delete tasks, earn points for completed ones, and stay organized with a clean, intuitive interface.",
             "image": "/assets/images/todogo.png",
-            "category": "Todo APP"
+            "category": "Todo App"
           },
           "8": {
-            "title": "Tozan - Landing Page for startups",
-            "description": "A Landing page in Next.js and Tailwind CSS for startups and companies",
+            "title": "Tozan — Landing Page",
+            "description": "A modern, responsive landing page built with Next.js and Tailwind CSS, designed for startups and companies to present their product and value proposition.",
             "image": "/assets/images/tozan.png",
             "category": "Landing Page"
           },
           "9": {
-            "title": "Newslyverse - News Website",
-            "description": "A news website with a user-friendly design that provides top headlines of the day and breaking news",
+            "title": "Newslyverse — News Website",
+            "description": "A news website with a clean, user-friendly design that surfaces top daily headlines and breaking news in a streamlined reading experience.",
             "image": "/assets/images/news.png",
             "category": "News Website"
           },
           "10": {
-            "title": "Shippr - E-commerce store",
-            "description": "An online ecommerce store where customers may purchase a variety of products",
+            "title": "Shippr — E-Commerce Store",
+            "description": "A responsive e-commerce store with secure authentication, product filtering, and shopping cart functionality, prioritizing clean UI, user experience, and scalable code.",
             "image": "/assets/images/ecommerce.png",
-            "category": "ecommerce store"
+            "category": "E-Commerce Store"
           }
         }
       },
       "ar": {
-        "title": "المشاريع الشخصية",
+        "title": "المشاريع",
         "subTitle": "مشاريع شخصية قمت بالعمل عليها",
         "projects": {
           "1": {
-            "title": "نظام لإدارة البحارة",
-            "description": "نظام إدارة للبحارة مع مميزات لعرض، اضافة، تعديل والتحكم في وقت نشاط البحارة في العمل",
+            "title": "نظام إدارة البحارة",
+            "description": "نظام إدارة مبني بـ Angular بهيكل مكونات قابل للتوسع وطبقة خدمات، يتضمن عمليات CRUD شاملة لإدارة بيانات البحارة وفترات التفعيل.",
             "image": "/assets/images/seafarer-management-system.png",
             "category": "نظام إدارة"
           },
           "2": {
-            "title": "iQuiz - منصة الاختبارات",
-            "description": "منصة لإنشاء وحل الاختبارات التفاعلية",
+            "title": "iQuiz — منصة الاختبارات",
+            "description": "منصة اختبارات متجاوبة وقابلة للتوسع مبنية بـ TypeScript وTailwind CSS وWebpack، مع دمج Firebase للمصادقة وإدارة البيانات.",
             "image": "/assets/images/iquiz.png",
             "category": "تطبيق اختبارات"
           },
           "3": {
-            "title": "Cinemania - منصة الأفلام",
-            "description": "منصة لاستكشاف ومتابعة أحدث الأفلام والمسلسلات",
+            "title": "Cinemania — منصة الأفلام والمسلسلات",
+            "description": "منصة اكتشاف أفلام ومسلسلات متجاوبة مبنية بـ React Router وReact Query، تتضمن تصفية وتوجيه ديناميكي وواجهة سهلة الاستخدام لتجربة تصفح ممتعة.",
             "image": "/assets/images/cinema.png",
             "category": "منصة أفلام"
           },
           "4": {
-            "title": "ترياق - مشروع التخرج",
-            "description": "صندوق دواء ذكي يسهل إدارة الأدوية للمرضى",
+            "title": "ترياق — مشروع التخرج",
+            "description": "تطبيق ويب متجاوب لإدارة الأدوية مبني بـ React.js وFirebase، يتضمن تحكماً في الوقت الحقيقي وتخصيص الجداول الزمنية وتصميماً مراعياً لإمكانية الوصول.",
             "image": "/assets/images/teryaq.png",
             "category": "مشروع تخرج"
           },
           "5": {
-            "title": "لوحة تحكم الأصول في الوقت الحقيقي (Next.js)",
-            "description": "لوحة تحكم آنية تعمل كمحفظة استثمارية لعرض أصولك والتحكم فيها وفرزها أو تصفيتها، مما يساعدك على اتخاذ قرارات حاسمة بشأن استثماراتك وحياتك",
+            "title": "لوحة تحكم الأصول في الوقت الحقيقي",
+            "description": "لوحة تحكم لمحفظة استثمارية آنية مبنية بـ Next.js، تتضمن تصفية وفرزاً فعالاً، وتخزيناً مؤقتاً للبيانات لتحسين الأداء، وبنية نظيفة مع فصل واضح للمسؤوليات.",
             "image": "/assets/images/dashboard.png",
             "category": "لوحة تحكم"
           },
           "6": {
             "title": "تطبيق الفعاليات",
-            "description": "منصة لعرض أهم الفعاليات مع تفاصيلها",
+            "description": "منصة لتصفح واستعراض أهم الفعاليات مع تفاصيلها الكاملة، مبنية بـ Next.js لصفحات سريعة ومعروضة من جانب الخادم.",
             "image": "/assets/images/events.png",
             "category": "تطبيق فعاليات"
           },
           "7": {
-            "title": "TodoGo - تطبيق قائمة المهام",
-            "description": "تطبيق لإدارة المهام وكسب النقاط عند إتمامها والبقاء منظماً. أضف وعدل واحذف المهام بواجهة سهلة الاستخدام",
+            "title": "TodoGo — تطبيق قائمة المهام",
+            "description": "تطبيق لإدارة المهام يمكنك من إضافة وتعديل وحذف المهام وكسب نقاط عند إتمامها، مع واجهة بسيطة وسهلة الاستخدام.",
             "image": "/assets/images/todogo.png",
             "category": "تطبيق مهام"
           },
           "8": {
-            "title": "توزان - صفحة هبوط للشركات الناشئة",
-            "description": "صفحة هبوط مصممة بـ Next.js و Tailwind CSS للشركات الناشئة والمؤسسات",
+            "title": "توزان — صفحة هبوط",
+            "description": "صفحة هبوط عصرية ومتجاوبة مبنية بـ Next.js وTailwind CSS، مصممة للشركات الناشئة لعرض منتجاتها وقيمتها المضافة.",
             "image": "/assets/images/tozan.png",
             "category": "صفحة هبوط"
           },
           "9": {
-            "title": "Newslyverse - موقع الأخبار",
-            "description": "موقع أخبار بتصميم سهل الاستخدام يوفر أهم عناوين اليوم والأخبار العاجلة",
+            "title": "Newslyverse — موقع الأخبار",
+            "description": "موقع أخبار بتصميم نظيف وسهل الاستخدام يعرض أبرز العناوين اليومية والأخبار العاجلة بتجربة قراءة سلسة.",
             "image": "/assets/images/news.png",
             "category": "موقع أخبار"
           },
           "10": {
-            "title": "Shippr - متجر إلكتروني",
-            "description": "متجر إلكتروني حيث يمكن للعملاء شراء مجموعة متنوعة من المنتجات",
+            "title": "Shippr — متجر إلكتروني",
+            "description": "متجر إلكتروني متجاوب يتضمن مصادقة آمنة وتصفية منتجات وعربة تسوق، مع التركيز على واجهة نظيفة وتجربة مستخدم مميزة وكود قابل للتوسع.",
             "image": "/assets/images/ecommerce.png",
             "category": "متجر إلكتروني"
           }

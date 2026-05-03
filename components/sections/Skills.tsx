@@ -36,6 +36,7 @@ import {
 import { DiVisualstudio } from "react-icons/di";
 import { I_appStore } from "@/stores/types/appStore-types";
 import { RiCursorLine } from "react-icons/ri";
+import { SiExpo } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 import { TbBrandRedux } from "react-icons/tb";
 import Title from "@/components/ui/Title";
@@ -98,6 +99,7 @@ const Skills = () => {
       category: cats["mobile"],
       skills: [
         { name: "React native", icon: TbBrandReactNative, color: "#61DAFB" },
+        { name: "Expo", icon: SiExpo, color: "#000000" },
       ],
     },
     {
@@ -162,6 +164,7 @@ const Skills = () => {
                   }}
                   whileHover={{
                     y: -5,
+                    transition: { delay: 0 },
                   }}
                   className={`
                     p-4 rounded-lg backdrop-blur-sm

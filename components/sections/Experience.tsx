@@ -23,6 +23,13 @@ const Experience = () => {
       location: experienceMessages("work.location"),
       date: experienceMessages("work.date"),
       description: experienceMessages("work.description"),
+      achievements: [
+        experienceMessages("work.achievement1"),
+        experienceMessages("work.achievement2"),
+        experienceMessages("work.achievement3"),
+        experienceMessages("work.achievement4"),
+        experienceMessages("work.achievement5"),
+      ],
     },
     {
       id: 2,
