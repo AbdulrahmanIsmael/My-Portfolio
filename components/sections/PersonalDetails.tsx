@@ -8,8 +8,8 @@ import useAppStore from "@/stores/store";
 import { useTranslations } from "next-intl";
 
 const PersonalDetails = () => {
-  const { lightMode, arabicLang } = useAppStore((state) => state as I_appStore);
-  const homeMessages = useTranslations(`Home.${arabicLang ? "ar" : "en"}`);
+  const { lightMode } = useAppStore((state) => state as I_appStore);
+  const homeMessages = useTranslations("Home");
 
   return (
     <motion.div

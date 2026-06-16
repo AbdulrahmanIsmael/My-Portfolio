@@ -9,9 +9,7 @@ import { useTranslations } from "next-intl";
 
 const Showcase = () => {
   const { lightMode, arabicLang } = useAppStore((state) => state as I_appStore);
-  const portfolioMessages = useTranslations(
-    `Portfolio.Showcase.${arabicLang ? "ar" : "en"}`,
-  );
+  const portfolioMessages = useTranslations("Portfolio.Showcase");
 
   const socials = [
     "gmail",

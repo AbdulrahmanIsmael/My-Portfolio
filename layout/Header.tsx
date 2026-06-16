@@ -16,9 +16,7 @@ import { useTranslations } from "next-intl";
 const Header = () => {
   const pathname = usePathname();
   const { lightMode, arabicLang } = useAppStore((state) => state as I_appStore);
-  const headerMessages = useTranslations(
-    `Header.titles.${arabicLang ? "ar" : "en"}`,
-  );
+  const t = useTranslations("Header");
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -48,30 +46,12 @@ const Header = () => {
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    {
-      value: headerMessages("showcase"),
-      href: "#showcase",
-    },
-    {
-      value: headerMessages("about"),
-      href: "#about",
-    },
-    {
-      value: headerMessages("skills"),
-      href: "#skills",
-    },
-    {
-      value: headerMessages("projects"),
-      href: "#projects",
-    },
-    {
-      value: headerMessages("experience"),
-      href: "#experience",
-    },
-    {
-      value: headerMessages("contact"),
-      href: "#contact",
-    },
+    { value: t("showcase"), href: "#showcase" },
+    { value: t("about"),    href: "#about" },
+    { value: t("skills"),   href: "#skills" },
+    { value: t("projects"), href: "#projects" },
+    { value: t("experience"), href: "#experience" },
+    { value: t("contact"),  href: "#contact" },
   ];
 
   return (
@@ -220,7 +200,7 @@ const Header = () => {
                 {/* Close Button */}
                 <div className="flex justify-between items-center mb-8">
                   <h2 className="text-xl font-bold">
-                    {arabicLang ? "القائمة" : "Menu"}
+                    {t("menu")}
                   </h2>
                   <button
                     type="button"
@@ -281,7 +261,7 @@ const Header = () => {
                 <div>
                   <div className="mb-3">
                     <p className="text-sm font-medium mb-3 opacity-70">
-                      {arabicLang ? "المظهر" : "Theme"}
+                      {t("theme")}
                     </p>
                     <Switchers type="mode">
                       <span title={lightMode ? "Dark Mode" : "Light Mode"}>
@@ -296,7 +276,7 @@ const Header = () => {
 
                   <div>
                     <p className="text-sm font-medium mb-3 opacity-70">
-                      {arabicLang ? "اللغة" : "Language"}
+                      {t("language")}
                     </p>
                     <Switchers type="language">
                       <span title={arabicLang ? "English" : "Arabic"}>

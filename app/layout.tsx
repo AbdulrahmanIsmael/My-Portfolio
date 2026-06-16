@@ -1,10 +1,9 @@
 import "@/styles/global.css";
 
-import Footer from "@/layout/Footer";
-import Header from "@/layout/Header";
+import LocaleInitializer from "@/components/providers/LocaleInitializer";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import Socials from "@/components/sections/Socials";
+import { cookies } from "next/headers";
 import { inter } from "@/styles/fonts";
 import { metadataKeywords } from "@/lib/constants/metadata-constants";
 
@@ -22,26 +21,26 @@ export const metadata: Metadata = {
   creator: "Abdulrahman Ismael",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const locale = cookieStore.get("locale")?.value ?? "en";
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={`${inter.className} antialiased overflow-x-hidden`}
         suppressHydrationWarning
       >
         <NextIntlClientProvider>
-          <Header />
-          <main>
-            <div className="container">{children}</div>
-          </main>
-          <Footer />
+          <LocaleInitializer />
+          {children}
         </NextIntlClientProvider>
-        <Socials />
       </body>
     </html>
   );
 }
+

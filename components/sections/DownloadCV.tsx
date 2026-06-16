@@ -1,23 +1,16 @@
 "use client";
 
-import {} from "react-icons/md";
-
 import { MdOutlineDownload, MdOutlineDownloadDone } from "react-icons/md";
 
 import Button from "@/components/ui/Button";
-import { I_appStore } from "@/stores/types/appStore-types";
 import React from "react";
 import axios from "axios";
-import useAppStore from "@/stores/store";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 
 const DownloadCV = ({ className = "" }: { className?: string }) => {
-  const { arabicLang } = useAppStore((state) => state as I_appStore);
   const [downloaded, isDownloaded] = useState(false);
-  const downloadCVMessage = useTranslations(
-    `Home.${arabicLang ? "ar" : "en"}.buttons`
-  );
+  const downloadCVMessage = useTranslations("Home.buttons");
 
   const handleDownloadCV = async () => {
     const filename = "Abdulrahman Ismael CV.pdf";

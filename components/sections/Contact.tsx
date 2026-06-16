@@ -14,9 +14,7 @@ import { useTranslations } from "next-intl";
 
 const Contact = () => {
   const { arabicLang, lightMode } = useAppStore((state) => state as I_appStore);
-  const contactMessages = useTranslations(
-    `Portfolio.Contact.${arabicLang ? "ar" : "en"}`
-  );
+  const contactMessages = useTranslations("Portfolio.Contact");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -48,7 +46,7 @@ const Contact = () => {
     {
       icon: HiLocationMarker,
       label: contactMessages("location"),
-      value: "King Faisal St ,Giza, Egypt",
+      value: "Al-Haram, Faisal ,Giza, Egypt",
       href: null,
     },
   ];
@@ -78,7 +76,7 @@ const Contact = () => {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     setFormData({
       ...formData,
@@ -110,7 +108,7 @@ const Contact = () => {
         serviceId,
         templateId,
         templateParams,
-        publicKey
+        publicKey,
       );
 
       console.log("Email sent successfully!", response.status, response.text);
@@ -461,8 +459,8 @@ const Contact = () => {
                           ? "bg-green-500/20 text-green-400"
                           : "bg-green-500/20 text-green-600"
                         : lightMode
-                        ? "bg-red-500/20 text-red-400"
-                        : "bg-red-500/20 text-red-600"
+                          ? "bg-red-500/20 text-red-400"
+                          : "bg-red-500/20 text-red-600"
                     }
                   `}
                 >

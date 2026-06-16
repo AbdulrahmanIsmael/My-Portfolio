@@ -1,0 +1,207 @@
+[
+  {
+    "category": "frontend",
+    "skills": [
+      {
+        "name": "HTML",
+        "icon": "SiHtml5",
+        "color": "#E34F26"
+      },
+      {
+        "name": "CSS",
+        "icon": "SiCss3",
+        "color": "#1572B6"
+      },
+      {
+        "name": "Sass",
+        "icon": "SiSass",
+        "color": "#CC6699"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "SiJavascript",
+        "color": "#F7DF1E"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "SiTypescript",
+        "color": "#3178C6"
+      },
+      {
+        "name": "React",
+        "icon": "SiReact",
+        "color": "#61DAFB"
+      },
+      {
+        "name": "Angular",
+        "icon": "SiAngular",
+        "color": "#E52A3A"
+      },
+      {
+        "name": "Next.js",
+        "icon": "SiNextdotjs",
+        "color": "#000000"
+      },
+      {
+        "name": "React Router",
+        "icon": "SiReactrouter",
+        "color": "#CA4245"
+      },
+      {
+        "name": "React Query",
+        "icon": "SiReactquery",
+        "color": "#FF4154"
+      },
+      {
+        "name": "React Hook Form",
+        "icon": "SiReacthookform",
+        "color": "#EC5990"
+      },
+      {
+        "name": "Redux",
+        "icon": "SiRedux",
+        "color": "#764ABC"
+      },
+      {
+        "name": "Zustand",
+        "icon": "TbBrandRedux",
+        "color": "#443E38"
+      },
+      {
+        "name": "Tailwind CSS",
+        "icon": "SiTailwindcss",
+        "color": "#06B6D4"
+      },
+      {
+        "name": "Bootstrap",
+        "icon": "SiBootstrap",
+        "color": "#7952B3"
+      }
+    ]
+  },
+  {
+    "category": "backend",
+    "skills": [
+      {
+        "name": "Node.js",
+        "icon": "SiNodedotjs",
+        "color": "#339933"
+      },
+      {
+        "name": "Express.js",
+        "icon": "SiNodedotjs",
+        "color": "#ffffff"
+      },
+      {
+        "name": "PHP",
+        "icon": "SiPhp",
+        "color": "#777BB4"
+      },
+      {
+        "name": "MySQL",
+        "icon": "SiMysql",
+        "color": "#ffffff"
+      },
+      {
+        "name": "Supabase",
+        "icon": "SiSupabase",
+        "color": "#0ff01e"
+      },
+      {
+        "name": "Firebase",
+        "icon": "SiFirebase",
+        "color": "#ff8800"
+      }
+    ]
+  },
+  {
+    "category": "tools",
+    "skills": [
+      {
+        "name": "Git",
+        "icon": "SiGit",
+        "color": "#F05032"
+      },
+      {
+        "name": "Webpack",
+        "icon": "SiWebpack",
+        "color": "#8DD6F9"
+      },
+      {
+        "name": "Gulp",
+        "icon": "SiGulp",
+        "color": "#CF4647"
+      },
+      {
+        "name": "Pug",
+        "icon": "SiPug",
+        "color": "#A86454"
+      },
+      {
+        "name": "Figma",
+        "icon": "SiFigma",
+        "color": "#F24E1E"
+      },
+      {
+        "name": "VS Code",
+        "icon": "DiVisualstudio",
+        "color": "#007ACC"
+      },
+      {
+        "name": "Cursor",
+        "icon": "RiCursorLine",
+        "color": "#000000"
+      }
+    ]
+  },
+  {
+    "category": "mobile",
+    "skills": [
+      {
+        "name": "React native",
+        "icon": "TbBrandReactNative",
+        "color": "#61DAFB"
+      },
+      {
+        "name": "Expo",
+        "icon": "SiExpo",
+        "color": "#000000"
+      }
+    ]
+  },
+  {
+    "category": "office",
+    "skills": [
+      {
+        "name": "Word",
+        "icon": "PiMicrosoftWordLogo",
+        "color": "#2B579A"
+      },
+      {
+        "name": "Excel",
+        "icon": "PiMicrosoftExcelLogo",
+        "color": "#217346"
+      },
+      {
+        "name": "PowerPoint",
+        "icon": "PiMicrosoftPowerpointLogo",
+        "color": "#D24726"
+      }
+    ]
+  },
+  {
+    "category": "op",
+    "skills": [
+      {
+        "name": "Windows",
+        "icon": "PiWindowsLogo",
+        "color": "#0078D4"
+      },
+      {
+        "name": "Linux",
+        "icon": "SiLinux",
+        "color": "#FCC624"
+      }
+    ]
+  }
+]

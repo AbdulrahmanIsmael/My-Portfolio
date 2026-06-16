@@ -1,6 +1,7 @@
 "use client";
 
 import { I_appStore } from "@/stores/types/appStore-types";
+import { useRouter } from "next/navigation";
 import useAppStore from "@/stores/store";
 
 const Switchers = ({
@@ -10,13 +11,24 @@ const Switchers = ({
   children: React.ReactNode;
   type: "mode" | "language";
 }) => {
-  const { toggleLightMode, lightMode, toggleArabicLang } = useAppStore(
-    (state) => state as I_appStore,
-  );
+  const { toggleLightMode, lightMode, arabicLang, toggleArabicLang } =
+    useAppStore((state) => state as I_appStore);
+  const router = useRouter();
 
-  const handleToggleSwitch = () => {
-    if (type === "mode") toggleLightMode();
-    if (type === "language") toggleArabicLang();
+  const handleToggleSwitch = async () => {
+    if (type === "mode") {
+      toggleLightMode();
+    }
+    if (type === "language") {
+      const newLocale = arabicLang ? "en" : "ar";
+      toggleArabicLang(); // immediate visual feedback (RTL, animations)
+      await fetch("/api/language", {
+        method: "POST",
+        body: JSON.stringify({ locale: newLocale }),
+        headers: { "Content-Type": "application/json" },
+      });
+      router.refresh(); // server re-renders with new locale → correct messages
+    }
   };
 
   return (
@@ -40,7 +52,6 @@ const Switchers = ({
       `}
     >
       <span className="absolute inset-0 rounded-full ring-2 ring-accentDark/5 pointer-events-none" />
-
       <span className="relative flex items-center justify-center">
         {children}
       </span>
@@ -49,3 +60,4 @@ const Switchers = ({
 };
 
 export default Switchers;
+

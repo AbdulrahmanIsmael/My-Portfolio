@@ -8,9 +8,7 @@ import { useTranslations } from "next-intl";
 
 const About = () => {
   const arabicLang = useAppStore((state) => (state as I_appStore).arabicLang);
-  const aboutMessages = useTranslations(
-    `Portfolio.About.${arabicLang ? "ar" : "en"}`
-  );
+  const aboutMessages = useTranslations("Portfolio.About");
   const aboutDetailsMsg = {
     title: aboutMessages("titleBox"),
     profession: aboutMessages("profession"),

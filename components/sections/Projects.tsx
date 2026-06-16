@@ -9,116 +9,34 @@ import Title from "@/components/ui/Title";
 import { motion } from "framer-motion";
 import useAppStore from "@/stores/store";
 import { useTranslations } from "next-intl";
+import { useData } from "@/components/providers/DataProvider";
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tech: string[];
+  category: string;
+  liveUrl?: string;
+  githubUrl: string;
+}
 
 const Projects = () => {
   const { arabicLang, lightMode } = useAppStore((state) => state as I_appStore);
-  const projectMessages = useTranslations(
-    `Portfolio.Projects.${arabicLang ? "ar" : "en"}`,
-  );
-  const projects = [
-    {
-      id: 1,
-      title: projectMessages("projects.1.title"),
-      description: projectMessages("projects.1.description"),
-      image: projectMessages("projects.1.image"),
-      tech: ["Angular", "TypeScript", "CSS"],
-      category: projectMessages("projects.1.category"),
-      liveUrl: "https://seafarers-management-system.vercel.app/",
-      githubUrl:
-        "https://github.com/AbdulrahmanIsmael/Seafarers-Management-System",
-    },
-    {
-      id: 2,
-      title: projectMessages("projects.2.title"),
-      description: projectMessages("projects.2.description"),
-      image: projectMessages("projects.2.image"),
-      tech: ["TypeScript", "Tailwind CSS", "Webpack", "Firebase"],
-      category: projectMessages("projects.2.category"),
-      liveUrl: "https://i-quiz-quizzes-platform.vercel.app/",
-      githubUrl: "https://github.com/AbdulrahmanIsmael/iQuiz-Quizzes-platform",
-    },
-    {
-      id: 3,
-      title: projectMessages("projects.3.title"),
-      description: projectMessages("projects.3.description"),
-      image: projectMessages("projects.3.image"),
-      tech: ["React", "TypeScript", "Tailwind"],
-      category: projectMessages("projects.3.category"),
-      liveUrl: "https://cinemania-teal.vercel.app/",
-      githubUrl: "https://github.com/AbdulrahmanIsmael/Cinemania_website",
-    },
-    {
-      id: 4,
-      title: projectMessages("projects.4.title"),
-      description: projectMessages("projects.4.description"),
-      image: projectMessages("projects.4.image"),
-      tech: ["React", "Material UI", "CSS", "Firebase"],
-      category: projectMessages("projects.4.category"),
-      liveUrl: "https://teryaq-app.vercel.app/",
-      githubUrl:
-        "https://github.com/AbdulrahmanIsmael/TERYAQ_smart-medicine-reminder",
-    },
-    {
-      id: 5,
-      title: projectMessages("projects.5.title"),
-      description: projectMessages("projects.5.description"),
-      image: projectMessages("projects.5.image"),
-      tech: ["Next.js", "Tailwind CSS"],
-      category: projectMessages("projects.5.category"),
-      liveUrl: "https://real-time-assets-dashboard-lk28.vercel.app/",
-      githubUrl:
-        "https://github.com/AbdulrahmanIsmael/Real-Time-Assets-Dashboard",
-    },
-    {
-      id: 6,
-      title: projectMessages("projects.6.title"),
-      description: projectMessages("projects.6.description"),
-      image: projectMessages("projects.6.image"),
-      tech: ["Next.js", "CSS"],
-      category: projectMessages("projects.6.category"),
-      liveUrl: "https://events-app-cyan-alpha.vercel.app/",
-      githubUrl: "https://github.com/AbdulrahmanIsmael/Events-Website",
-    },
-    {
-      id: 7,
-      title: projectMessages("projects.7.title"),
-      description: projectMessages("projects.7.description"),
-      image: projectMessages("projects.7.image"),
-      tech: ["React", "Sass"],
-      category: projectMessages("projects.7.category"),
-      liveUrl: "https://todogo-gold.vercel.app/",
-      githubUrl: "https://github.com/AbdulrahmanIsmael/Todo-List-APP_TodoGo",
-    },
-    {
-      id: 8,
-      title: projectMessages("projects.8.title"),
-      description: projectMessages("projects.8.description"),
-      image: projectMessages("projects.8.image"),
-      tech: ["Next.js", "Tailwind CSS"],
-      category: projectMessages("projects.8.category"),
-      liveUrl: "https://tozan-landing-page.vercel.app/",
-      githubUrl: "https://github.com/AbdulrahmanIsmael/tozan-landing-page",
-    },
-    {
-      id: 9,
-      title: projectMessages("projects.9.title"),
-      description: projectMessages("projects.9.description"),
-      image: projectMessages("projects.9.image"),
-      tech: ["Pug", "Sass", "JS", "Gulp"],
-      category: projectMessages("projects.9.category"),
-      githubUrl:
-        "https://github.com/AbdulrahmanIsmael/News-Website_Newslyverse",
-    },
-    {
-      id: 10,
-      title: projectMessages("projects.10.title"),
-      description: projectMessages("projects.10.description"),
-      image: projectMessages("projects.10.image"),
-      tech: ["HTML6", "CSS3", "JS", "Gulp"],
-      category: projectMessages("projects.10.category"),
-      githubUrl: "https://github.com/AbdulrahmanIsmael/shippr-ecommerce",
-    },
-  ];
+  const projectMessages = useTranslations("Portfolio.Projects");
+  const { projects: projectsData } = useData();
+
+  const projects: Project[] = (projectsData || []).map((project: any) => ({
+    id: Number(project.id),
+    title: projectMessages(`projects.${project.id}.title`),
+    description: projectMessages(`projects.${project.id}.description`),
+    image: project.image,
+    tech: project.tech,
+    category: projectMessages(`projects.${project.id}.category`),
+    liveUrl: project.liveUrl,
+    githubUrl: project.githubUrl,
+  }));
 
   return (
     <section id="projects" className="py-20">
@@ -131,7 +49,7 @@ const Projects = () => {
         </Title>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project: Project, index: number) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
@@ -144,19 +62,16 @@ const Projects = () => {
               <div
                 className={`
                 relative overflow-hidden rounded-2xl h-[550px]
-                ${
-                  lightMode
+                ${lightMode
                     ? "bg-primaryDark text-textDark"
                     : "bg-primaryLight text-textLight"
-                }
-                ${
-                  lightMode
+                  }
+                ${lightMode
                     ? "shadow-xl shadow-subtleDark/20"
                     : "shadow-xl shadow-subtleLight/20"
-                }
-                border ${
-                  lightMode ? "border-subtleDark/30" : "border-subtleLight/30"
-                }
+                  }
+                border ${lightMode ? "border-subtleDark/30" : "border-subtleLight/30"
+                  }
               `}
               >
                 {/* Image */}
@@ -192,13 +107,11 @@ const Projects = () => {
 
                   {/* Category Badge */}
                   <div
-                    className={`absolute top-4 ${
-                      arabicLang ? "left-4" : "right-4"
-                    } px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md ${
-                      lightMode
+                    className={`absolute top-4 ${arabicLang ? "left-4" : "right-4"
+                      } px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md ${lightMode
                         ? "bg-white/20 text-white"
                         : "bg-black/20 text-white"
-                    }`}
+                      }`}
                   >
                     {project.category}
                   </div>
@@ -207,32 +120,29 @@ const Projects = () => {
                 {/* Content */}
                 <div className="p-6 space-y-3">
                   <h3
-                    className={`text-2xl font-bold transition-colors ${
-                      lightMode
-                        ? "group-hover:text-accentDark"
-                        : "group-hover:text-accentLight"
-                    }`}
+                    className={`text-2xl font-bold transition-colors ${lightMode
+                      ? "group-hover:text-accentDark"
+                      : "group-hover:text-accentLight"
+                      }`}
                   >
                     {project.title}
                   </h3>
                   <p
-                    className={`text-sm leading-relaxed ${
-                      lightMode ? "text-textDark/70" : "text-textLight/70"
-                    }`}
+                    className={`text-sm leading-relaxed ${lightMode ? "text-textDark/70" : "text-textLight/70"
+                      }`}
                   >
                     {project.description}
                   </p>
                   {/* Tech Stack Section */}
                   <div className="pt-3 border-t border-subtleLight/20">
                     <h4
-                      className={`text-xs font-semibold mb-2 uppercase tracking-wide ${
-                        lightMode ? "text-textDark/50" : "text-textLight/50"
-                      }`}
+                      className={`text-xs font-semibold mb-2 uppercase tracking-wide ${lightMode ? "text-textDark/50" : "text-textLight/50"
+                        }`}
                     >
                       {arabicLang ? "التقنيات المستخدمة" : "Tech Stack"}
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => {
+                      {project.tech.map((tech: string) => {
                         //const techInfo = techIcons[tech];
                         return (
                           <div
@@ -240,11 +150,10 @@ const Projects = () => {
                             className={`
                             flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium
                             transition-all duration-300 hover:scale-105
-                            ${
-                              lightMode
+                            ${lightMode
                                 ? "bg-primaryLight/10"
                                 : "bg-primaryDark/10"
-                            }
+                              }
                           `}
                             title={tech}
                           >
@@ -268,11 +177,10 @@ const Projects = () => {
 
                 {/* Bottom colored line */}
                 <div
-                  className={`absolute bottom-0 left-0 right-0 h-1 ${
-                    lightMode
-                      ? "bg-linear-to-r from-accentDark to-secondaryDark"
-                      : "bg-linear-to-r from-accentLight to-secondaryLight"
-                  } transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}
+                  className={`absolute bottom-0 left-0 right-0 h-1 ${lightMode
+                    ? "bg-linear-to-r from-accentDark to-secondaryDark"
+                    : "bg-linear-to-r from-accentLight to-secondaryLight"
+                    } transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}
                 />
               </div>
             </motion.div>

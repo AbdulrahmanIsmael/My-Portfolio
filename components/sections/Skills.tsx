@@ -1,127 +1,71 @@
 "use client";
 
-import {
-  PiMicrosoftExcelLogo,
-  PiMicrosoftPowerpointLogo,
-  PiMicrosoftWordLogo,
-  PiWindowsLogo,
-} from "react-icons/pi";
-import {
-  SiAngular,
-  SiBootstrap,
-  SiCss3,
-  SiFigma,
-  SiGit,
-  SiGulp,
-  SiHtml5,
-  SiJavascript,
-  SiLaravel,
-  SiLinux,
-  SiMongodb,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiPhp,
-  SiPug,
-  SiReact,
-  SiReacthookform,
-  SiReactquery,
-  SiReactrouter,
-  SiRedux,
-  SiSass,
-  SiTailwindcss,
-  SiTypescript,
-  SiWebpack,
-} from "react-icons/si";
+import * as Si from "react-icons/si";
+import * as Pi from "react-icons/pi";
+import * as Di from "react-icons/di";
+import * as Ri from "react-icons/ri";
+import * as Tb from "react-icons/tb";
+import { MdStar } from "react-icons/md";
 
-import { DiVisualstudio } from "react-icons/di";
 import { I_appStore } from "@/stores/types/appStore-types";
-import { RiCursorLine } from "react-icons/ri";
-import { SiExpo } from "react-icons/si";
-import { TbBrandReactNative } from "react-icons/tb";
-import { TbBrandRedux } from "react-icons/tb";
 import Title from "@/components/ui/Title";
-import { categories } from "@/lib/constants/skills-constants";
 import { motion } from "framer-motion";
 import useAppStore from "@/stores/store";
 import { useTranslations } from "next-intl";
+import { useData } from "@/components/providers/DataProvider";
+
+// Unified icon pool — same as Skills Manager dashboard
+const ICON_POOL: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
+  SiHtml5: Si.SiHtml5,
+  SiCss3: Si.SiCss3,
+  SiSass: Si.SiSass,
+  SiJavascript: Si.SiJavascript,
+  SiTypescript: Si.SiTypescript,
+  SiReact: Si.SiReact,
+  SiAngular: Si.SiAngular,
+  SiRedux: Si.SiRedux,
+  SiReactrouter: Si.SiReactrouter,
+  SiReactquery: Si.SiReactquery,
+  SiReacthookform: Si.SiReacthookform,
+  TbBrandRedux: Tb.TbBrandRedux,
+  SiNextdotjs: Si.SiNextdotjs,
+  SiTailwindcss: Si.SiTailwindcss,
+  SiBootstrap: Si.SiBootstrap,
+  SiExpo: Si.SiExpo,
+  TbBrandReactNative: Tb.TbBrandReactNative,
+  SiNodedotjs: Si.SiNodedotjs,
+  SiPhp: Si.SiPhp,
+  SiLaravel: Si.SiLaravel,
+  SiMongodb: Si.SiMongodb,
+  SiPostgresql: Si.SiPostgresql,
+  SiMysql: Si.SiMysql,
+  SiDocker: Si.SiDocker,
+  SiFirebase: Si.SiFirebase,
+  SiSupabase: Si.SiSupabase,
+  SiGraphql: Si.SiGraphql,
+  SiGit: Si.SiGit,
+  SiWebpack: Si.SiWebpack,
+  SiGulp: Si.SiGulp,
+  SiPug: Si.SiPug,
+  SiFigma: Si.SiFigma,
+  DiVisualstudio: Di.DiVisualstudio,
+  RiCursorLine: Ri.RiCursorLine,
+  SiNpm: Si.SiNpm,
+  SiYarn: Si.SiYarn,
+  SiPostman: Si.SiPostman,
+  PiMicrosoftWordLogo: Pi.PiMicrosoftWordLogo,
+  PiMicrosoftExcelLogo: Pi.PiMicrosoftExcelLogo,
+  PiMicrosoftPowerpointLogo: Pi.PiMicrosoftPowerpointLogo,
+  PiWindowsLogo: Pi.PiWindowsLogo,
+  SiLinux: Si.SiLinux,
+  SiApple: Si.SiApple,
+};
 
 const Skills = () => {
   const { arabicLang, lightMode } = useAppStore((state) => state as I_appStore);
-  const aboutMessages = useTranslations(
-    `Portfolio.Skills.${arabicLang ? "ar" : "en"}`,
-  );
-  const catLang = aboutMessages("categories");
-  const cats = categories[catLang as keyof typeof categories];
-
-  const skillCategories = [
-    {
-      category: cats["frontend"],
-      skills: [
-        { name: "HTML", icon: SiHtml5, color: "#E34F26" },
-        { name: "CSS", icon: SiCss3, color: "#1572B6" },
-        { name: "Sass", icon: SiSass, color: "#CC6699" },
-        { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-        { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-        { name: "React", icon: SiReact, color: "#61DAFB" },
-        { name: "Angular", icon: SiAngular, color: "#E52A3A" },
-        { name: "Redux", icon: SiRedux, color: "#764ABC" },
-        { name: "React Router", icon: SiReactrouter, color: "#CA4245" },
-        { name: "React Query", icon: SiReactquery, color: "#FF4154" },
-        { name: "React Hook Form", icon: SiReacthookform, color: "#EC5990" },
-        { name: "Zustand", icon: TbBrandRedux, color: "#443E38" },
-        { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
-        { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-        { name: "Bootstrap", icon: SiBootstrap, color: "#7952B3" },
-      ],
-    },
-    {
-      category: cats["backend"],
-      skills: [
-        { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-        { name: "PHP", icon: SiPhp, color: "#777BB4" },
-        { name: "Laravel", icon: SiLaravel, color: "#FF2D20" },
-        { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-      ],
-    },
-    {
-      category: cats["tools"],
-      skills: [
-        { name: "Git", icon: SiGit, color: "#F05032" },
-        { name: "Webpack", icon: SiWebpack, color: "#8DD6F9" },
-        { name: "Gulp", icon: SiGulp, color: "#CF4647" },
-        { name: "Pug", icon: SiPug, color: "#A86454" },
-        { name: "Figma", icon: SiFigma, color: "#F24E1E" },
-        { name: "VS Code", icon: DiVisualstudio, color: "#007ACC" },
-        { name: "Cursor", icon: RiCursorLine, color: "#000000" },
-      ],
-    },
-    {
-      category: cats["mobile"],
-      skills: [
-        { name: "React native", icon: TbBrandReactNative, color: "#61DAFB" },
-        { name: "Expo", icon: SiExpo, color: "#000000" },
-      ],
-    },
-    {
-      category: cats["office"],
-      skills: [
-        { name: "Word", icon: PiMicrosoftWordLogo, color: "#2B579A" },
-        { name: "Excel", icon: PiMicrosoftExcelLogo, color: "#217346" },
-        {
-          name: "PowerPoint",
-          icon: PiMicrosoftPowerpointLogo,
-          color: "#D24726",
-        },
-      ],
-    },
-    {
-      category: cats["op"],
-      skills: [
-        { name: "Windows", icon: PiWindowsLogo, color: "#0078D4" },
-        { name: "Linux", icon: SiLinux, color: "#FCC624" },
-      ],
-    },
-  ];
+  const aboutMessages = useTranslations("Portfolio.Skills");
+  const catMessages = useTranslations("Portfolio.Skills.categories");
+  const { skills: skillsData } = useData();
 
   return (
     <section id="skills" className="py-20 flex flex-col gap-5">
@@ -133,7 +77,7 @@ const Skills = () => {
       </Title>
 
       <div className="container mx-auto flex flex-col gap-8">
-        {skillCategories.map((category, categoryIndex) => (
+        {skillsData.map((category: any, categoryIndex: number) => (
           <motion.div
             key={category.category}
             initial={{ opacity: 0, x: arabicLang ? 50 : -50 }}
@@ -147,55 +91,59 @@ const Skills = () => {
                 lightMode ? "text-accentDark" : "text-accentLight"
               }`}
             >
-              {category.category}
+              {/* Try translation key first, fall back to raw category string */}
+              {catMessages(category.category)}
             </h3>
 
             {/* Skills Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              {category.skills.map((skill, skillIndex) => (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.4,
-                    delay: categoryIndex * 0.2 + skillIndex * 0.1,
-                  }}
-                  whileHover={{
-                    y: -5,
-                    transition: { delay: 0 },
-                  }}
-                  className={`
-                    p-4 rounded-lg backdrop-blur-sm
-                    flex flex-col items-center gap-3
-                    ${
-                      lightMode
-                        ? "bg-primaryDark text-textDark"
-                        : "bg-primaryLight text-textLight"
-                    }
-                    ${
-                      lightMode
-                        ? "shadow-md shadow-subtleDark/20"
-                        : "shadow-md shadow-subtleLight/20"
-                    }
-                    border ${
-                      lightMode
-                        ? "border-subtleDark/30"
-                        : "border-subtleLight/30"
-                    }
-                    transition-all duration-300
-                  `}
-                >
-                  <skill.icon
-                    className="w-12 h-12"
-                    style={{ color: skill.color }}
-                  />
-                  <span className="text-sm font-medium text-center">
-                    {skill.name}
-                  </span>
-                </motion.div>
-              ))}
+              {category.skills.map((skill: any, skillIndex: number) => {
+                const IconComp = ICON_POOL[skill.icon] || MdStar;
+                return (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.4,
+                      delay: categoryIndex * 0.2 + skillIndex * 0.1,
+                    }}
+                    whileHover={{
+                      y: -5,
+                      transition: { delay: 0 },
+                    }}
+                    className={`
+                      p-4 rounded-lg backdrop-blur-sm
+                      flex flex-col items-center gap-3
+                      ${
+                        lightMode
+                          ? "bg-primaryDark text-textDark"
+                          : "bg-primaryLight text-textLight"
+                      }
+                      ${
+                        lightMode
+                          ? "shadow-md shadow-subtleDark/20"
+                          : "shadow-md shadow-subtleLight/20"
+                      }
+                      border ${
+                        lightMode
+                          ? "border-subtleDark/30"
+                          : "border-subtleLight/30"
+                      }
+                      transition-all duration-300
+                    `}
+                  >
+                    <IconComp
+                      className="w-12 h-12"
+                      style={{ color: skill.color }}
+                    />
+                    <span className="text-sm font-medium text-center">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         ))}

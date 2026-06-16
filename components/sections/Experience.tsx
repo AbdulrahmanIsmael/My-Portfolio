@@ -7,77 +7,27 @@ import Title from "@/components/ui/Title";
 import { motion } from "framer-motion";
 import useAppStore from "@/stores/store";
 import { useTranslations } from "next-intl";
+import { useData } from "@/components/providers/DataProvider";
 
 const Experience = () => {
   const { arabicLang, lightMode } = useAppStore((state) => state as I_appStore);
-  const experienceMessages = useTranslations(
-    `Portfolio.Experience.${arabicLang ? "ar" : "en"}`,
-  );
+  const experienceMessages = useTranslations("Portfolio.Experience");
+  const { experience: experienceData } = useData();
 
-  const experiences = [
-    {
-      id: 1,
-      type: "work",
-      title: experienceMessages("work.title"),
-      company: experienceMessages("work.company"),
-      location: experienceMessages("work.location"),
-      date: experienceMessages("work.date"),
-      description: experienceMessages("work.description"),
-      achievements: [
-        experienceMessages("work.achievement1"),
-        experienceMessages("work.achievement2"),
-        experienceMessages("work.achievement3"),
-        experienceMessages("work.achievement4"),
-        experienceMessages("work.achievement5"),
-      ],
-    },
-    {
-      id: 2,
-      type: "work",
-      title: experienceMessages("freelance.title"),
-      company: experienceMessages("freelance.company"),
-      location: experienceMessages("freelance.location"),
-      date: experienceMessages("freelance.date"),
-      description: experienceMessages("freelance.description"),
-      projects: [
-        {
-          name: experienceMessages("freelance.project1.name"),
-          desc: experienceMessages("freelance.project1.desc"),
-        },
-        {
-          name: experienceMessages("freelance.project2.name"),
-          desc: experienceMessages("freelance.project2.desc"),
-        },
-      ],
-    },
-    {
-      id: 3,
-      type: "training",
-      title: experienceMessages("training.title"),
-      company: experienceMessages("training.company"),
-      location: experienceMessages("training.location"),
-      date: experienceMessages("training.date"),
-      description: experienceMessages("training.description"),
-      achievements: [
-        experienceMessages("training.achievement1"),
-        experienceMessages("training.achievement2"),
-        experienceMessages("training.achievement3"),
-      ],
-    },
-    {
-      id: 4,
-      type: "work",
-      title: experienceMessages("internship.title"),
-      company: experienceMessages("internship.company"),
-      location: experienceMessages("internship.location"),
-      date: experienceMessages("internship.date"),
-      description: experienceMessages("internship.description"),
-      achievements: [
-        experienceMessages("internship.achievement1"),
-        experienceMessages("internship.achievement2"),
-      ],
-    },
-  ];
+  const experiences = experienceData.map((exp: any) => ({
+    id: exp.id,
+    type: exp.type,
+    title: experienceMessages(`${exp.id}.title`),
+    company: experienceMessages(`${exp.id}.company`),
+    location: experienceMessages(`${exp.id}.location`),
+    date: experienceMessages(`${exp.id}.date`),
+    description: experienceMessages(`${exp.id}.description`),
+    achievements: exp.achievements ? exp.achievements.map((ach: any) => experienceMessages(`${exp.id}.${ach}`)) : undefined,
+    projects: exp.projects ? exp.projects.map((proj: { id: string }) => ({
+      name: experienceMessages(`${exp.id}.${proj.id}.name`),
+      desc: experienceMessages(`${exp.id}.${proj.id}.desc`),
+    })) : undefined,
+  }));
 
   return (
     <section id="experience" className="py-20">
@@ -102,7 +52,7 @@ const Experience = () => {
 
           {/* Experience Items */}
           <div className="space-y-12">
-            {experiences.map((exp, index) => (
+            {experiences.map((exp: any, index: number) => (
               <motion.div
                 key={exp.id}
                 initial={{ opacity: 0, x: arabicLang ? 50 : -50 }}
@@ -194,7 +144,7 @@ const Experience = () => {
                     {/* Projects (for freelance) */}
                     {exp.projects && (
                       <div className="space-y-3">
-                        {exp.projects.map((project, idx) => (
+                        {exp.projects.map((project: any, idx: number) => (
                           <div
                             key={idx}
                             className={`
@@ -234,7 +184,7 @@ const Experience = () => {
                       <ul
                         className={`space-y-2 ${arabicLang ? "pr-5" : "pl-5"}`}
                       >
-                        {exp.achievements.map((achievement, idx) => (
+                        {exp.achievements.map((achievement: any, idx: number) => (
                           <li
                             key={idx}
                             className={`

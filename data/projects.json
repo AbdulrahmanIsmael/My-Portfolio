@@ -1,0 +1,124 @@
+[
+  {
+    "id": "2",
+    "image": "/assets/images/iquiz.png",
+    "tech": [
+      "TypeScript",
+      "Tailwind CSS",
+      "Webpack",
+      "Firebase"
+    ],
+    "liveUrl": "https://i-quiz-quizzes-platform.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/iQuiz-Quizzes-platform"
+  },
+  {
+    "id": "11",
+    "image": "/assets/images/1781466976806-ScreenShot_Tool_-20260614225604.png",
+    "tech": [
+      "React",
+      "Redux",
+      "CSS",
+      "Sonner"
+    ],
+    "liveUrl": "https://react-task-manager-drab.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/React-Task-Manager"
+  },
+  {
+    "id": "3",
+    "image": "/assets/images/cinema.png",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Tailwind"
+    ],
+    "liveUrl": "https://cinemania-teal.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/Cinemania_website"
+  },
+  {
+    "id": "1",
+    "image": "/assets/images/seafarer-management-system.png",
+    "tech": [
+      "Angular",
+      "TypeScript",
+      "CSS"
+    ],
+    "liveUrl": "https://seafarers-management-system.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/Seafarers-Management-System"
+  },
+  {
+    "id": "5",
+    "image": "/assets/images/dashboard.png",
+    "tech": [
+      "Next.js",
+      "Tailwind CSS"
+    ],
+    "liveUrl": "https://real-time-assets-dashboard-lk28.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/Real-Time-Assets-Dashboard"
+  },
+  {
+    "id": "4",
+    "image": "/assets/images/teryaq.png",
+    "tech": [
+      "React",
+      "Material UI",
+      "CSS",
+      "Firebase"
+    ],
+    "liveUrl": "https://teryaq-app.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/TERYAQ_smart-medicine-reminder"
+  },
+  {
+    "id": "6",
+    "image": "/assets/images/events.png",
+    "tech": [
+      "Next.js",
+      "CSS"
+    ],
+    "liveUrl": "https://events-app-cyan-alpha.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/Events-Website"
+  },
+  {
+    "id": "7",
+    "image": "/assets/images/todogo.png",
+    "tech": [
+      "React",
+      "Sass"
+    ],
+    "liveUrl": "https://todogo-gold.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/Todo-List-APP_TodoGo"
+  },
+  {
+    "id": "8",
+    "image": "/assets/images/tozan.png",
+    "tech": [
+      "Next.js",
+      "Tailwind CSS"
+    ],
+    "liveUrl": "https://tozan-landing-page.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/tozan-landing-page"
+  },
+  {
+    "id": "9",
+    "image": "/assets/images/news.png",
+    "tech": [
+      "Pug",
+      "Sass",
+      "JS",
+      "Gulp"
+    ],
+    "liveUrl": "",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/News-Website_Newslyverse"
+  },
+  {
+    "id": "10",
+    "image": "/assets/images/ecommerce.png",
+    "tech": [
+      "CSS3",
+      "JS",
+      "Gulp",
+      "HTML5"
+    ],
+    "liveUrl": "",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/shippr-ecommerce"
+  }
+]

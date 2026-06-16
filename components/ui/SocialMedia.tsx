@@ -1,9 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { socialsLinks } from "@/lib/constants/socials-constants";
+import { useData } from "@/components/providers/DataProvider";
 
 const SocialMedia = ({ social, delay }: { social: string; delay: number }) => {
+  const { socials: socialsData } = useData();
+  const socialsLinks: Record<string, string> = socialsData;
+  const href = socialsLinks[social] || "#";
+
   return (
     <motion.div
       initial={{ scale: 0 }}
@@ -13,11 +19,7 @@ const SocialMedia = ({ social, delay }: { social: string; delay: number }) => {
       title={social === "stackOverflow" ? "stack overflow" : social}
     >
       <Link
-        href={
-          social === "gmail"
-            ? `mailto:${socialsLinks["gmail"]}`
-            : socialsLinks[social]
-        }
+        href={social === "gmail" ? `mailto:${href}` : href}
         target="_blank"
       >
         <Image

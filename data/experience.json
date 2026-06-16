@@ -1,0 +1,42 @@
+[
+  {
+    "id": "work",
+    "type": "work",
+    "achievements": [
+      "achievement1",
+      "achievement2",
+      "achievement3",
+      "achievement4",
+      "achievement5"
+    ]
+  },
+  {
+    "id": "freelance",
+    "type": "work",
+    "projects": [
+      {
+        "id": "project1"
+      },
+      {
+        "id": "project2"
+      }
+    ]
+  },
+  {
+    "id": "training",
+    "type": "training",
+    "achievements": [
+      "achievement1",
+      "achievement2",
+      "achievement3"
+    ]
+  },
+  {
+    "id": "internship",
+    "type": "work",
+    "achievements": [
+      "achievement1",
+      "achievement2"
+    ]
+  }
+]

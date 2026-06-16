@@ -13,9 +13,11 @@ import { useEffect, useState } from "react";
 import { I_appStore } from "@/stores/types/appStore-types";
 import Link from "next/link";
 import useAppStore from "@/stores/store";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
   const { lightMode, arabicLang } = useAppStore((state) => state as I_appStore);
+  const t = useTranslations("Footer");
   const [showScrollTop, setShowScrollTop] = useState(false);
   const { scrollY } = useScroll();
 
@@ -57,15 +59,12 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: arabicLang ? "الرئيسية" : "Home", href: "portfolio/#home" },
-    { name: arabicLang ? "عني" : "About", href: "portfolio/#about" },
-    { name: arabicLang ? "المهارات" : "Skills", href: "portfolio/#skills" },
-    { name: arabicLang ? "المشاريع" : "Projects", href: "portfolio/#projects" },
-    {
-      name: arabicLang ? "الخبرات" : "Experience",
-      href: "portfolio/#experience",
-    },
-    { name: arabicLang ? "تواصل" : "Contact", href: "portfolio/#contact" },
+    { name: t("nav.home"),       href: "portfolio/#home" },
+    { name: t("nav.about"),      href: "portfolio/#about" },
+    { name: t("nav.skills"),     href: "portfolio/#skills" },
+    { name: t("nav.projects"),   href: "portfolio/#projects" },
+    { name: t("nav.experience"), href: "portfolio/#experience" },
+    { name: t("nav.contact"),    href: "portfolio/#contact" },
   ];
 
   const currentYear = new Date().getFullYear();
@@ -119,17 +118,13 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h3 className="text-2xl font-bold mb-4">
-                {arabicLang ? "عبدالرحمن إسماعيل" : "Abdulrahman Ismael"}
-              </h3>
+              <h3 className="text-2xl font-bold mb-4">{t("name")}</h3>
               <p
                 className={`text-sm leading-relaxed mb-4 ${
                   lightMode ? "text-textDark/70" : "text-textLight/70"
                 }`}
               >
-                {arabicLang
-                  ? "مطور واجهات أمامية ومهندس برمجيات شغوف ببناء تجارب ويب حديثة وتفاعلية"
-                  : "Front-End Developer & Software Engineer passionate about building modern and interactive web experiences"}
+                {t("bio")}
               </p>
 
               {/* Contact Info */}
@@ -172,9 +167,7 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <h3 className="text-xl font-bold mb-4">
-                {arabicLang ? "روابط سريعة" : "Quick Links"}
-              </h3>
+              <h3 className="text-xl font-bold mb-4">{t("quickLinks")}</h3>
               <ul className="space-y-2">
                 {quickLinks.map((link, index) => (
                   <motion.li
@@ -210,9 +203,7 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h3 className="text-xl font-bold mb-4">
-                {arabicLang ? "تابعني" : "Follow Me"}
-              </h3>
+              <h3 className="text-xl font-bold mb-4">{t("followMe")}</h3>
               <div className="flex flex-wrap gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -238,9 +229,7 @@ const Footer = () => {
                   >
                     <social.icon
                       className="w-6 h-6"
-                      style={{
-                        color: lightMode ? social.color : social.color,
-                      }}
+                      style={{ color: social.color }}
                     />
                   </motion.a>
                 ))}
@@ -253,9 +242,7 @@ const Footer = () => {
                   ${lightMode ? "text-textDark/60" : "text-textLight/60"}
                 `}
               >
-                {arabicLang
-                  ? "متاح للعمل المستقل والفرص الوظيفية"
-                  : "Available for freelance work and job opportunities"}
+                {t("available")}
               </p>
             </motion.div>
           </div>
@@ -285,11 +272,7 @@ const Footer = () => {
                 lightMode ? "text-textDark/60" : "text-textLight/60"
               }`}
             >
-              {arabicLang ? (
-                <>© {currentYear} عبدالرحمن إسماعيل. جميع الحقوق محفوظة.</>
-              ) : (
-                <>© {currentYear} Abdulrahman Ismael. All rights reserved.</>
-              )}
+              © {currentYear} {t("name")}. {t("copyright")}
             </p>
           </motion.div>
         </div>
@@ -299,3 +282,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

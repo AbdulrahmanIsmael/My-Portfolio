@@ -23,11 +23,11 @@ html {
 
 ::-webkit-scrollbar {
   background-color: var(--color-primaryLight);
-  width: 0.25rem;
+  width: 0.6rem;
 }
 
 /* Scrollbar thumb */
 ::-webkit-scrollbar-thumb {
   background-color: var(--color-accentDark);
-  border-radius: 0.5rem;
+  border-radius: 0.8rem;
 }

@@ -1,0 +1,212 @@
+{
+  "Header": {
+    "showcase": "Introduction",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact",
+    "menu": "Menu",
+    "theme": "Theme",
+    "language": "Language"
+  },
+  "Home": {
+    "name": "Abdulrahman Ismael",
+    "profession": "Frontend Engineer",
+    "resume": "Please Download My Updated Resume",
+    "buttons": {
+      "downloadCV": "Download Resume",
+      "whoAmI": "Who Am I?"
+    }
+  },
+  "Portfolio": {
+    "Showcase": {
+      "title": "Welcome, I am Abdulrahman Ismael",
+      "small": "Frontend Engineer",
+      "openToWork": "Open to Work",
+      "brief": "I build clean, high-performance web applications that scale. From component architecture to API integration and SEO optimization, I focus on writing code that is maintainable, accessible, and built to last — every detail from structure to interaction matters."
+    },
+    "Skills": {
+      "title": "Skills",
+      "subTitle": "Technologies & Tools",
+      "categories": {
+        "frontend": "Front-End",
+        "backend": "Back-End",
+        "tools": "Tools & Editors",
+        "office": "Office Suite",
+        "op": "Operating Systems",
+        "mobile": "Mobile Development"
+      }
+    },
+    "About": {
+      "title": "About Me",
+      "subTitle": "Get to know me further",
+      "titleBox": "Who Am I",
+      "profession": "Frontend Engineer",
+      "desc": "Frontend Engineer with hands-on experience architecting and delivering high-performance, scalable web applications across production environments. Proficient in React.js, Next.js, and Angular, with strong expertise in TypeScript, HTML5, and CSS3. I focus on translating UI/UX designs into clean, maintainable code, optimizing for performance, SEO, and accessibility, and delivering seamless cross-device experiences. I thrive in collaborative environments and am always seeking new challenges in growing teams",
+      "contactTitle": "Get In Touch",
+      "contactEmail": "Email",
+      "contactPhone": "Phone",
+      "contactLocation": "Location",
+      "location": "Al-Haram, Faisal, Giza, Egypt"
+    },
+    "Experience": {
+      "title": "Experience",
+      "subTitle": "My professional journey",
+      "work": {
+        "title": "Frontend Engineer",
+        "company": "Taqnit Al-M'alumat — تقنية المعلومات",
+        "location": "Mansoura, Egypt",
+        "date": "January 2026 - June 2026",
+        "description": "Working onsite with the team on SaaS projects, developing frontend user interfaces, collaborating with backend developers to integrate APIs, and maintaining SEO-optimized, high-performance, scalable, and maintainable architecture.",
+        "achievement1": "Optimized the performance of a travel platform (Dubai), improving page navigation speed by 70–85% and significantly enhancing load times and overall user experience, while resolving critical frontend and dashboard issues to ensure system stability.",
+        "achievement2": "Architected and developed a full-scale travel platform (Saudi Arabia) from scratch using Next.js, defining component hierarchy, data-fetching conventions, and scalable project structure while integrating RESTful APIs and translating UI/UX designs into responsive, production-grade interfaces.",
+        "achievement3": "Achieved 100% Lighthouse scores in SEO and best practices and 95% in accessibility through advanced performance optimization techniques and modern web standards.",
+        "achievement4": "Designed and built a complete dashboard system for data management (CRUD operations), while leveraging AI-assisted tools to accelerate development and improve productivity.",
+        "achievement5": "Conducted regular code reviews with a focus on performance, scalability, and maintainability, ensuring consistent engineering standards across the frontend codebase."
+      },
+      "freelance": {
+        "title": "Freelance Front-End Developer",
+        "company": "Aydin Labs",
+        "location": "Remote — Cairo, Egypt",
+        "date": "September 2025 - October 2025",
+        "description": "Worked remotely on cutting-edge AI and CRM projects, building responsive and interactive user interfaces, and collaborating with backend developers to integrate RESTful APIs.",
+        "project1": {
+          "name": "AI Agent Dashboard",
+          "desc": "Developed interactive dashboard components for an AI Agent and CRM platform, building the Charts Section using Next.js, TypeScript, Tailwind CSS, and Recharts."
+        },
+        "project2": {
+          "name": "Logo Diffusion — AI Image Platform",
+          "desc": "Architected and implemented the complete frontend for an AI Image Platform's Mockup Workspace using React, Zustand, and Tailwind CSS. Designed the state management layer, built the full image processing and result display pipeline, and integrated the frontend with RESTful APIs."
+        }
+      },
+      "training": {
+        "title": "Web Developer Trainee",
+        "company": "Egypt Future Work Is Digital – ITIDA",
+        "location": "Remote Internship — Cairo, Egypt",
+        "date": "December 2022 - February 2023",
+        "description": "Intensive training program focused on full-stack web development, strengthening both frontend and backend skills through structured, hands-on projects.",
+        "achievement1": "Enhanced frontend and backend development skills through a structured, project-driven curriculum.",
+        "achievement2": "Gained hands-on experience in project planning, API integration, and building user interfaces.",
+        "achievement3": "Completed 2 real-world projects: a Weather Journal App and a mock freelance client project."
+      },
+      "internship": {
+        "title": "Web Developer",
+        "company": "Ipda3 Tech",
+        "location": "Internship — Mansoura, Egypt",
+        "date": "August 2021 - September 2021",
+        "description": "Summer internship focused on developing frontend skills and gaining experience working within a professional team on real, hands-on projects.",
+        "achievement1": "Collaborated with the development team to deliver software features, debug application code, and ensure functionality, stability, and performance.",
+        "achievement2": "Applied HTML, CSS, JavaScript, and Bootstrap to build responsive web pages in a professional environment."
+      }
+    },
+    "Projects": {
+      "title": "Projects",
+      "subTitle": "Personal projects I've worked on",
+      "techStack": "Tech Stack",
+      "projects": {
+        "1": {
+          "title": "Seafarer Management System",
+          "description": "An Angular-based management system for seafarers with a scalable component structure, service layer architecture, and comprehensive CRUD operations for managing seafarer data and activation periods.",
+          "category": "Angular"
+        },
+        "2": {
+          "title": "iQuiz — Quizzes Platform",
+          "description": "A responsive and scalable quizzes platform built with TypeScript, Tailwind CSS, and Webpack, integrating Firebase for user authentication and data management.",
+          "category": "TypeScript"
+        },
+        "3": {
+          "title": "Cinemania — Movies & TV Platform",
+          "description": "A responsive movie and TV discovery platform built with React Router and React Query, featuring filtering, dynamic routing, and a user-friendly interface for an engaging browsing experience.",
+          "category": "React"
+        },
+        "4": {
+          "title": "Teryaq — Graduation Project",
+          "description": "A responsive medication management web application built with React.js and Firebase, featuring real-time control, schedule customization, and an accessibility-focused design to help patients manage their medications.",
+          "category": "React"
+        },
+        "5": {
+          "title": "Real-Time Assets Dashboard",
+          "description": "A real-time investment portfolio dashboard built with Next.js, featuring efficient filtering and sorting, data caching for performance optimization, and a clean architecture with clear separation of concerns.",
+          "category": "Next.js"
+        },
+        "6": {
+          "title": "Events App",
+          "description": "A platform to browse and explore important events with their full details, built with Next.js for fast, server-rendered pages.",
+          "category": "Next.js"
+        },
+        "7": {
+          "title": "TodoGo — Todo List App",
+          "description": "A task management app where you can add, edit, and delete tasks, earn points for completed ones, and stay organized with a clean, intuitive interface.",
+          "category": "React"
+        },
+        "8": {
+          "title": "Tozan — Landing Page",
+          "description": "A modern, responsive landing page built with Next.js and Tailwind CSS, designed for startups and companies to present their product and value proposition.",
+          "category": "Next.js"
+        },
+        "9": {
+          "title": "Newslyverse — News Website",
+          "description": "A news website with a clean, user-friendly design that surfaces top daily headlines and breaking news in a streamlined reading experience.",
+          "category": "JavaScript"
+        },
+        "10": {
+          "title": "Shippr — E-Commerce Store",
+          "description": "A responsive e-commerce store with secure authentication, product filtering, and shopping cart functionality, prioritizing clean UI, user experience, and scalable code.",
+          "category": "JavaScript"
+        },
+        "11": {
+          "title": "React Task Management",
+          "description": "A task management app built with React, Redux, and Vite. Create, edit, filter, and manage tasks with persistent local storage.",
+          "category": "React"
+        }
+      }
+    },
+    "Contact": {
+      "title": "Get In Touch",
+      "subTitle": "Let's work together",
+      "detailsTitle": "Contact Information",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "socialTitle": "Follow Me",
+      "formTitle": "Send Me a Message",
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your.email@example.com",
+      "phoneLabel": "Phone",
+      "phonePlaceholder": "+20 123 456 7890",
+      "reasonLabel": "Reason for Contact",
+      "reasonPlaceholder": "Select a reason",
+      "reasonJob": "Job Opportunity",
+      "reasonFreelance": "Freelance Project",
+      "reasonCollaboration": "Collaboration",
+      "reasonQuestion": "General Question",
+      "reasonOther": "Other",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell me about your project or inquiry...",
+      "optional": "Optional",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "successMessage": "Message sent successfully! I'll get back to you soon.",
+      "errorMessage": "Failed to send message. Please try again."
+    }
+  },
+  "Footer": {
+    "name": "Abdulrahman Ismael",
+    "bio": "Front-End Developer & Software Engineer passionate about building modern and interactive web experiences",
+    "quickLinks": "Quick Links",
+    "followMe": "Follow Me",
+    "available": "Available for freelance work and job opportunities",
+    "copyright": "All rights reserved.",
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "skills": "Skills",
+      "projects": "Projects",
+      "experience": "Experience",
+      "contact": "Contact"
+    }
+  }
+}
