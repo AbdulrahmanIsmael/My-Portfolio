@@ -31,3 +31,41 @@ html {
   background-color: var(--color-accentDark);
   border-radius: 0.8rem;
 }
+
+.portfolio-swiper {
+  perspective: 1400px;
+}
+
+.swiper-slide {
+  transition: all 0.4s ease;
+  opacity: 0.45;
+  filter: blur(2px);
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.swiper-slide-prev,
+.swiper-slide-next {
+  opacity: 0.8;
+  filter: blur(0);
+}
+
+.swiper-slide-active .project-card {
+  transform: translateY(-10px);
+}
+
+.swiper-slide-active::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  z-index: -1;
+  border-radius: 24px;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.18),
+    transparent 70%
+  );
+}
