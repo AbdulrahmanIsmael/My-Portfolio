@@ -55,17 +55,27 @@ export default function PersonalDetailsManager() {
       const res = await fetch("/api/dashboard/personal", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify(personalInfo),
       });
 
       if (res.ok) {
-        setStatus({ type: "success", message: "Personal details updated successfully!" });
+        setStatus({
+          type: "success",
+          message: "Personal details updated successfully!",
+        });
       } else {
-        setStatus({ type: "error", message: "Failed to update personal details." });
+        setStatus({
+          type: "error",
+          message: "Failed to update personal details.",
+        });
       }
     } catch (err) {
       console.error(err);
-      setStatus({ type: "error", message: "A network error occurred. Please try again." });
+      setStatus({
+        type: "error",
+        message: "A network error occurred. Please try again.",
+      });
     } finally {
       setSaving(false);
     }
@@ -76,9 +86,14 @@ export default function PersonalDetailsManager() {
       {/* Header and save */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight mb-1">Personal Details</h1>
-          <p className={`text-sm ${lightMode ? "text-textDark/60" : "text-textLight/60"}`}>
-            Update key biographical descriptions, resume messaging, and contact locations.
+          <h1 className="text-3xl font-extrabold tracking-tight mb-1">
+            Personal Details
+          </h1>
+          <p
+            className={`text-sm ${lightMode ? "text-textDark/60" : "text-textLight/60"}`}
+          >
+            Update key biographical descriptions, resume messaging, and contact
+            locations.
           </p>
         </div>
 
@@ -114,7 +129,9 @@ export default function PersonalDetailsManager() {
       )}
 
       {loading ? (
-        <div className={`p-8 rounded-2xl border h-96 bg-subtleLight/10 animate-pulse`} />
+        <div
+          className={`p-8 rounded-2xl border h-96 bg-subtleLight/10 animate-pulse`}
+        />
       ) : (
         <div
           className={`p-6 rounded-2xl border transition-all duration-300 ${
@@ -195,7 +212,10 @@ export default function PersonalDetailsManager() {
                       onChange={(e) =>
                         setPersonalInfo({
                           ...personalInfo,
-                          en: { ...personalInfo.en, profession: e.target.value },
+                          en: {
+                            ...personalInfo.en,
+                            profession: e.target.value,
+                          },
                         })
                       }
                       placeholder="e.g. Frontend Engineer"
@@ -243,7 +263,10 @@ export default function PersonalDetailsManager() {
                       onChange={(e) =>
                         setPersonalInfo({
                           ...personalInfo,
-                          en: { ...personalInfo.en, resumeMessage: e.target.value },
+                          en: {
+                            ...personalInfo.en,
+                            resumeMessage: e.target.value,
+                          },
                         })
                       }
                       placeholder="Please download my updated resume"
@@ -316,7 +339,10 @@ export default function PersonalDetailsManager() {
                       onChange={(e) =>
                         setPersonalInfo({
                           ...personalInfo,
-                          ar: { ...personalInfo.ar, profession: e.target.value },
+                          ar: {
+                            ...personalInfo.ar,
+                            profession: e.target.value,
+                          },
                         })
                       }
                       placeholder="مثال: مهندس واجهة أمامية"
@@ -364,7 +390,10 @@ export default function PersonalDetailsManager() {
                       onChange={(e) =>
                         setPersonalInfo({
                           ...personalInfo,
-                          ar: { ...personalInfo.ar, resumeMessage: e.target.value },
+                          ar: {
+                            ...personalInfo.ar,
+                            resumeMessage: e.target.value,
+                          },
                         })
                       }
                       placeholder="مثال: من فضلك حمل أحدث نسخة من سيرتي الذاتية"

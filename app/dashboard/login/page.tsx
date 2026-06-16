@@ -29,6 +29,7 @@ export default function LoginPage() {
       const res = await fetch("/api/dashboard/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({ password }),
       });
 
@@ -51,10 +52,11 @@ export default function LoginPage() {
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center p-4 transition-colors duration-500 ${lightMode
+      className={`min-h-screen flex items-center justify-center p-4 transition-colors duration-500 ${
+        lightMode
           ? "bg-primaryDark text-textDark"
           : "bg-primaryLight text-textLight"
-        }`}
+      }`}
       style={{
         backgroundImage: lightMode
           ? "radial-gradient(circle at 10% 20%, rgba(0, 112, 243, 0.05) 0%, transparent 90%)"
@@ -63,7 +65,10 @@ export default function LoginPage() {
     >
       {/* Background glowing blobs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accentLight/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondaryLight/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse" style={{ animationDelay: "2s" }} />
+      <div
+        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondaryLight/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse"
+        style={{ animationDelay: "2s" }}
+      />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -72,20 +77,22 @@ export default function LoginPage() {
         className="w-full max-w-md"
       >
         <div
-          className={`p-8 rounded-2xl shadow-2xl backdrop-blur-md border transition-all duration-300 ${lightMode
+          className={`p-8 rounded-2xl shadow-2xl backdrop-blur-md border transition-all duration-300 ${
+            lightMode
               ? "bg-white/80 border-subtleDark/20 shadow-subtleDark/15"
               : "bg-black/40 border-subtleLight/20 shadow-black/40"
-            }`}
+          }`}
         >
           <div className="flex flex-col items-center mb-8">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-              className={`p-4 rounded-full mb-4 ${lightMode
+              className={`p-4 rounded-full mb-4 ${
+                lightMode
                   ? "bg-accentDark/10 text-accentDark"
                   : "bg-accentLight/15 text-accentLight"
-                }`}
+              }`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,8 +113,9 @@ export default function LoginPage() {
               Portfolio Admin
             </h1>
             <p
-              className={`text-sm text-center ${lightMode ? "text-textDark/60" : "text-textLight/60"
-                }`}
+              className={`text-sm text-center ${
+                lightMode ? "text-textDark/60" : "text-textLight/60"
+              }`}
             >
               Enter your password to manage your portfolio data.
             </p>
@@ -129,10 +137,11 @@ export default function LoginPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   disabled={loading}
                   placeholder="••••••••"
-                  className={`w-full pl-11 pr-11 py-3.5 rounded-xl outline-none transition-all border ${lightMode
+                  className={`w-full pl-11 pr-11 py-3.5 rounded-xl outline-none transition-all border ${
+                    lightMode
                       ? "bg-primaryDark/50 border-subtleDark/20 focus:border-accentDark focus:bg-white"
                       : "bg-primaryLight/30 border-subtleLight/20 focus:border-accentLight focus:bg-black/50"
-                    }`}
+                  }`}
                   autoFocus
                 />
                 <div className="absolute left-4 top-1/2 -translate-y-1/2 opacity-50">
@@ -195,10 +204,11 @@ export default function LoginPage() {
               disabled={loading}
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
-              className={`w-full py-3.5 rounded-xl font-semibold text-base transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 ${lightMode
+              className={`w-full py-3.5 rounded-xl font-semibold text-base transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 ${
+                lightMode
                   ? "bg-accentDark hover:bg-accentHoverDark text-white"
                   : "bg-accentLight hover:bg-accentHoverLight text-white"
-                }`}
+              }`}
             >
               {loading ? (
                 <>

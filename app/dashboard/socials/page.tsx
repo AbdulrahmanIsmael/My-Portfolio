@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { MdSave, MdShare } from "react-icons/md";
-import useAppStore from "@/stores/store";
+import { useEffect, useState } from "react";
+
 import { I_appStore } from "@/stores/types/appStore-types";
+import useAppStore from "@/stores/store";
 
 interface SocialLinks {
   linkedin: string;
@@ -54,29 +55,60 @@ export default function SocialLinksManager() {
       const res = await fetch("/api/dashboard/socials", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify(socials),
       });
 
       if (res.ok) {
-        setStatus({ type: "success", message: "Social links updated successfully!" });
+        setStatus({
+          type: "success",
+          message: "Social links updated successfully!",
+        });
       } else {
         setStatus({ type: "error", message: "Failed to update social links." });
       }
     } catch (err) {
       console.error(err);
-      setStatus({ type: "error", message: "A network error occurred. Please try again." });
+      setStatus({
+        type: "error",
+        message: "A network error occurred. Please try again.",
+      });
     } finally {
       setSaving(false);
     }
   };
 
   const fields = [
-    { key: "linkedin", label: "LinkedIn Profile URL", placeholder: "https://linkedin.com/in/username" },
-    { key: "github", label: "GitHub Profile URL", placeholder: "https://github.com/username" },
-    { key: "gmail", label: "Contact Email Address", placeholder: "your.email@gmail.com" },
-    { key: "gitlab", label: "GitLab Profile URL", placeholder: "https://gitlab.com/username" },
-    { key: "stackOverflow", label: "Stack Overflow Profile URL", placeholder: "https://stackoverflow.com/users/id/username" },
-    { key: "behance", label: "Behance Portfolio URL", placeholder: "https://behance.net/username" },
+    {
+      key: "linkedin",
+      label: "LinkedIn Profile URL",
+      placeholder: "https://linkedin.com/in/username",
+    },
+    {
+      key: "github",
+      label: "GitHub Profile URL",
+      placeholder: "https://github.com/username",
+    },
+    {
+      key: "gmail",
+      label: "Contact Email Address",
+      placeholder: "your.email@gmail.com",
+    },
+    {
+      key: "gitlab",
+      label: "GitLab Profile URL",
+      placeholder: "https://gitlab.com/username",
+    },
+    {
+      key: "stackOverflow",
+      label: "Stack Overflow Profile URL",
+      placeholder: "https://stackoverflow.com/users/id/username",
+    },
+    {
+      key: "behance",
+      label: "Behance Portfolio URL",
+      placeholder: "https://behance.net/username",
+    },
   ];
 
   return (
@@ -84,8 +116,12 @@ export default function SocialLinksManager() {
       {/* Header and save */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight mb-1">Social Links</h1>
-          <p className={`text-sm ${lightMode ? "text-textDark/60" : "text-textLight/60"}`}>
+          <h1 className="text-3xl font-extrabold tracking-tight mb-1">
+            Social Links
+          </h1>
+          <p
+            className={`text-sm ${lightMode ? "text-textDark/60" : "text-textLight/60"}`}
+          >
             Configure URLs that connect icon buttons and links on the main site.
           </p>
         </div>
@@ -122,7 +158,9 @@ export default function SocialLinksManager() {
       )}
 
       {loading ? (
-        <div className={`p-8 rounded-2xl border h-96 bg-subtleLight/10 animate-pulse`} />
+        <div
+          className={`p-8 rounded-2xl border h-96 bg-subtleLight/10 animate-pulse`}
+        />
       ) : (
         <div
           className={`p-6 rounded-2xl border transition-all duration-300 ${
@@ -132,11 +170,18 @@ export default function SocialLinksManager() {
           }`}
         >
           <div className="flex items-center gap-2 mb-6 border-b border-inherit pb-3">
-            <MdShare size={22} className="text-accentLight dark:text-accentDark" />
+            <MdShare
+              size={22}
+              className="text-accentLight dark:text-accentDark"
+            />
             <h3 className="text-lg font-bold">Profiles Configuration</h3>
           </div>
 
-          <form id="socials-form" onSubmit={handleSave} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form
+            id="socials-form"
+            onSubmit={handleSave}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
             {fields.map((f) => (
               <div key={f.key}>
                 <label className="block text-xs font-bold uppercase tracking-wider mb-2">

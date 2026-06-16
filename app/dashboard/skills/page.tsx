@@ -24,7 +24,10 @@ import * as Ri from "react-icons/ri";
 import * as Tb from "react-icons/tb";
 
 // Pool of supported icons with their display name and visual component mapping
-const ICON_POOL: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+const ICON_POOL: Record<
+  string,
+  React.ComponentType<{ size?: number; className?: string }>
+> = {
   // Frontend
   SiHtml5: Si.SiHtml5,
   SiCss3: Si.SiCss3,
@@ -110,7 +113,7 @@ export default function SkillsManager() {
       try {
         const res = await fetch("/api/dashboard/skills");
         if (res.ok) {
-          const data = await res.ok ? await res.json() : [];
+          const data = (await res.ok) ? await res.json() : [];
           setCategories(data);
         }
       } catch (err) {
@@ -129,24 +132,35 @@ export default function SkillsManager() {
       const res = await fetch("/api/dashboard/skills", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify(categories),
       });
 
       if (res.ok) {
         setStatus({ type: "success", message: "Skills updated successfully!" });
       } else {
-        setStatus({ type: "error", message: "Failed to save skills. Please check your credentials." });
+        setStatus({
+          type: "error",
+          message: "Failed to save skills. Please check your credentials.",
+        });
       }
     } catch (err) {
       console.error(err);
-      setStatus({ type: "error", message: "A network error occurred. Please try again." });
+      setStatus({
+        type: "error",
+        message: "A network error occurred. Please try again.",
+      });
     } finally {
       setSaving(false);
     }
   };
 
   // Reordering functions
-  const moveSkill = (catIdx: number, skillIdx: number, direction: "up" | "down") => {
+  const moveSkill = (
+    catIdx: number,
+    skillIdx: number,
+    direction: "up" | "down",
+  ) => {
     const updated = [...categories];
     const category = updated[catIdx];
     const targetIdx = direction === "up" ? skillIdx - 1 : skillIdx + 1;
@@ -202,7 +216,7 @@ export default function SkillsManager() {
   };
 
   const filteredIcons = Object.keys(ICON_POOL).filter((name) =>
-    name.toLowerCase().includes(searchQuery.toLowerCase())
+    name.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   return (
@@ -210,8 +224,12 @@ export default function SkillsManager() {
       {/* Header and save button */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight mb-1">Skills Manager</h1>
-          <p className={`text-sm ${lightMode ? "text-textDark/60" : "text-textLight/60"}`}>
+          <h1 className="text-3xl font-extrabold tracking-tight mb-1">
+            Skills Manager
+          </h1>
+          <p
+            className={`text-sm ${lightMode ? "text-textDark/60" : "text-textLight/60"}`}
+          >
             Group your expertise by categories and pick specific brand icons.
           </p>
         </div>
@@ -249,7 +267,10 @@ export default function SkillsManager() {
       {loading ? (
         <div className="space-y-6">
           {[1, 2, 3].map((n) => (
-            <div key={n} className="h-40 bg-subtleLight/10 animate-pulse rounded-2xl" />
+            <div
+              key={n}
+              className="h-40 bg-subtleLight/10 animate-pulse rounded-2xl"
+            />
           ))}
         </div>
       ) : (
@@ -279,7 +300,10 @@ export default function SkillsManager() {
 
               {/* Skills Grid */}
               {cat.skills.length === 0 ? (
-                <p className="text-sm opacity-60 text-center py-6">No skills in this category. Click &apos;Add Skill&apos; to get started.</p>
+                <p className="text-sm opacity-60 text-center py-6">
+                  No skills in this category. Click &apos;Add Skill&apos; to get
+                  started.
+                </p>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                   {cat.skills.map((skill, skillIdx) => {
@@ -296,11 +320,16 @@ export default function SkillsManager() {
                         <div className="flex items-center gap-3">
                           <div
                             className="p-2.5 rounded-lg text-white"
-                            style={{ backgroundColor: skill.color + "22", color: skill.color }}
+                            style={{
+                              backgroundColor: skill.color + "22",
+                              color: skill.color,
+                            }}
                           >
                             <IconComp size={22} />
                           </div>
-                          <span className="font-semibold text-sm">{skill.name}</span>
+                          <span className="font-semibold text-sm">
+                            {skill.name}
+                          </span>
                         </div>
 
                         {/* Action Buttons */}
@@ -375,14 +404,19 @@ export default function SkillsManager() {
                 <button
                   onClick={() => setShowModal(false)}
                   className={`p-1.5 rounded-lg ${
-                    lightMode ? "hover:bg-primaryLight/10" : "hover:bg-primaryDark/10"
+                    lightMode
+                      ? "hover:bg-primaryLight/10"
+                      : "hover:bg-primaryDark/10"
                   }`}
                 >
                   <MdClose size={22} />
                 </button>
               </div>
 
-              <form onSubmit={handleModalSubmit} className="flex-1 overflow-y-auto p-6 space-y-6">
+              <form
+                onSubmit={handleModalSubmit}
+                className="flex-1 overflow-y-auto p-6 space-y-6"
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider mb-2">
@@ -392,7 +426,9 @@ export default function SkillsManager() {
                       type="text"
                       required
                       value={skillForm.name}
-                      onChange={(e) => setSkillForm({ ...skillForm, name: e.target.value })}
+                      onChange={(e) =>
+                        setSkillForm({ ...skillForm, name: e.target.value })
+                      }
                       placeholder="e.g. Node.js"
                       className={`w-full px-4 py-2.5 rounded-lg border outline-none ${
                         lightMode
@@ -410,13 +446,17 @@ export default function SkillsManager() {
                       <input
                         type="color"
                         value={skillForm.color}
-                        onChange={(e) => setSkillForm({ ...skillForm, color: e.target.value })}
+                        onChange={(e) =>
+                          setSkillForm({ ...skillForm, color: e.target.value })
+                        }
                         className="h-10 w-12 rounded-lg border border-inherit cursor-pointer bg-transparent"
                       />
                       <input
                         type="text"
                         value={skillForm.color}
-                        onChange={(e) => setSkillForm({ ...skillForm, color: e.target.value })}
+                        onChange={(e) =>
+                          setSkillForm({ ...skillForm, color: e.target.value })
+                        }
                         placeholder="#ffffff"
                         className={`flex-1 px-4 py-2.5 rounded-lg border outline-none ${
                           lightMode
@@ -445,12 +485,17 @@ export default function SkillsManager() {
                           : "bg-primaryLight/50 border-subtleLight/20 focus:border-accentLight"
                       }`}
                     />
-                    <MdSearch size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 opacity-50" />
+                    <MdSearch
+                      size={18}
+                      className="absolute left-3.5 top-1/2 -translate-y-1/2 opacity-50"
+                    />
                   </div>
 
                   <div
                     className={`grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 p-3 rounded-lg max-h-48 overflow-y-auto border ${
-                      lightMode ? "bg-primaryDark/30 border-subtleDark/15" : "bg-primaryLight/30 border-subtleLight/10"
+                      lightMode
+                        ? "bg-primaryDark/30 border-subtleDark/15"
+                        : "bg-primaryLight/30 border-subtleLight/10"
                     }`}
                   >
                     {filteredIcons.map((name) => {
@@ -460,7 +505,9 @@ export default function SkillsManager() {
                         <button
                           key={name}
                           type="button"
-                          onClick={() => setSkillForm({ ...skillForm, icon: name })}
+                          onClick={() =>
+                            setSkillForm({ ...skillForm, icon: name })
+                          }
                           title={name}
                           className={`flex flex-col items-center justify-center p-2 rounded-lg border transition-all ${
                             isSelected
@@ -468,13 +515,18 @@ export default function SkillsManager() {
                                 ? "bg-accentDark border-accentDark text-white"
                                 : "bg-accentLight border-accentLight text-white"
                               : lightMode
-                              ? "bg-white border-subtleDark/10 text-textDark hover:bg-primaryLight/5"
-                              : "bg-black/20 border-subtleLight/10 text-textLight hover:bg-primaryDark/5"
+                                ? "bg-white border-subtleDark/10 text-textDark hover:bg-primaryLight/5"
+                                : "bg-black/20 border-subtleLight/10 text-textLight hover:bg-primaryDark/5"
                           }`}
                         >
                           <Icon size={20} />
                           <span className="text-[9px] mt-1 text-center truncate max-w-full font-mono">
-                            {name.replace("Si", "").replace("Pi", "").replace("Tb", "").replace("Di", "").replace("Ri", "")}
+                            {name
+                              .replace("Si", "")
+                              .replace("Pi", "")
+                              .replace("Tb", "")
+                              .replace("Di", "")
+                              .replace("Ri", "")}
                           </span>
                         </button>
                       );

@@ -51,8 +51,22 @@ export default function ExperienceCrud() {
   const [expForm, setExpForm] = useState<ExperienceItem>({
     id: "",
     type: "work",
-    en: { title: "", company: "", location: "", date: "", description: "", achievements: [] },
-    ar: { title: "", company: "", location: "", date: "", description: "", achievements: [] },
+    en: {
+      title: "",
+      company: "",
+      location: "",
+      date: "",
+      description: "",
+      achievements: [],
+    },
+    ar: {
+      title: "",
+      company: "",
+      location: "",
+      date: "",
+      description: "",
+      achievements: [],
+    },
     projects: [],
   });
 
@@ -92,17 +106,27 @@ export default function ExperienceCrud() {
       const res = await fetch("/api/dashboard/experience", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify(experiences),
       });
 
       if (res.ok) {
-        setStatus({ type: "success", message: "Experiences database updated successfully!" });
+        setStatus({
+          type: "success",
+          message: "Experiences database updated successfully!",
+        });
       } else {
-        setStatus({ type: "error", message: "Failed to save experiences. Verify session keys." });
+        setStatus({
+          type: "error",
+          message: "Failed to save experiences. Verify session keys.",
+        });
       }
     } catch (err) {
       console.error(err);
-      setStatus({ type: "error", message: "A connection error occurred. Please try again." });
+      setStatus({
+        type: "error",
+        message: "A connection error occurred. Please try again.",
+      });
     } finally {
       setSaving(false);
     }
@@ -121,13 +145,31 @@ export default function ExperienceCrud() {
     setExpForm({
       id: "",
       type: "work",
-      en: { title: "", company: "", location: "", date: "", description: "", achievements: [] },
-      ar: { title: "", company: "", location: "", date: "", description: "", achievements: [] },
+      en: {
+        title: "",
+        company: "",
+        location: "",
+        date: "",
+        description: "",
+        achievements: [],
+      },
+      ar: {
+        title: "",
+        company: "",
+        location: "",
+        date: "",
+        description: "",
+        achievements: [],
+      },
       projects: [],
     });
     setNewAchievementEn("");
     setNewAchievementAr("");
-    setNewSubProj({ id: "", en: { name: "", desc: "" }, ar: { name: "", desc: "" } });
+    setNewSubProj({
+      id: "",
+      en: { name: "", desc: "" },
+      ar: { name: "", desc: "" },
+    });
     setActiveLangTab("en");
     setShowModal(true);
   };
@@ -138,7 +180,11 @@ export default function ExperienceCrud() {
     setExpForm(JSON.parse(JSON.stringify(experiences[index]))); // deep copy
     setNewAchievementEn("");
     setNewAchievementAr("");
-    setNewSubProj({ id: "", en: { name: "", desc: "" }, ar: { name: "", desc: "" } });
+    setNewSubProj({
+      id: "",
+      en: { name: "", desc: "" },
+      ar: { name: "", desc: "" },
+    });
     setActiveLangTab("en");
     setShowModal(true);
   };
@@ -164,7 +210,9 @@ export default function ExperienceCrud() {
       setNewAchievementEn("");
       setNewAchievementAr("");
     } else {
-      alert("Please enter the achievement bullet in BOTH languages before adding.");
+      alert(
+        "Please enter the achievement bullet in BOTH languages before adding.",
+      );
     }
   };
 
@@ -187,7 +235,11 @@ export default function ExperienceCrud() {
 
   // Freelance project list functions
   const addSubProject = () => {
-    if (!newSubProj.id.trim() || !newSubProj.en.name.trim() || !newSubProj.ar.name.trim()) {
+    if (
+      !newSubProj.id.trim() ||
+      !newSubProj.en.name.trim() ||
+      !newSubProj.ar.name.trim()
+    ) {
       alert("Please fill in project ID and name in both English and Arabic.");
       return;
     }
@@ -203,7 +255,11 @@ export default function ExperienceCrud() {
       projects: [...currentProjs, { ...newSubProj }],
     });
 
-    setNewSubProj({ id: "", en: { name: "", desc: "" }, ar: { name: "", desc: "" } });
+    setNewSubProj({
+      id: "",
+      en: { name: "", desc: "" },
+      ar: { name: "", desc: "" },
+    });
   };
 
   const removeSubProject = (id: string) => {
@@ -237,9 +293,14 @@ export default function ExperienceCrud() {
       {/* Header and save button */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight mb-1">Experience CRUD</h1>
-          <p className={`text-sm ${lightMode ? "text-textDark/60" : "text-textLight/60"}`}>
-            Configure your professional chronology, internships, training and freelance achievements.
+          <h1 className="text-3xl font-extrabold tracking-tight mb-1">
+            Experience CRUD
+          </h1>
+          <p
+            className={`text-sm ${lightMode ? "text-textDark/60" : "text-textLight/60"}`}
+          >
+            Configure your professional chronology, internships, training and
+            freelance achievements.
           </p>
         </div>
 
@@ -276,7 +337,10 @@ export default function ExperienceCrud() {
       {loading ? (
         <div className="space-y-6">
           {[1, 2].map((n) => (
-            <div key={n} className="h-44 bg-subtleLight/10 animate-pulse rounded-2xl" />
+            <div
+              key={n}
+              className="h-44 bg-subtleLight/10 animate-pulse rounded-2xl"
+            />
           ))}
         </div>
       ) : (
@@ -296,9 +360,13 @@ export default function ExperienceCrud() {
           </div>
 
           {experiences.length === 0 ? (
-            <div className={`p-12 text-center rounded-2xl border ${
-              lightMode ? "bg-white border-subtleDark/20" : "bg-black/10 border-subtleLight/10"
-            }`}>
+            <div
+              className={`p-12 text-center rounded-2xl border ${
+                lightMode
+                  ? "bg-white border-subtleDark/20"
+                  : "bg-black/10 border-subtleLight/10"
+              }`}
+            >
               <p className="opacity-60 mb-2">No experiences found.</p>
             </div>
           ) : (
@@ -317,18 +385,28 @@ export default function ExperienceCrud() {
                       <span className="text-xs font-semibold px-2.5 py-0.5 rounded bg-accentLight/10 text-accentLight dark:bg-accentDark/15 dark:text-accentDark capitalize">
                         {exp.type}
                       </span>
-                      <span className="text-xs opacity-50 font-mono">ID: {exp.id}</span>
-                      <span className="text-xs opacity-60">• {exp.en.date}</span>
+                      <span className="text-xs opacity-50 font-mono">
+                        ID: {exp.id}
+                      </span>
+                      <span className="text-xs opacity-60">
+                        • {exp.en.date}
+                      </span>
                     </div>
                     <h3 className="text-lg font-bold">{exp.en.title}</h3>
-                    <h4 className="text-sm font-semibold opacity-85">{exp.en.company} — {exp.en.location}</h4>
-                    <p className={`text-xs line-clamp-1 opacity-70 ${lightMode ? "text-textDark/80" : "text-textLight/80"}`}>
+                    <h4 className="text-sm font-semibold opacity-85">
+                      {exp.en.company} — {exp.en.location}
+                    </h4>
+                    <p
+                      className={`text-xs line-clamp-1 opacity-70 ${lightMode ? "text-textDark/80" : "text-textLight/80"}`}
+                    >
                       {exp.en.description}
                     </p>
                     {exp.en.achievements && exp.en.achievements.length > 0 && (
                       <span className="text-[10px] text-accentLight dark:text-accentDark font-bold flex items-center gap-1 mt-1">
                         <MdList size={14} />
-                        <span>{exp.en.achievements.length} Bullet Achievements</span>
+                        <span>
+                          {exp.en.achievements.length} Bullet Achievements
+                        </span>
                       </span>
                     )}
                     {exp.projects && exp.projects.length > 0 && (
@@ -387,43 +465,74 @@ export default function ExperienceCrud() {
             >
               <div className="p-6 border-b border-inherit flex justify-between items-center shrink-0">
                 <h3 className="text-xl font-bold">
-                  {modalMode === "add" ? "Add Experience Entry" : "Edit Experience Details"}
+                  {modalMode === "add"
+                    ? "Add Experience Entry"
+                    : "Edit Experience Details"}
                 </h3>
                 <button
                   onClick={() => setShowModal(false)}
                   className={`p-1.5 rounded-lg ${
-                    lightMode ? "hover:bg-primaryLight/10" : "hover:bg-primaryDark/10"
+                    lightMode
+                      ? "hover:bg-primaryLight/10"
+                      : "hover:bg-primaryDark/10"
                   }`}
                 >
                   <MdClose size={22} />
                 </button>
               </div>
 
-              <form onSubmit={handleModalSubmit} className="flex-1 overflow-y-auto p-6 space-y-6">
+              <form
+                onSubmit={handleModalSubmit}
+                className="flex-1 overflow-y-auto p-6 space-y-6"
+              >
                 {/* Meta details: ID, type */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider mb-2">Experience ID</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider mb-2">
+                      Experience ID
+                    </label>
                     <input
                       type="text"
                       required
                       disabled={modalMode === "edit"}
                       value={expForm.id}
-                      onChange={(e) => setExpForm({ ...expForm, id: e.target.value.toLowerCase().replace(/\s+/g, "-") })}
+                      onChange={(e) =>
+                        setExpForm({
+                          ...expForm,
+                          id: e.target.value.toLowerCase().replace(/\s+/g, "-"),
+                        })
+                      }
                       placeholder="e.g. freelance, work, training, ipda3-tech"
                       className="w-full px-4 py-2.5 rounded-lg border border-inherit outline-none bg-inherit disabled:opacity-50"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider mb-2">Type</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider mb-2">
+                      Type
+                    </label>
                     <select
                       value={expForm.type}
-                      onChange={(e) => setExpForm({ ...expForm, type: e.target.value as "work" | "training" })}
+                      onChange={(e) =>
+                        setExpForm({
+                          ...expForm,
+                          type: e.target.value as "work" | "training",
+                        })
+                      }
                       className="w-full px-4 py-2.5 rounded-lg border border-inherit outline-none bg-inherit"
                     >
-                      <option value="work" className={lightMode ? "bg-white" : "bg-primaryLight"}>Work Experience</option>
-                      <option value="training" className={lightMode ? "bg-white" : "bg-primaryLight"}>Training / Academic</option>
+                      <option
+                        value="work"
+                        className={lightMode ? "bg-white" : "bg-primaryLight"}
+                      >
+                        Work Experience
+                      </option>
+                      <option
+                        value="training"
+                        className={lightMode ? "bg-white" : "bg-primaryLight"}
+                      >
+                        Training / Academic
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -468,7 +577,9 @@ export default function ExperienceCrud() {
                     <div className="space-y-4 animate-fadeIn" dir="ltr">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-semibold mb-1.5">Job / Course Title (EN)</label>
+                          <label className="block text-xs font-semibold mb-1.5">
+                            Job / Course Title (EN)
+                          </label>
                           <input
                             type="text"
                             required={activeLangTab === "en"}
@@ -485,7 +596,9 @@ export default function ExperienceCrud() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-semibold mb-1.5">Company / Entity (EN)</label>
+                          <label className="block text-xs font-semibold mb-1.5">
+                            Company / Entity (EN)
+                          </label>
                           <input
                             type="text"
                             required={activeLangTab === "en"}
@@ -502,7 +615,9 @@ export default function ExperienceCrud() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-semibold mb-1.5">Location (EN)</label>
+                          <label className="block text-xs font-semibold mb-1.5">
+                            Location (EN)
+                          </label>
                           <input
                             type="text"
                             required={activeLangTab === "en"}
@@ -519,7 +634,9 @@ export default function ExperienceCrud() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-semibold mb-1.5">Date Range (EN)</label>
+                          <label className="block text-xs font-semibold mb-1.5">
+                            Date Range (EN)
+                          </label>
                           <input
                             type="text"
                             required={activeLangTab === "en"}
@@ -537,14 +654,19 @@ export default function ExperienceCrud() {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold mb-1.5">Core Description (EN)</label>
+                        <label className="block text-xs font-semibold mb-1.5">
+                          Core Description (EN)
+                        </label>
                         <textarea
                           required={activeLangTab === "en"}
                           value={expForm.en.description}
                           onChange={(e) =>
                             setExpForm({
                               ...expForm,
-                              en: { ...expForm.en, description: e.target.value },
+                              en: {
+                                ...expForm.en,
+                                description: e.target.value,
+                              },
                             })
                           }
                           rows={3}
@@ -560,7 +682,9 @@ export default function ExperienceCrud() {
                     <div className="space-y-4 animate-fadeIn" dir="rtl">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-semibold mb-1.5 text-right">المسمى الوظيفي (AR)</label>
+                          <label className="block text-xs font-semibold mb-1.5 text-right">
+                            المسمى الوظيفي (AR)
+                          </label>
                           <input
                             type="text"
                             required={activeLangTab === "ar"}
@@ -577,7 +701,9 @@ export default function ExperienceCrud() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-semibold mb-1.5 text-right">الشركة / الجهة (AR)</label>
+                          <label className="block text-xs font-semibold mb-1.5 text-right">
+                            الشركة / الجهة (AR)
+                          </label>
                           <input
                             type="text"
                             required={activeLangTab === "ar"}
@@ -594,7 +720,9 @@ export default function ExperienceCrud() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-semibold mb-1.5 text-right">الموقع (AR)</label>
+                          <label className="block text-xs font-semibold mb-1.5 text-right">
+                            الموقع (AR)
+                          </label>
                           <input
                             type="text"
                             required={activeLangTab === "ar"}
@@ -611,7 +739,9 @@ export default function ExperienceCrud() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-semibold mb-1.5 text-right">الفترة الزمنية (AR)</label>
+                          <label className="block text-xs font-semibold mb-1.5 text-right">
+                            الفترة الزمنية (AR)
+                          </label>
                           <input
                             type="text"
                             required={activeLangTab === "ar"}
@@ -629,14 +759,19 @@ export default function ExperienceCrud() {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold mb-1.5 text-right">الوصف الوظيفي (AR)</label>
+                        <label className="block text-xs font-semibold mb-1.5 text-right">
+                          الوصف الوظيفي (AR)
+                        </label>
                         <textarea
                           required={activeLangTab === "ar"}
                           value={expForm.ar.description}
                           onChange={(e) =>
                             setExpForm({
                               ...expForm,
-                              ar: { ...expForm.ar, description: e.target.value },
+                              ar: {
+                                ...expForm.ar,
+                                description: e.target.value,
+                              },
                             })
                           }
                           rows={3}
@@ -658,7 +793,9 @@ export default function ExperienceCrud() {
 
                     <div className="space-y-3">
                       <div>
-                        <label className="block text-xs font-semibold mb-1">English Bullet Text</label>
+                        <label className="block text-xs font-semibold mb-1">
+                          English Bullet Text
+                        </label>
                         <input
                           type="text"
                           value={newAchievementEn}
@@ -668,7 +805,9 @@ export default function ExperienceCrud() {
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-semibold mb-1">Arabic Bullet Text</label>
+                        <label className="block text-xs font-semibold mb-1">
+                          Arabic Bullet Text
+                        </label>
                         <input
                           type="text"
                           value={newAchievementAr}
@@ -688,25 +827,31 @@ export default function ExperienceCrud() {
                     </div>
 
                     {/* Render current lists of achievements */}
-                    {expForm.en.achievements && expForm.en.achievements.length > 0 && (
-                      <div className="space-y-2 border border-inherit p-4 rounded-xl max-h-48 overflow-y-auto">
-                        {expForm.en.achievements.map((ach, idx) => (
-                          <div key={idx} className="flex justify-between items-start gap-4 p-2 rounded-lg bg-subtleLight/5 border border-dashed border-inherit text-xs">
-                            <div className="flex-1 space-y-1">
-                              <p className="font-medium">EN: {ach}</p>
-                              <p className="opacity-70 text-right" dir="rtl">AR: {expForm.ar.achievements?.[idx] || ""}</p>
-                            </div>
-                            <button
-                              type="button"
-                              onClick={() => deleteAchievement(idx)}
-                              className="text-red-500 hover:text-red-700 transition-colors shrink-0"
+                    {expForm.en.achievements &&
+                      expForm.en.achievements.length > 0 && (
+                        <div className="space-y-2 border border-inherit p-4 rounded-xl max-h-48 overflow-y-auto">
+                          {expForm.en.achievements.map((ach, idx) => (
+                            <div
+                              key={idx}
+                              className="flex justify-between items-start gap-4 p-2 rounded-lg bg-subtleLight/5 border border-dashed border-inherit text-xs"
                             >
-                              <MdDelete size={16} />
-                            </button>
-                          </div>
-                        ))}
-                      </div>
-                    )}
+                              <div className="flex-1 space-y-1">
+                                <p className="font-medium">EN: {ach}</p>
+                                <p className="opacity-70 text-right" dir="rtl">
+                                  AR: {expForm.ar.achievements?.[idx] || ""}
+                                </p>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => deleteAchievement(idx)}
+                                className="text-red-500 hover:text-red-700 transition-colors shrink-0"
+                              >
+                                <MdDelete size={16} />
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                   </div>
                 )}
 
@@ -721,11 +866,20 @@ export default function ExperienceCrud() {
                     <div className="p-4 rounded-xl border border-inherit space-y-3 bg-subtleLight/5">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
-                          <label className="block text-[10px] font-bold uppercase">Sub-Project ID (e.g. project3)</label>
+                          <label className="block text-[10px] font-bold uppercase">
+                            Sub-Project ID (e.g. project3)
+                          </label>
                           <input
                             type="text"
                             value={newSubProj.id}
-                            onChange={(e) => setNewSubProj({ ...newSubProj, id: e.target.value.toLowerCase().replace(/\s+/g, "") })}
+                            onChange={(e) =>
+                              setNewSubProj({
+                                ...newSubProj,
+                                id: e.target.value
+                                  .toLowerCase()
+                                  .replace(/\s+/g, ""),
+                              })
+                            }
                             placeholder="project3"
                             className="w-full px-3 py-1.5 rounded border border-inherit outline-none bg-inherit text-xs"
                           />
@@ -733,21 +887,35 @@ export default function ExperienceCrud() {
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
-                          <label className="block text-[10px] font-bold uppercase">Project Name (EN)</label>
+                          <label className="block text-[10px] font-bold uppercase">
+                            Project Name (EN)
+                          </label>
                           <input
                             type="text"
                             value={newSubProj.en.name}
-                            onChange={(e) => setNewSubProj({ ...newSubProj, en: { ...newSubProj.en, name: e.target.value } })}
+                            onChange={(e) =>
+                              setNewSubProj({
+                                ...newSubProj,
+                                en: { ...newSubProj.en, name: e.target.value },
+                              })
+                            }
                             placeholder="AI agent platform"
                             className="w-full px-3 py-1.5 rounded border border-inherit outline-none bg-inherit text-xs"
                           />
                         </div>
                         <div>
-                          <label className="block text-[10px] font-bold uppercase text-right">اسم المشروع بالعربية</label>
+                          <label className="block text-[10px] font-bold uppercase text-right">
+                            اسم المشروع بالعربية
+                          </label>
                           <input
                             type="text"
                             value={newSubProj.ar.name}
-                            onChange={(e) => setNewSubProj({ ...newSubProj, ar: { ...newSubProj.ar, name: e.target.value } })}
+                            onChange={(e) =>
+                              setNewSubProj({
+                                ...newSubProj,
+                                ar: { ...newSubProj.ar, name: e.target.value },
+                              })
+                            }
                             placeholder="منصة وكلاء الذكاء الاصطناعي"
                             className="w-full px-3 py-1.5 rounded border border-inherit outline-none bg-inherit text-xs text-right"
                             dir="rtl"
@@ -756,20 +924,34 @@ export default function ExperienceCrud() {
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
-                          <label className="block text-[10px] font-bold uppercase">Project Description (EN)</label>
+                          <label className="block text-[10px] font-bold uppercase">
+                            Project Description (EN)
+                          </label>
                           <textarea
                             value={newSubProj.en.desc}
-                            onChange={(e) => setNewSubProj({ ...newSubProj, en: { ...newSubProj.en, desc: e.target.value } })}
+                            onChange={(e) =>
+                              setNewSubProj({
+                                ...newSubProj,
+                                en: { ...newSubProj.en, desc: e.target.value },
+                              })
+                            }
                             rows={2}
                             placeholder="Developed mockup workspace..."
                             className="w-full px-3 py-1.5 rounded border border-inherit outline-none bg-inherit text-xs resize-none"
                           />
                         </div>
                         <div>
-                          <label className="block text-[10px] font-bold uppercase text-right">الوصف بالعربية</label>
+                          <label className="block text-[10px] font-bold uppercase text-right">
+                            الوصف بالعربية
+                          </label>
                           <textarea
                             value={newSubProj.ar.desc}
-                            onChange={(e) => setNewSubProj({ ...newSubProj, ar: { ...newSubProj.ar, desc: e.target.value } })}
+                            onChange={(e) =>
+                              setNewSubProj({
+                                ...newSubProj,
+                                ar: { ...newSubProj.ar, desc: e.target.value },
+                              })
+                            }
                             rows={2}
                             placeholder="تطوير واجهات مساحة العمل..."
                             className="w-full px-3 py-1.5 rounded border border-inherit outline-none bg-inherit text-xs resize-none text-right"
@@ -790,11 +972,18 @@ export default function ExperienceCrud() {
                     {expForm.projects && expForm.projects.length > 0 && (
                       <div className="space-y-2 border border-inherit p-4 rounded-xl max-h-48 overflow-y-auto">
                         {expForm.projects.map((proj) => (
-                          <div key={proj.id} className="flex justify-between items-start gap-4 p-2 rounded-lg bg-subtleLight/5 border border-dashed border-inherit text-xs">
+                          <div
+                            key={proj.id}
+                            className="flex justify-between items-start gap-4 p-2 rounded-lg bg-subtleLight/5 border border-dashed border-inherit text-xs"
+                          >
                             <div className="flex-1 space-y-1">
-                              <p className="font-semibold text-accentLight dark:text-accentDark">{proj.id}: {proj.en.name} / {proj.ar.name}</p>
+                              <p className="font-semibold text-accentLight dark:text-accentDark">
+                                {proj.id}: {proj.en.name} / {proj.ar.name}
+                              </p>
                               <p className="opacity-70">EN: {proj.en.desc}</p>
-                              <p className="opacity-70 text-right" dir="rtl">AR: {proj.ar.desc}</p>
+                              <p className="opacity-70 text-right" dir="rtl">
+                                AR: {proj.ar.desc}
+                              </p>
                             </div>
                             <button
                               type="button"
