@@ -6,8 +6,8 @@ import { I_appStore } from "@/stores/types/appStore-types";
 import Title from "@/components/ui/Title";
 import { motion } from "framer-motion";
 import useAppStore from "@/stores/store";
-import { useTranslations } from "next-intl";
 import { useData } from "@/components/providers/DataProvider";
+import { useTranslations } from "next-intl";
 
 const Experience = () => {
   const { arabicLang, lightMode } = useAppStore((state) => state as I_appStore);
@@ -22,11 +22,17 @@ const Experience = () => {
     location: experienceMessages(`${exp.id}.location`),
     date: experienceMessages(`${exp.id}.date`),
     description: experienceMessages(`${exp.id}.description`),
-    achievements: exp.achievements ? exp.achievements.map((ach: any) => experienceMessages(`${exp.id}.${ach}`)) : undefined,
-    projects: exp.projects ? exp.projects.map((proj: { id: string }) => ({
-      name: experienceMessages(`${exp.id}.${proj.id}.name`),
-      desc: experienceMessages(`${exp.id}.${proj.id}.desc`),
-    })) : undefined,
+    achievements: exp.achievements
+      ? exp.achievements.map((ach: any) =>
+          experienceMessages(`${exp.id}.${ach}`),
+        )
+      : undefined,
+    projects: exp.projects
+      ? exp.projects.map((proj: { id: string }) => ({
+          name: experienceMessages(`${exp.id}.${proj.id}.name`),
+          desc: experienceMessages(`${exp.id}.${proj.id}.desc`),
+        }))
+      : undefined,
   }));
 
   return (
@@ -184,10 +190,11 @@ const Experience = () => {
                       <ul
                         className={`space-y-2 ${arabicLang ? "pr-5" : "pl-5"}`}
                       >
-                        {exp.achievements.map((achievement: any, idx: number) => (
-                          <li
-                            key={idx}
-                            className={`
+                        {exp.achievements.map(
+                          (achievement: any, idx: number) => (
+                            <li
+                              key={idx}
+                              className={`
                               relative text-sm leading-relaxed
                               ${
                                 lightMode
@@ -206,10 +213,11 @@ const Experience = () => {
                                   : "before:bg-accentLight"
                               }
                             `}
-                          >
-                            {achievement}
-                          </li>
-                        ))}
+                            >
+                              {achievement}
+                            </li>
+                          ),
+                        )}
                       </ul>
                     )}
                   </motion.div>
