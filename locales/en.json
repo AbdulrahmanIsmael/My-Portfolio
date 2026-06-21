@@ -12,8 +12,8 @@
   },
   "Home": {
     "name": "Abdulrahman Ismael",
-    "profession": "Frontend Engineer",
-    "resume": "Please Download My Updated Resume",
+    "profession": "Software Engineer",
+    "resume": "Please Download My Updated CV",
     "buttons": {
       "downloadCV": "Download Resume",
       "whoAmI": "Who Am I?"
@@ -22,9 +22,9 @@
   "Portfolio": {
     "Showcase": {
       "title": "Welcome, I am Abdulrahman Ismael",
-      "small": "Frontend Engineer",
+      "small": "Software Engineer",
       "openToWork": "Open to Work",
-      "brief": "I build clean, high-performance web applications that scale. From component architecture to API integration and SEO optimization, I focus on writing code that is maintainable, accessible, and built to last — every detail from structure to interaction matters."
+      "brief": "I build complete digital products across the full stack — from polished frontends in React, Next.js, and Angular, to robust backends with Node.js and Express, cross-platform mobile apps with React Native, and database systems with SQL, MySQL, and Microsoft SQL Server. Clean architecture, high performance, and maintainable code — every layer crafted with purpose."
     },
     "Skills": {
       "title": "Skills",
@@ -42,8 +42,8 @@
       "title": "About Me",
       "subTitle": "Get to know me further",
       "titleBox": "Who Am I",
-      "profession": "Frontend Engineer",
-      "desc": "Frontend Engineer with hands-on experience architecting and delivering high-performance, scalable web applications across production environments. Proficient in React.js, Next.js, and Angular, with strong expertise in TypeScript, HTML5, and CSS3. I focus on translating UI/UX designs into clean, maintainable code, optimizing for performance, SEO, and accessibility, and delivering seamless cross-device experiences. I thrive in collaborative environments and am always seeking new challenges in growing teams",
+      "profession": "Software Engineer",
+      "desc": "Software Engineer with hands-on experience delivering full-stack solutions across production environments. I build responsive and scalable frontends with React.js, Next.js, and Angular; backend services with Node.js, Express.js, and EJS templating; cross-platform mobile apps with React Native; and work with database systems including SQL, MySQL, and Microsoft SQL Server. I focus on clean, maintainable architecture, performance optimization, SEO, and accessibility — and I thrive in collaborative environments seeking new challenges in growing teams.",
       "contactTitle": "Get In Touch",
       "contactEmail": "Email",
       "contactPhone": "Phone",
@@ -195,7 +195,7 @@
   },
   "Footer": {
     "name": "Abdulrahman Ismael",
-    "bio": "Front-End Developer & Software Engineer passionate about building modern and interactive web experiences",
+    "bio": "Software Engineer passionate about building complete, high-performance digital products across Frontend, Backend, Mobile, and Database layers",
     "quickLinks": "Quick Links",
     "followMe": "Follow Me",
     "available": "Available for freelance work and job opportunities",

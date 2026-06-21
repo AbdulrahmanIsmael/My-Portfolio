@@ -12,6 +12,7 @@ import {
   MdEdit,
   MdClose,
   MdSearch,
+  MdCreateNewFolder,
 } from "react-icons/md";
 import useAppStore from "@/stores/store";
 import { I_appStore } from "@/stores/types/appStore-types";
@@ -24,11 +25,11 @@ import * as Ri from "react-icons/ri";
 import * as Tb from "react-icons/tb";
 
 // Pool of supported icons with their display name and visual component mapping
-const ICON_POOL: Record<
+const ICON_POOL_RAW: Record<
   string,
-  React.ComponentType<{ size?: number; className?: string }>
+  React.ComponentType<{ size?: number; className?: string }> | undefined
 > = {
-  // Frontend
+  // ─── Frontend ───────────────────────────────────────────────
   SiHtml5: Si.SiHtml5,
   SiCss3: Si.SiCss3,
   SiSass: Si.SiSass,
@@ -44,23 +45,76 @@ const ICON_POOL: Record<
   SiNextdotjs: Si.SiNextdotjs,
   SiTailwindcss: Si.SiTailwindcss,
   SiBootstrap: Si.SiBootstrap,
-  SiExpo: Si.SiExpo,
+  SiVuedotjs: Si.SiVuedotjs,
+  SiSvelte: Si.SiSvelte,
+  SiNuxtdotjs: Si.SiNuxtdotjs,
+  SiAstro: Si.SiAstro,
+  // ─── Styling / UI Libs ──────────────────────────────────────
+  SiStyledcomponents: Si.SiStyledcomponents,
+  SiFramer: Si.SiFramer,
+  SiChakraui: Si.SiChakraui,
+  SiMui: Si.SiMui,
+  SiAntdesign: Si.SiAntdesign,
+  SiThreedotjs: Si.SiThreedotjs,
+  // ─── Mobile ─────────────────────────────────────────────────
   TbBrandReactNative: Tb.TbBrandReactNative,
-  // Backend
+  SiExpo: Si.SiExpo,
+  SiKotlin: Si.SiKotlin,
+  SiFlutter: Si.SiFlutter,
+  SiDart: Si.SiDart,
+  SiAndroid: Si.SiAndroid,
+  SiSwift: Si.SiSwift,
+  TbBrandKotlin: Tb.TbBrandKotlin,
+  TbBrandFlutter: Tb.TbBrandFlutter,
+  TbBrandSwift: Tb.TbBrandSwift,
+  // ─── Backend ─────────────────────────────────────────────────
   SiNodedotjs: Si.SiNodedotjs,
   SiPhp: Si.SiPhp,
   SiLaravel: Si.SiLaravel,
+  SiNestjs: Si.SiNestjs,
+  SiDjango: Si.SiDjango,
+  SiFlask: Si.SiFlask,
+  SiFastapi: Si.SiFastapi,
+  SiSpring: Si.SiSpring,
+  SiRuby: Si.SiRuby,
+  SiPrisma: Si.SiPrisma,
+  SiRedis: Si.SiRedis,
+  // ─── Databases ───────────────────────────────────────────────
+  SiMysql: Si.SiMysql,
+  SiSqlite: Si.SiSqlite,
   SiMongodb: Si.SiMongodb,
   SiPostgresql: Si.SiPostgresql,
-  SiMysql: Si.SiMysql,
-  SiDocker: Si.SiDocker,
   SiFirebase: Si.SiFirebase,
   SiSupabase: Si.SiSupabase,
   SiGraphql: Si.SiGraphql,
-  // Tools
-  SiGit: Si.SiGit,
+  TbBrandMysql: Tb.TbBrandMysql,
+  TbBrandMongodb: Tb.TbBrandMongodb,
+  TbSql: Tb.TbSql,
+  // ─── Languages ───────────────────────────────────────────────
+  SiPython: Si.SiPython,
+  SiRust: Si.SiRust,
+  SiGo: Si.SiGo,
+  SiCplusplus: Si.SiCplusplus,
+  TbBrandGolang: Tb.TbBrandGolang,
+  TbBrandPython: Tb.TbBrandPython,
+  TbBrandCpp: Tb.TbBrandCpp,
+  // ─── Testing ─────────────────────────────────────────────────
+  SiJest: Si.SiJest,
+  SiVitest: Si.SiVitest,
+  SiCypress: Si.SiCypress,
+  SiStorybook: Si.SiStorybook,
+  // ─── Build / Bundlers ────────────────────────────────────────
+  SiVite: Si.SiVite,
   SiWebpack: Si.SiWebpack,
   SiGulp: Si.SiGulp,
+  SiEslint: Si.SiEslint,
+  SiPrettier: Si.SiPrettier,
+  SiBabel: Si.SiBabel,
+  // ─── Tools / Editors ────────────────────────────────────────
+  SiGit: Si.SiGit,
+  SiGithub: Si.SiGithub,
+  SiGitlab: Si.SiGitlab,
+  SiJira: Si.SiJira,
   SiPug: Si.SiPug,
   SiFigma: Si.SiFigma,
   DiVisualstudio: Di.DiVisualstudio,
@@ -68,15 +122,26 @@ const ICON_POOL: Record<
   SiNpm: Si.SiNpm,
   SiYarn: Si.SiYarn,
   SiPostman: Si.SiPostman,
-  // Office
+  SiVercel: Si.SiVercel,
+  SiNetlify: Si.SiNetlify,
+  SiDocker: Si.SiDocker,
+  // ─── Office ──────────────────────────────────────────────────
   PiMicrosoftWordLogo: Pi.PiMicrosoftWordLogo,
   PiMicrosoftExcelLogo: Pi.PiMicrosoftExcelLogo,
   PiMicrosoftPowerpointLogo: Pi.PiMicrosoftPowerpointLogo,
-  // Operating Systems
+  // ─── Operating Systems ───────────────────────────────────────
   PiWindowsLogo: Pi.PiWindowsLogo,
   SiLinux: Si.SiLinux,
   SiApple: Si.SiApple,
 };
+
+// Filter out any undefined entries (icons that don't exist in the installed version)
+const ICON_POOL = Object.fromEntries(
+  Object.entries(ICON_POOL_RAW).filter(([, v]) => v !== undefined),
+) as Record<
+  string,
+  React.ComponentType<{ size?: number; className?: string }>
+>;
 
 interface Skill {
   name: string;
@@ -107,6 +172,10 @@ export default function SkillsManager() {
     color: "#61DAFB",
   });
   const [searchQuery, setSearchQuery] = useState("");
+
+  // "Add New Group" state
+  const [showAddGroupModal, setShowAddGroupModal] = useState(false);
+  const [newGroupName, setNewGroupName] = useState("");
 
   useEffect(() => {
     async function fetchSkills() {
@@ -155,7 +224,36 @@ export default function SkillsManager() {
     }
   };
 
-  // Reordering functions
+  // ─── Group management ─────────────────────────────────────────────────────
+  const addGroup = () => {
+    const trimmed = newGroupName
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, "-");
+    if (!trimmed) return;
+    if (categories.some((c) => c.category === trimmed)) {
+      alert("A group with this name already exists.");
+      return;
+    }
+    setCategories([...categories, { category: trimmed, skills: [] }]);
+    setNewGroupName("");
+    setShowAddGroupModal(false);
+  };
+
+  const deleteCategory = (catIdx: number) => {
+    const groupName = categories[catIdx].category;
+    if (
+      confirm(
+        `Delete the "${groupName}" group and all ${categories[catIdx].skills.length} skill(s) inside it?`,
+      )
+    ) {
+      const updated = [...categories];
+      updated.splice(catIdx, 1);
+      setCategories(updated);
+    }
+  };
+
+  // ─── Skill reordering ────────────────────────────────────────────────────
   const moveSkill = (
     catIdx: number,
     skillIdx: number,
@@ -167,7 +265,6 @@ export default function SkillsManager() {
 
     if (targetIdx < 0 || targetIdx >= category.skills.length) return;
 
-    // Swap elements
     const temp = category.skills[skillIdx];
     category.skills[skillIdx] = category.skills[targetIdx];
     category.skills[targetIdx] = temp;
@@ -221,7 +318,7 @@ export default function SkillsManager() {
 
   return (
     <div className="space-y-6">
-      {/* Header and save button */}
+      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-3xl font-extrabold tracking-tight mb-1">
@@ -234,22 +331,41 @@ export default function SkillsManager() {
           </p>
         </div>
 
-        <button
-          onClick={handleSaveAll}
-          disabled={saving}
-          className={`px-5 py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 text-white shadow-md transition-all ${
-            lightMode
-              ? "bg-accentDark hover:bg-accentHoverDark shadow-accentDark/10"
-              : "bg-accentLight hover:bg-accentHoverLight shadow-accentLight/10"
-          }`}
-        >
-          {saving ? (
-            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-          ) : (
-            <MdSave size={18} />
-          )}
-          <span>Save Changes</span>
-        </button>
+        <div className="flex items-center gap-3">
+          {/* New Group button */}
+          <button
+            onClick={() => {
+              setNewGroupName("");
+              setShowAddGroupModal(true);
+            }}
+            className={`px-4 py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 shadow-md transition-all border ${
+              lightMode
+                ? "border-accentDark text-accentDark hover:bg-accentDark hover:text-white"
+                : "border-accentLight text-accentLight hover:bg-accentLight hover:text-white"
+            }`}
+          >
+            <MdCreateNewFolder size={18} />
+            <span>New Group</span>
+          </button>
+
+          {/* Save All button */}
+          <button
+            onClick={handleSaveAll}
+            disabled={saving}
+            className={`px-5 py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 text-white shadow-md transition-all ${
+              lightMode
+                ? "bg-accentDark hover:bg-accentHoverDark shadow-accentDark/10"
+                : "bg-accentLight hover:bg-accentHoverLight shadow-accentLight/10"
+            }`}
+          >
+            {saving ? (
+              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+            ) : (
+              <MdSave size={18} />
+            )}
+            <span>Save Changes</span>
+          </button>
+        </div>
       </div>
 
       {status.message && (
@@ -275,9 +391,32 @@ export default function SkillsManager() {
         </div>
       ) : (
         <div className="space-y-8">
-          {categories.map((cat, catIdx) => (
+          {categories.length === 0 && (
             <div
+              className={`p-12 text-center rounded-2xl border ${
+                lightMode
+                  ? "bg-white border-subtleDark/20"
+                  : "bg-black/10 border-subtleLight/10"
+              }`}
+            >
+              <MdCreateNewFolder
+                size={40}
+                className="mx-auto mb-3 opacity-30"
+              />
+              <p className="opacity-60 mb-1">No skill groups yet.</p>
+              <p className="text-xs opacity-40">
+                Click &quot;New Group&quot; to create your first group.
+              </p>
+            </div>
+          )}
+
+          {categories.map((cat, catIdx) => (
+            <motion.div
               key={cat.category}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.3, delay: catIdx * 0.05 }}
               className={`p-6 rounded-2xl border transition-all duration-300 ${
                 lightMode
                   ? "bg-white border-subtleDark/25 shadow-lg shadow-subtleDark/5"
@@ -289,20 +428,30 @@ export default function SkillsManager() {
                 <h3 className="text-xl font-bold uppercase tracking-wider text-accentLight dark:text-accentDark">
                   {cat.category}
                 </h3>
-                <button
-                  onClick={() => openAddSkill(catIdx)}
-                  className={`flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-lg border border-inherit hover:bg-accentLight hover:text-white transition-colors`}
-                >
-                  <MdAdd size={16} />
-                  <span>Add Skill</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => openAddSkill(catIdx)}
+                    className="flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-lg border border-inherit hover:bg-accentLight hover:text-white transition-colors"
+                  >
+                    <MdAdd size={16} />
+                    <span>Add Skill</span>
+                  </button>
+                  <button
+                    onClick={() => deleteCategory(catIdx)}
+                    title="Delete Group"
+                    className="flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-lg border border-inherit hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/30 transition-colors"
+                  >
+                    <MdDelete size={16} />
+                    <span>Delete Group</span>
+                  </button>
+                </div>
               </div>
 
               {/* Skills Grid */}
               {cat.skills.length === 0 ? (
                 <p className="text-sm opacity-60 text-center py-6">
-                  No skills in this category. Click &apos;Add Skill&apos; to get
-                  started.
+                  No skills in this category. Click &apos;Add Skill&apos; to
+                  get started.
                 </p>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -370,12 +519,113 @@ export default function SkillsManager() {
                   })}
                 </div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       )}
 
-      {/* Add / Edit Skill Modal */}
+      {/* ── Add New Group Modal ─────────────────────────────────────────── */}
+      <AnimatePresence>
+        {showAddGroupModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowAddGroupModal(false)}
+              className="absolute inset-0 bg-black/60 backdrop-blur-xs"
+            />
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className={`relative w-full max-w-md rounded-2xl shadow-2xl border p-6 ${
+                lightMode
+                  ? "bg-white border-subtleDark/20 text-textDark"
+                  : "bg-primaryLight border-subtleLight/20 text-textLight"
+              }`}
+            >
+              <div className="flex justify-between items-center mb-5">
+                <h3 className="text-xl font-bold flex items-center gap-2">
+                  <MdCreateNewFolder size={22} />
+                  Create New Group
+                </h3>
+                <button
+                  onClick={() => setShowAddGroupModal(false)}
+                  className={`p-1.5 rounded-lg ${
+                    lightMode
+                      ? "hover:bg-primaryLight/10"
+                      : "hover:bg-primaryDark/10"
+                  }`}
+                >
+                  <MdClose size={22} />
+                </button>
+              </div>
+
+              <p
+                className={`text-sm mb-4 ${lightMode ? "text-textDark/60" : "text-textLight/60"}`}
+              >
+                Enter a group name (e.g. &quot;Frontend&quot;,
+                &quot;Backend&quot;, &quot;OS&quot;). It will be stored in
+                lowercase-hyphenated form.
+              </p>
+
+              <input
+                type="text"
+                autoFocus
+                value={newGroupName}
+                onChange={(e) => setNewGroupName(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") addGroup();
+                }}
+                placeholder="e.g. Databases"
+                className={`w-full px-4 py-3 rounded-lg border outline-none mb-5 ${
+                  lightMode
+                    ? "bg-primaryDark border-subtleDark/20 focus:border-accentDark"
+                    : "bg-primaryLight/50 border-subtleLight/20 focus:border-accentLight"
+                }`}
+              />
+
+              {newGroupName.trim() && (
+                <p
+                  className={`text-xs mb-4 ${lightMode ? "text-textDark/50" : "text-textLight/50"}`}
+                >
+                  Will be saved as:{" "}
+                  <code className="font-mono">
+                    &quot;
+                    {newGroupName.trim().toLowerCase().replace(/\s+/g, "-")}
+                    &quot;
+                  </code>
+                </p>
+              )}
+
+              <div className="flex justify-end gap-3">
+                <button
+                  type="button"
+                  onClick={() => setShowAddGroupModal(false)}
+                  className="px-4 py-2 rounded-lg border border-inherit text-sm font-semibold hover:bg-red-500/10 hover:text-red-500 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={addGroup}
+                  disabled={!newGroupName.trim()}
+                  className={`px-4 py-2 rounded-lg text-sm font-semibold text-white shadow-md transition-colors disabled:opacity-40 disabled:cursor-not-allowed ${
+                    lightMode
+                      ? "bg-accentDark hover:bg-accentHoverDark"
+                      : "bg-accentLight hover:bg-accentHoverLight"
+                  }`}
+                >
+                  Create Group
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* ── Add / Edit Skill Modal ────────────────────────────────────────── */}
       <AnimatePresence>
         {showModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -471,14 +721,18 @@ export default function SkillsManager() {
                 {/* Searchable Brand Icon Grid */}
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider mb-2">
-                    Pick Brand Icon
+                    Pick Brand Icon{" "}
+                    <span className="font-normal normal-case opacity-50">
+                      ({Object.keys(ICON_POOL).length} icons available — MdStar
+                      = default if none match)
+                    </span>
                   </label>
                   <div className="relative mb-3">
                     <input
                       type="text"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Search icons..."
+                      placeholder="Search icons (e.g. React, Node, SQL)..."
                       className={`w-full pl-10 pr-4 py-2 rounded-lg border outline-none text-sm ${
                         lightMode
                           ? "bg-primaryDark border-subtleDark/20 focus:border-accentDark"
@@ -492,7 +746,7 @@ export default function SkillsManager() {
                   </div>
 
                   <div
-                    className={`grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 p-3 rounded-lg max-h-48 overflow-y-auto border ${
+                    className={`grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 p-3 rounded-lg max-h-56 overflow-y-auto border ${
                       lightMode
                         ? "bg-primaryDark/30 border-subtleDark/15"
                         : "bg-primaryLight/30 border-subtleLight/10"
@@ -500,6 +754,7 @@ export default function SkillsManager() {
                   >
                     {filteredIcons.map((name) => {
                       const Icon = ICON_POOL[name];
+                      if (!Icon) return null;
                       const isSelected = skillForm.icon === name;
                       return (
                         <button
@@ -522,15 +777,18 @@ export default function SkillsManager() {
                           <Icon size={20} />
                           <span className="text-[9px] mt-1 text-center truncate max-w-full font-mono">
                             {name
-                              .replace("Si", "")
-                              .replace("Pi", "")
-                              .replace("Tb", "")
-                              .replace("Di", "")
-                              .replace("Ri", "")}
+                              .replace(/^(Si|Pi|Tb|Di|Ri)/, "")}
                           </span>
                         </button>
                       );
                     })}
+
+                    {filteredIcons.length === 0 && (
+                      <div className="col-span-full text-center py-4 text-sm opacity-50">
+                        No icons match &quot;{searchQuery}&quot;. The skill will
+                        use the default ⭐ icon.
+                      </div>
+                    )}
                   </div>
                 </div>
 

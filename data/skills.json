@@ -13,11 +13,6 @@
         "color": "#1572B6"
       },
       {
-        "name": "Sass",
-        "icon": "SiSass",
-        "color": "#CC6699"
-      },
-      {
         "name": "JavaScript",
         "icon": "SiJavascript",
         "color": "#F7DF1E"
@@ -26,6 +21,11 @@
         "name": "TypeScript",
         "icon": "SiTypescript",
         "color": "#3178C6"
+      },
+      {
+        "name": "Sass",
+        "icon": "SiSass",
+        "color": "#CC6699"
       },
       {
         "name": "React",

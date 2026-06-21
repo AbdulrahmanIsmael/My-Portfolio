@@ -12,10 +12,13 @@ import {
   MdClose,
   MdLanguage,
   MdCode,
+  MdFilterList,
 } from "react-icons/md";
 import Image from "next/image";
 import useAppStore from "@/stores/store";
 import { I_appStore } from "@/stores/types/appStore-types";
+
+type ProjectType = "frontend" | "backend" | "fullstack" | "mobile";
 
 interface TranslationFields {
   title: string;
@@ -25,6 +28,7 @@ interface TranslationFields {
 
 interface Project {
   id: string;
+  type: ProjectType;
   image: string;
   tech: string[];
   liveUrl: string;
@@ -39,13 +43,17 @@ export default function ProjectsCrud() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
+  
+  // Dashboard filter tab
+  const [activeTab, setActiveTab] = useState<ProjectType>("frontend");
 
   // Modal / Form state
   const [showModal, setShowModal] = useState(false);
   const [modalMode, setModalMode] = useState<"add" | "edit">("add");
-  const [activeProjectIndex, setActiveProjectIndex] = useState<number>(-1);
+  const [activeProjectGlobalIndex, setActiveProjectGlobalIndex] = useState<number>(-1);
   const [projectForm, setProjectForm] = useState<Project>({
     id: "",
+    type: "frontend",
     image: "/assets/images/cinema.png",
     tech: [],
     liveUrl: "",
@@ -65,7 +73,12 @@ export default function ProjectsCrud() {
         const res = await fetch("/api/dashboard/projects");
         if (res.ok) {
           const data = await res.json();
-          setProjects(data);
+          // Ensure all existing projects have a type
+          const fixedData = data.map((p: any) => ({
+            ...p,
+            type: p.type || "frontend"
+          }));
+          setProjects(fixedData);
         }
       } catch (err) {
         console.error(err);
@@ -110,23 +123,29 @@ export default function ProjectsCrud() {
     }
   };
 
-  const moveProject = (index: number, direction: "up" | "down") => {
+  // Get current tab's projects
+  const filteredProjects = projects.filter((p) => p.type === activeTab);
+
+  const moveProject = (filteredIndex: number, direction: "up" | "down") => {
+    const targetFilteredIndex = direction === "up" ? filteredIndex - 1 : filteredIndex + 1;
+    if (targetFilteredIndex < 0 || targetFilteredIndex >= filteredProjects.length) return;
+
+    // Find their global indices
+    const currentGlobalIndex = projects.findIndex(p => p.id === filteredProjects[filteredIndex].id);
+    const targetGlobalIndex = projects.findIndex(p => p.id === filteredProjects[targetFilteredIndex].id);
+
     const updated = [...projects];
-    const targetIdx = direction === "up" ? index - 1 : index + 1;
-
-    if (targetIdx < 0 || targetIdx >= projects.length) return;
-
-    const temp = updated[index];
-    updated[index] = updated[targetIdx];
-    updated[targetIdx] = temp;
+    const temp = updated[currentGlobalIndex];
+    updated[currentGlobalIndex] = updated[targetGlobalIndex];
+    updated[targetGlobalIndex] = temp;
 
     setProjects(updated);
   };
 
-  const deleteProject = (index: number) => {
+  const deleteProject = (globalIndex: number) => {
     if (confirm("Are you sure you want to delete this project?")) {
       const updated = [...projects];
-      updated.splice(index, 1);
+      updated.splice(globalIndex, 1);
       setProjects(updated);
     }
   };
@@ -141,6 +160,7 @@ export default function ProjectsCrud() {
 
     setProjectForm({
       id: nextId,
+      type: activeTab, // default to current tab
       image: "/assets/images/seafarer-management-system.png",
       tech: [],
       liveUrl: "",
@@ -153,10 +173,10 @@ export default function ProjectsCrud() {
     setShowModal(true);
   };
 
-  const openEditProject = (index: number) => {
+  const openEditProject = (globalIndex: number) => {
     setModalMode("edit");
-    setActiveProjectIndex(index);
-    setProjectForm(JSON.parse(JSON.stringify(projects[index]))); // deep copy
+    setActiveProjectGlobalIndex(globalIndex);
+    setProjectForm(JSON.parse(JSON.stringify(projects[globalIndex]))); // deep copy
     setNewTechTag("");
     setActiveLangTab("en");
     setShowModal(true);
@@ -190,11 +210,16 @@ export default function ProjectsCrud() {
     if (modalMode === "add") {
       updated.push(projectForm);
     } else {
-      updated[activeProjectIndex] = projectForm;
+      updated[activeProjectGlobalIndex] = projectForm;
     }
 
     setProjects(updated);
     setShowModal(false);
+    
+    // Switch to the tab of the project we just added/edited
+    if (projectForm.type !== activeTab) {
+      setActiveTab(projectForm.type);
+    }
   };
 
   return (
@@ -208,8 +233,7 @@ export default function ProjectsCrud() {
           <p
             className={`text-sm ${lightMode ? "text-textDark/60" : "text-textLight/60"}`}
           >
-            Manage showcase projects, technologies used, and English/Arabic
-            translation keys.
+            Manage showcase projects categorized by stack, technologies, and translations.
           </p>
         </div>
 
@@ -254,21 +278,43 @@ export default function ProjectsCrud() {
         </div>
       ) : (
         <div className="space-y-4">
-          <div className="flex justify-end">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            
+            {/* Category Tabs */}
+            <div className={`flex items-center gap-1 p-1 rounded-xl border ${lightMode ? 'bg-subtleDark/5 border-subtleDark/20' : 'bg-subtleLight/5 border-subtleLight/10'}`}>
+              {(["frontend", "backend", "fullstack", "mobile"] as ProjectType[]).map((type) => (
+                <button
+                  key={type}
+                  onClick={() => setActiveTab(type)}
+                  className={`px-4 py-2 rounded-lg text-sm font-semibold capitalize transition-all ${
+                    activeTab === type
+                      ? lightMode 
+                        ? 'bg-white shadow-sm text-accentDark' 
+                        : 'bg-primaryLight/40 shadow-sm text-accentLight'
+                      : lightMode
+                        ? 'text-textDark/60 hover:text-textDark hover:bg-subtleDark/10'
+                        : 'text-textLight/60 hover:text-textLight hover:bg-subtleLight/10'
+                  }`}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+
             <button
               onClick={openAddProject}
-              className={`flex items-center gap-1.5 text-sm font-semibold px-4 py-2.5 rounded-xl text-white shadow-md transition-all ${
+              className={`flex items-center gap-1.5 text-sm font-semibold px-4 py-2.5 rounded-xl text-white shadow-md transition-all shrink-0 ${
                 lightMode
                   ? "bg-accentDark hover:bg-accentHoverDark shadow-accentDark/10"
                   : "bg-accentLight hover:bg-accentHoverLight shadow-accentLight/10"
               }`}
             >
               <MdAdd size={18} />
-              <span>Add New Project</span>
+              <span>Add Project</span>
             </button>
           </div>
 
-          {projects.length === 0 ? (
+          {filteredProjects.length === 0 ? (
             <div
               className={`p-12 text-center rounded-2xl border ${
                 lightMode
@@ -276,102 +322,116 @@ export default function ProjectsCrud() {
                   : "bg-black/10 border-subtleLight/10"
               }`}
             >
-              <p className="opacity-60 mb-2">No projects found.</p>
+              <p className="opacity-60 mb-2">No projects in this category.</p>
               <p className="text-xs opacity-50">
-                Click &quot;Add New Project&quot; to get started.
+                Click &quot;Add Project&quot; to get started.
               </p>
             </div>
           ) : (
             <div className="space-y-4">
-              {projects.map((project, idx) => (
-                <div
-                  key={project.id}
-                  className={`p-5 rounded-2xl border flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-300 ${
-                    lightMode
-                      ? "bg-white border-subtleDark/20 hover:border-accentDark shadow-lg shadow-subtleDark/5"
-                      : "bg-black/10 border-subtleLight/10 hover:border-accentLight shadow-lg shadow-black/10"
-                  }`}
-                >
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                    {/* Small image thumb */}
-                    <div className="w-24 h-16 rounded-lg overflow-hidden shrink-0 border border-inherit relative bg-subtleLight/15 flex items-center justify-center">
-                      {project.image ? (
-                        <Image
-                          src={project.image}
-                          alt={project.en.title}
-                          fill
-                          className="object-cover"
-                        />
-                      ) : (
-                        <span className="text-xs opacity-50">No Image</span>
-                      )}
-                    </div>
-
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-xs font-semibold px-2 py-0.5 rounded bg-accentLight/10 text-accentLight dark:bg-accentDark/15 dark:text-accentDark">
-                          {project.en.category || "No Category"}
-                        </span>
-                        <span className="text-xs opacity-50 font-mono">
-                          ID: {project.id}
-                        </span>
+              <AnimatePresence mode="popLayout">
+                {filteredProjects.map((project, idx) => {
+                  // We need the global index to pass to edit/delete
+                  const globalIdx = projects.findIndex(p => p.id === project.id);
+                  
+                  return (
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    key={project.id}
+                    className={`p-5 rounded-2xl border flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-300 ${
+                      lightMode
+                        ? "bg-white border-subtleDark/20 hover:border-accentDark shadow-lg shadow-subtleDark/5"
+                        : "bg-black/10 border-subtleLight/10 hover:border-accentLight shadow-lg shadow-black/10"
+                    }`}
+                  >
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                      {/* Small image thumb */}
+                      <div className="w-24 h-16 rounded-lg overflow-hidden shrink-0 border border-inherit relative bg-subtleLight/15 flex items-center justify-center">
+                        {project.image ? (
+                          <Image
+                            src={project.image}
+                            alt={project.en.title}
+                            fill
+                            className="object-cover"
+                          />
+                        ) : (
+                          <span className="text-xs opacity-50">No Image</span>
+                        )}
                       </div>
-                      <h3 className="text-lg font-bold">
-                        {project.en.title || "Untitled Project"}
-                      </h3>
-                      <p
-                        className={`text-xs line-clamp-1 opacity-70 ${lightMode ? "text-textDark/80" : "text-textLight/80"}`}
-                      >
-                        {project.en.description || "No description provided."}
-                      </p>
-                      <div className="flex flex-wrap gap-1 mt-1">
-                        {project.tech.map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-[10px] px-2 py-0.5 rounded-md bg-subtleLight/15 opacity-80"
-                          >
-                            {tag}
+
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="text-xs font-semibold px-2 py-0.5 rounded bg-accentLight/10 text-accentLight dark:bg-accentDark/15 dark:text-accentDark uppercase tracking-wider">
+                            {project.type}
                           </span>
-                        ))}
+                          <span className="text-xs font-semibold px-2 py-0.5 rounded border border-inherit opacity-70">
+                            {project.en.category || "No Category"}
+                          </span>
+                          <span className="text-xs opacity-50 font-mono">
+                            ID: {project.id}
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold">
+                          {project.en.title || "Untitled Project"}
+                        </h3>
+                        <p
+                          className={`text-xs line-clamp-1 opacity-70 ${lightMode ? "text-textDark/80" : "text-textLight/80"}`}
+                        >
+                          {project.en.description || "No description provided."}
+                        </p>
+                        <div className="flex flex-wrap gap-1 mt-1">
+                          {project.tech.map((tag) => (
+                            <span
+                              key={tag}
+                              className="text-[10px] px-2 py-0.5 rounded-md bg-subtleLight/15 opacity-80"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Actions */}
-                  <div className="flex items-center gap-2 shrink-0 self-end md:self-auto">
-                    <button
-                      onClick={() => moveProject(idx, "up")}
-                      disabled={idx === 0}
-                      title="Move Up"
-                      className="p-2.5 rounded-xl border border-inherit hover:bg-accentLight/10 disabled:opacity-30 transition-colors"
-                    >
-                      <MdArrowUpward size={18} />
-                    </button>
-                    <button
-                      onClick={() => moveProject(idx, "down")}
-                      disabled={idx === projects.length - 1}
-                      title="Move Down"
-                      className="p-2.5 rounded-xl border border-inherit hover:bg-accentLight/10 disabled:opacity-30 transition-colors"
-                    >
-                      <MdArrowDownward size={18} />
-                    </button>
-                    <button
-                      onClick={() => openEditProject(idx)}
-                      title="Edit"
-                      className="p-2.5 rounded-xl border border-inherit hover:bg-blue-500/10 hover:text-blue-500 transition-colors"
-                    >
-                      <MdEdit size={18} />
-                    </button>
-                    <button
-                      onClick={() => deleteProject(idx)}
-                      title="Delete"
-                      className="p-2.5 rounded-xl border border-inherit hover:bg-red-500/10 hover:text-red-500 transition-colors"
-                    >
-                      <MdDelete size={18} />
-                    </button>
-                  </div>
-                </div>
-              ))}
+                    {/* Actions */}
+                    <div className="flex items-center gap-2 shrink-0 self-end md:self-auto">
+                      <button
+                        onClick={() => moveProject(idx, "up")}
+                        disabled={idx === 0}
+                        title="Move Up"
+                        className="p-2.5 rounded-xl border border-inherit hover:bg-accentLight/10 disabled:opacity-30 transition-colors"
+                      >
+                        <MdArrowUpward size={18} />
+                      </button>
+                      <button
+                        onClick={() => moveProject(idx, "down")}
+                        disabled={idx === filteredProjects.length - 1}
+                        title="Move Down"
+                        className="p-2.5 rounded-xl border border-inherit hover:bg-accentLight/10 disabled:opacity-30 transition-colors"
+                      >
+                        <MdArrowDownward size={18} />
+                      </button>
+                      <button
+                        onClick={() => openEditProject(globalIdx)}
+                        title="Edit"
+                        className="p-2.5 rounded-xl border border-inherit hover:bg-blue-500/10 hover:text-blue-500 transition-colors"
+                      >
+                        <MdEdit size={18} />
+                      </button>
+                      <button
+                        onClick={() => deleteProject(globalIdx)}
+                        title="Delete"
+                        className="p-2.5 rounded-xl border border-inherit hover:bg-red-500/10 hover:text-red-500 transition-colors"
+                      >
+                        <MdDelete size={18} />
+                      </button>
+                    </div>
+                  </motion.div>
+                )})}
+              </AnimatePresence>
             </div>
           )}
         </div>
@@ -421,8 +481,36 @@ export default function ProjectsCrud() {
                 onSubmit={handleModalSubmit}
                 className="flex-1 overflow-y-auto p-6 space-y-6"
               >
-                {/* Meta details: ID, image path, Live, Github */}
+                {/* Meta details: Type, ID, image path, Live, Github */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  
+                  <div className="col-span-1 md:col-span-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                      <MdFilterList size={16} />
+                      Project Type (Stack)
+                    </label>
+                    <div className={`flex flex-wrap items-center gap-2 p-1.5 rounded-xl border w-fit ${lightMode ? 'bg-subtleDark/5 border-subtleDark/20' : 'bg-subtleLight/5 border-subtleLight/10'}`}>
+                      {(["frontend", "backend", "fullstack", "mobile"] as ProjectType[]).map((t) => (
+                        <button
+                          key={t}
+                          type="button"
+                          onClick={() => setProjectForm({...projectForm, type: t})}
+                          className={`px-4 py-2 rounded-lg text-sm font-semibold capitalize transition-all ${
+                            projectForm.type === t
+                              ? lightMode 
+                                ? 'bg-white shadow-sm text-accentDark border border-subtleDark/10' 
+                                : 'bg-primaryLight/40 shadow-sm text-accentLight border border-subtleLight/10'
+                              : lightMode
+                                ? 'text-textDark/60 hover:text-textDark hover:bg-subtleDark/10'
+                                : 'text-textLight/60 hover:text-textLight hover:bg-subtleLight/10'
+                          }`}
+                        >
+                          {t}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider mb-2">
                       Project ID
@@ -659,7 +747,7 @@ export default function ProjectsCrud() {
                       <div className="grid grid-cols-1 gap-4">
                         <div>
                           <label className="block text-xs font-semibold mb-1.5">
-                            English Category
+                            English Sub-Category Label (e.g. "React", "Node API")
                           </label>
                           <input
                             type="text"
@@ -674,7 +762,7 @@ export default function ProjectsCrud() {
                                 },
                               })
                             }
-                            placeholder="e.g. Movies Platform"
+                            placeholder="e.g. React Frontend"
                             className="w-full px-4 py-2.5 rounded-lg border border-inherit outline-none bg-inherit"
                           />
                         </div>
@@ -729,7 +817,7 @@ export default function ProjectsCrud() {
                       <div className="grid grid-cols-1 gap-4">
                         <div>
                           <label className="block text-xs font-semibold mb-1.5 text-right">
-                            التصنيف بالعربية
+                            التصنيف الفرعي بالعربية
                           </label>
                           <input
                             type="text"
@@ -744,7 +832,7 @@ export default function ProjectsCrud() {
                                 },
                               })
                             }
-                            placeholder="مثال: منصة أفلام"
+                            placeholder="مثال: واجهة أمامية، منصة أفلام"
                             className="w-full px-4 py-2.5 rounded-lg border border-inherit outline-none bg-inherit text-right"
                           />
                         </div>
