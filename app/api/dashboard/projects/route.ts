@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
-import path from "path";
 import { isRequestAuthorized } from "@/lib/auth-utils";
+import path from "path";
 import { revalidatePath } from "next/cache";
 
 const projectsFilePath = path.join(process.cwd(), "data", "projects.json");
@@ -13,6 +13,7 @@ type JsonObj = Record<string, any>;
 
 interface ProjectMeta {
   id: string;
+  type: string;
   image: string;
   tech: string[];
   liveUrl: string;
@@ -56,7 +57,10 @@ export async function GET() {
     return NextResponse.json(mergedProjects);
   } catch (error) {
     console.error("GET Projects API Error:", error);
-    return NextResponse.json({ error: "Failed to read projects data." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to read projects data." },
+      { status: 500 },
+    );
   }
 }
 
@@ -70,6 +74,7 @@ export async function POST(request: Request) {
 
     const metadataList: ProjectMeta[] = clientProjects.map((p) => ({
       id: String(p.id),
+      type: p.type || "frontend",
       image: p.image || "",
       tech: p.tech || [],
       liveUrl: p.liveUrl || "",
@@ -113,7 +118,11 @@ export async function POST(request: Request) {
       };
     });
 
-    await fs.writeFile(projectsFilePath, JSON.stringify(metadataList, null, 2), "utf8");
+    await fs.writeFile(
+      projectsFilePath,
+      JSON.stringify(metadataList, null, 2),
+      "utf8",
+    );
     await fs.writeFile(localeEnPath, JSON.stringify(en, null, 2), "utf8");
     await fs.writeFile(localeArPath, JSON.stringify(ar, null, 2), "utf8");
 
@@ -123,6 +132,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("POST Projects API Error:", error);
-    return NextResponse.json({ error: "Failed to update projects data." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to update projects data." },
+      { status: 500 },
+    );
   }
 }

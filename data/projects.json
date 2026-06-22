@@ -62,7 +62,7 @@
   },
   {
     "id": "4",
-    "type": "fullstack",
+    "type": "frontend",
     "image": "/assets/images/teryaq.png",
     "tech": [
       "React",
@@ -131,5 +131,33 @@
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/AbdulrahmanIsmael/shippr-ecommerce"
+  },
+  {
+    "id": "12",
+    "type": "backend",
+    "image": "/assets/images/1782086144299-ScreenShot_Tool_-20260622023829.png",
+    "tech": [
+      "Node.js",
+      "Express",
+      "Ejs",
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "liveUrl": "",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/Shop-FullStack"
+  },
+  {
+    "id": "13",
+    "type": "mobile",
+    "image": "/assets/images/1782086301560-mobile_app.jpeg",
+    "tech": [
+      "React Native",
+      "Typescript",
+      "Expo",
+      "React"
+    ],
+    "liveUrl": "",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/meals-tracker-mobile-app"
   }
 ]

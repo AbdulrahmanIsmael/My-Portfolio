@@ -1,22 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  MdSave,
   MdAdd,
-  MdEdit,
-  MdDelete,
-  MdArrowUpward,
   MdArrowDownward,
+  MdArrowUpward,
   MdClose,
-  MdLanguage,
   MdCode,
+  MdDelete,
+  MdEdit,
   MdFilterList,
+  MdLanguage,
+  MdSave,
 } from "react-icons/md";
+import { useEffect, useState } from "react";
+
+import { I_appStore } from "@/stores/types/appStore-types";
 import Image from "next/image";
 import useAppStore from "@/stores/store";
-import { I_appStore } from "@/stores/types/appStore-types";
 
 type ProjectType = "frontend" | "backend" | "fullstack" | "mobile";
 
@@ -43,14 +44,15 @@ export default function ProjectsCrud() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [status, setStatus] = useState({ type: "", message: "" });
-  
+
   // Dashboard filter tab
   const [activeTab, setActiveTab] = useState<ProjectType>("frontend");
 
   // Modal / Form state
   const [showModal, setShowModal] = useState(false);
   const [modalMode, setModalMode] = useState<"add" | "edit">("add");
-  const [activeProjectGlobalIndex, setActiveProjectGlobalIndex] = useState<number>(-1);
+  const [activeProjectGlobalIndex, setActiveProjectGlobalIndex] =
+    useState<number>(-1);
   const [projectForm, setProjectForm] = useState<Project>({
     id: "",
     type: "frontend",
@@ -76,7 +78,7 @@ export default function ProjectsCrud() {
           // Ensure all existing projects have a type
           const fixedData = data.map((p: any) => ({
             ...p,
-            type: p.type || "frontend"
+            type: p.type || "frontend",
           }));
           setProjects(fixedData);
         }
@@ -127,12 +129,21 @@ export default function ProjectsCrud() {
   const filteredProjects = projects.filter((p) => p.type === activeTab);
 
   const moveProject = (filteredIndex: number, direction: "up" | "down") => {
-    const targetFilteredIndex = direction === "up" ? filteredIndex - 1 : filteredIndex + 1;
-    if (targetFilteredIndex < 0 || targetFilteredIndex >= filteredProjects.length) return;
+    const targetFilteredIndex =
+      direction === "up" ? filteredIndex - 1 : filteredIndex + 1;
+    if (
+      targetFilteredIndex < 0 ||
+      targetFilteredIndex >= filteredProjects.length
+    )
+      return;
 
     // Find their global indices
-    const currentGlobalIndex = projects.findIndex(p => p.id === filteredProjects[filteredIndex].id);
-    const targetGlobalIndex = projects.findIndex(p => p.id === filteredProjects[targetFilteredIndex].id);
+    const currentGlobalIndex = projects.findIndex(
+      (p) => p.id === filteredProjects[filteredIndex].id,
+    );
+    const targetGlobalIndex = projects.findIndex(
+      (p) => p.id === filteredProjects[targetFilteredIndex].id,
+    );
 
     const updated = [...projects];
     const temp = updated[currentGlobalIndex];
@@ -215,7 +226,7 @@ export default function ProjectsCrud() {
 
     setProjects(updated);
     setShowModal(false);
-    
+
     // Switch to the tab of the project we just added/edited
     if (projectForm.type !== activeTab) {
       setActiveTab(projectForm.type);
@@ -233,7 +244,8 @@ export default function ProjectsCrud() {
           <p
             className={`text-sm ${lightMode ? "text-textDark/60" : "text-textLight/60"}`}
           >
-            Manage showcase projects categorized by stack, technologies, and translations.
+            Manage showcase projects categorized by stack, technologies, and
+            translations.
           </p>
         </div>
 
@@ -279,21 +291,24 @@ export default function ProjectsCrud() {
       ) : (
         <div className="space-y-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            
             {/* Category Tabs */}
-            <div className={`flex items-center gap-1 p-1 rounded-xl border ${lightMode ? 'bg-subtleDark/5 border-subtleDark/20' : 'bg-subtleLight/5 border-subtleLight/10'}`}>
-              {(["frontend", "backend", "fullstack", "mobile"] as ProjectType[]).map((type) => (
+            <div
+              className={`flex items-center gap-1 p-1 rounded-xl border ${lightMode ? "bg-subtleDark/5 border-subtleDark/20" : "bg-subtleLight/5 border-subtleLight/10"}`}
+            >
+              {(
+                ["frontend", "backend", "fullstack", "mobile"] as ProjectType[]
+              ).map((type) => (
                 <button
                   key={type}
                   onClick={() => setActiveTab(type)}
                   className={`px-4 py-2 rounded-lg text-sm font-semibold capitalize transition-all ${
                     activeTab === type
-                      ? lightMode 
-                        ? 'bg-white shadow-sm text-accentDark' 
-                        : 'bg-primaryLight/40 shadow-sm text-accentLight'
+                      ? lightMode
+                        ? "bg-white shadow-sm text-accentDark"
+                        : "bg-primaryLight/40 shadow-sm text-accentLight"
                       : lightMode
-                        ? 'text-textDark/60 hover:text-textDark hover:bg-subtleDark/10'
-                        : 'text-textLight/60 hover:text-textLight hover:bg-subtleLight/10'
+                        ? "text-textDark/60 hover:text-textDark hover:bg-subtleDark/10"
+                        : "text-textLight/60 hover:text-textLight hover:bg-subtleLight/10"
                   }`}
                 >
                   {type}
@@ -332,105 +347,109 @@ export default function ProjectsCrud() {
               <AnimatePresence mode="popLayout">
                 {filteredProjects.map((project, idx) => {
                   // We need the global index to pass to edit/delete
-                  const globalIdx = projects.findIndex(p => p.id === project.id);
-                  
+                  const globalIdx = projects.findIndex(
+                    (p) => p.id === project.id,
+                  );
+
                   return (
-                  <motion.div
-                    layout
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.2 }}
-                    key={project.id}
-                    className={`p-5 rounded-2xl border flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-300 ${
-                      lightMode
-                        ? "bg-white border-subtleDark/20 hover:border-accentDark shadow-lg shadow-subtleDark/5"
-                        : "bg-black/10 border-subtleLight/10 hover:border-accentLight shadow-lg shadow-black/10"
-                    }`}
-                  >
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                      {/* Small image thumb */}
-                      <div className="w-24 h-16 rounded-lg overflow-hidden shrink-0 border border-inherit relative bg-subtleLight/15 flex items-center justify-center">
-                        {project.image ? (
-                          <Image
-                            src={project.image}
-                            alt={project.en.title}
-                            fill
-                            className="object-cover"
-                          />
-                        ) : (
-                          <span className="text-xs opacity-50">No Image</span>
-                        )}
-                      </div>
-
-                      <div className="space-y-1">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <span className="text-xs font-semibold px-2 py-0.5 rounded bg-accentLight/10 text-accentLight dark:bg-accentDark/15 dark:text-accentDark uppercase tracking-wider">
-                            {project.type}
-                          </span>
-                          <span className="text-xs font-semibold px-2 py-0.5 rounded border border-inherit opacity-70">
-                            {project.en.category || "No Category"}
-                          </span>
-                          <span className="text-xs opacity-50 font-mono">
-                            ID: {project.id}
-                          </span>
+                    <motion.div
+                      layout
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      key={project.id}
+                      className={`p-5 rounded-2xl border flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-300 ${
+                        lightMode
+                          ? "bg-white border-subtleDark/20 hover:border-accentDark shadow-lg shadow-subtleDark/5"
+                          : "bg-black/10 border-subtleLight/10 hover:border-accentLight shadow-lg shadow-black/10"
+                      }`}
+                    >
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                        {/* Small image thumb */}
+                        <div className="w-24 h-16 rounded-lg overflow-hidden shrink-0 border border-inherit relative bg-subtleLight/15 flex items-center justify-center">
+                          {project.image ? (
+                            <Image
+                              src={project.image}
+                              alt={project.en.title}
+                              fill
+                              className="object-cover"
+                            />
+                          ) : (
+                            <span className="text-xs opacity-50">No Image</span>
+                          )}
                         </div>
-                        <h3 className="text-lg font-bold">
-                          {project.en.title || "Untitled Project"}
-                        </h3>
-                        <p
-                          className={`text-xs line-clamp-1 opacity-70 ${lightMode ? "text-textDark/80" : "text-textLight/80"}`}
-                        >
-                          {project.en.description || "No description provided."}
-                        </p>
-                        <div className="flex flex-wrap gap-1 mt-1">
-                          {project.tech.map((tag) => (
-                            <span
-                              key={tag}
-                              className="text-[10px] px-2 py-0.5 rounded-md bg-subtleLight/15 opacity-80"
-                            >
-                              {tag}
+
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <span className="text-xs font-semibold px-2 py-0.5 rounded bg-accentLight/10 text-accentLight dark:bg-accentDark/15 dark:text-accentDark uppercase tracking-wider">
+                              {project.type}
                             </span>
-                          ))}
+                            <span className="text-xs font-semibold px-2 py-0.5 rounded border border-inherit opacity-70">
+                              {project.en.category || "No Category"}
+                            </span>
+                            <span className="text-xs opacity-50 font-mono">
+                              ID: {project.id}
+                            </span>
+                          </div>
+                          <h3 className="text-lg font-bold">
+                            {project.en.title || "Untitled Project"}
+                          </h3>
+                          <p
+                            className={`text-xs line-clamp-1 opacity-70 ${lightMode ? "text-textDark/80" : "text-textLight/80"}`}
+                          >
+                            {project.en.description ||
+                              "No description provided."}
+                          </p>
+                          <div className="flex flex-wrap gap-1 mt-1">
+                            {project.tech.map((tag) => (
+                              <span
+                                key={tag}
+                                className="text-[10px] px-2 py-0.5 rounded-md bg-subtleLight/15 opacity-80"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Actions */}
-                    <div className="flex items-center gap-2 shrink-0 self-end md:self-auto">
-                      <button
-                        onClick={() => moveProject(idx, "up")}
-                        disabled={idx === 0}
-                        title="Move Up"
-                        className="p-2.5 rounded-xl border border-inherit hover:bg-accentLight/10 disabled:opacity-30 transition-colors"
-                      >
-                        <MdArrowUpward size={18} />
-                      </button>
-                      <button
-                        onClick={() => moveProject(idx, "down")}
-                        disabled={idx === filteredProjects.length - 1}
-                        title="Move Down"
-                        className="p-2.5 rounded-xl border border-inherit hover:bg-accentLight/10 disabled:opacity-30 transition-colors"
-                      >
-                        <MdArrowDownward size={18} />
-                      </button>
-                      <button
-                        onClick={() => openEditProject(globalIdx)}
-                        title="Edit"
-                        className="p-2.5 rounded-xl border border-inherit hover:bg-blue-500/10 hover:text-blue-500 transition-colors"
-                      >
-                        <MdEdit size={18} />
-                      </button>
-                      <button
-                        onClick={() => deleteProject(globalIdx)}
-                        title="Delete"
-                        className="p-2.5 rounded-xl border border-inherit hover:bg-red-500/10 hover:text-red-500 transition-colors"
-                      >
-                        <MdDelete size={18} />
-                      </button>
-                    </div>
-                  </motion.div>
-                )})}
+                      {/* Actions */}
+                      <div className="flex items-center gap-2 shrink-0 self-end md:self-auto">
+                        <button
+                          onClick={() => moveProject(idx, "up")}
+                          disabled={idx === 0}
+                          title="Move Up"
+                          className="p-2.5 rounded-xl border border-inherit hover:bg-accentLight/10 disabled:opacity-30 transition-colors"
+                        >
+                          <MdArrowUpward size={18} />
+                        </button>
+                        <button
+                          onClick={() => moveProject(idx, "down")}
+                          disabled={idx === filteredProjects.length - 1}
+                          title="Move Down"
+                          className="p-2.5 rounded-xl border border-inherit hover:bg-accentLight/10 disabled:opacity-30 transition-colors"
+                        >
+                          <MdArrowDownward size={18} />
+                        </button>
+                        <button
+                          onClick={() => openEditProject(globalIdx)}
+                          title="Edit"
+                          className="p-2.5 rounded-xl border border-inherit hover:bg-blue-500/10 hover:text-blue-500 transition-colors"
+                        >
+                          <MdEdit size={18} />
+                        </button>
+                        <button
+                          onClick={() => deleteProject(globalIdx)}
+                          title="Delete"
+                          className="p-2.5 rounded-xl border border-inherit hover:bg-red-500/10 hover:text-red-500 transition-colors"
+                        >
+                          <MdDelete size={18} />
+                        </button>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </AnimatePresence>
             </div>
           )}
@@ -483,26 +502,36 @@ export default function ProjectsCrud() {
               >
                 {/* Meta details: Type, ID, image path, Live, Github */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  
                   <div className="col-span-1 md:col-span-2">
                     <label className="block text-xs font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
                       <MdFilterList size={16} />
                       Project Type (Stack)
                     </label>
-                    <div className={`flex flex-wrap items-center gap-2 p-1.5 rounded-xl border w-fit ${lightMode ? 'bg-subtleDark/5 border-subtleDark/20' : 'bg-subtleLight/5 border-subtleLight/10'}`}>
-                      {(["frontend", "backend", "fullstack", "mobile"] as ProjectType[]).map((t) => (
+                    <div
+                      className={`flex flex-wrap items-center gap-2 p-1.5 rounded-xl border w-fit ${lightMode ? "bg-subtleDark/5 border-subtleDark/20" : "bg-subtleLight/5 border-subtleLight/10"}`}
+                    >
+                      {(
+                        [
+                          "frontend",
+                          "backend",
+                          "fullstack",
+                          "mobile",
+                        ] as ProjectType[]
+                      ).map((t) => (
                         <button
                           key={t}
                           type="button"
-                          onClick={() => setProjectForm({...projectForm, type: t})}
+                          onClick={() =>
+                            setProjectForm({ ...projectForm, type: t })
+                          }
                           className={`px-4 py-2 rounded-lg text-sm font-semibold capitalize transition-all ${
                             projectForm.type === t
-                              ? lightMode 
-                                ? 'bg-white shadow-sm text-accentDark border border-subtleDark/10' 
-                                : 'bg-primaryLight/40 shadow-sm text-accentLight border border-subtleLight/10'
+                              ? lightMode
+                                ? "bg-white shadow-sm text-accentDark border border-subtleDark/10"
+                                : "bg-primaryLight/40 shadow-sm text-accentLight border border-subtleLight/10"
                               : lightMode
-                                ? 'text-textDark/60 hover:text-textDark hover:bg-subtleDark/10'
-                                : 'text-textLight/60 hover:text-textLight hover:bg-subtleLight/10'
+                                ? "text-textDark/60 hover:text-textDark hover:bg-subtleDark/10"
+                                : "text-textLight/60 hover:text-textLight hover:bg-subtleLight/10"
                           }`}
                         >
                           {t}
@@ -747,7 +776,8 @@ export default function ProjectsCrud() {
                       <div className="grid grid-cols-1 gap-4">
                         <div>
                           <label className="block text-xs font-semibold mb-1.5">
-                            English Sub-Category Label (e.g. "React", "Node API")
+                            English Sub-Category Label (e.g. &quot;React&quot;,
+                            &quot;Node API&quot;)
                           </label>
                           <input
                             type="text"

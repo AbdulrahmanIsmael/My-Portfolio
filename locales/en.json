@@ -159,6 +159,16 @@
           "title": "React Task Management",
           "description": "A task management app built with React, Redux, and Vite. Create, edit, filter, and manage tasks with persistent local storage.",
           "category": "React"
+        },
+        "12": {
+          "title": "Online Shop (Backend-Focused)",
+          "description": "A full-stack, backend-focused application for an online shop built using Node.js, Express, and EJS. The project follows the MVC (Model-View-Controller) architecture to maintain clean, scalable, and manageable code",
+          "category": "Node.js & Express"
+        },
+        "13": {
+          "title": "Macrozone - Meals Tracker Mobile App",
+          "description": "A cross-platform mobile application built with React Native and Expo for tracking daily meals, monitoring caloric intake, and managing nutritional details with a clean, intuitive interface and seamless navigation system.",
+          "category": "React Native"
         }
       }
     },
