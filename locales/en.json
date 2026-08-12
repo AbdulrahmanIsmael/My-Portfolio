@@ -53,11 +53,26 @@
     "Experience": {
       "title": "Experience",
       "subTitle": "My professional journey",
+      "freelance": {
+        "title": "Frontend Developer",
+        "company": "Khamsat",
+        "location": "Remote",
+        "date": "August 2026 - Present",
+        "description": "Developing and delivering web projects for clients, from understanding requirements and building responsive interfaces to backend integration, troubleshooting, deployment, and final delivery. Communicating directly with clients to understand their needs and deliver solutions that meet project requirements.",
+        "project1": {
+          "name": "Estate platform ",
+          "desc": "Enhanced a real estate platform by implementing new features, improving the admin dashboard, fixing complex image upload and data persistence issues, and optimizing responsive UI components using Next.js, TypeScript, PostgreSQL, and Drizzle ORM."
+        },
+        "project2": {
+          "name": "Students Management System",
+          "desc": "Resolved PHP/MySQL backend issues, fixed CORS configuration, and configured the application deployment on cPanel, including server and database integration."
+        }
+      },
       "work": {
         "title": "Frontend Engineer",
         "company": "Taqnit Al-M'alumat — تقنية المعلومات",
         "location": "Mansoura, Egypt",
-        "date": "January 2026 - June 2026",
+        "date": "January 2026 - July 2026",
         "description": "Working onsite with the team on SaaS projects, developing frontend user interfaces, collaborating with backend developers to integrate APIs, and maintaining SEO-optimized, high-performance, scalable, and maintainable architecture.",
         "achievement1": "Optimized the performance of a travel platform (Dubai), improving page navigation speed by 70–85% and significantly enhancing load times and overall user experience, while resolving critical frontend and dashboard issues to ensure system stability.",
         "achievement2": "Architected and developed a full-scale travel platform (Saudi Arabia) from scratch using Next.js, defining component hierarchy, data-fetching conventions, and scalable project structure while integrating RESTful APIs and translating UI/UX designs into responsive, production-grade interfaces.",
@@ -65,20 +80,14 @@
         "achievement4": "Designed and built a complete dashboard system for data management (CRUD operations), while leveraging AI-assisted tools to accelerate development and improve productivity.",
         "achievement5": "Conducted regular code reviews with a focus on performance, scalability, and maintainability, ensuring consistent engineering standards across the frontend codebase."
       },
-      "freelance": {
-        "title": "Freelance Front-End Developer",
+      "aydin": {
+        "title": "Frontend Developer",
         "company": "Aydin Labs",
-        "location": "Remote — Cairo, Egypt",
+        "location": "Cairo, Egypt (Remote)",
         "date": "September 2025 - October 2025",
-        "description": "Worked remotely on cutting-edge AI and CRM projects, building responsive and interactive user interfaces, and collaborating with backend developers to integrate RESTful APIs.",
-        "project1": {
-          "name": "AI Agent Dashboard",
-          "desc": "Developed interactive dashboard components for an AI Agent and CRM platform, building the Charts Section using Next.js, TypeScript, Tailwind CSS, and Recharts."
-        },
-        "project2": {
-          "name": "Logo Diffusion — AI Image Platform",
-          "desc": "Architected and implemented the complete frontend for an AI Image Platform's Mockup Workspace using React, Zustand, and Tailwind CSS. Designed the state management layer, built the full image processing and result display pipeline, and integrated the frontend with RESTful APIs."
-        }
+        "description": "Worked as a Freelance Front-End Developer at Aydin Labs, developing interactive interfaces for AI Agent, CRM, and AI Image Processing platforms using Next.js, React, TypeScript, and Tailwind CSS, with state management and REST API integration",
+        "achievement1": "Developed interactive interfaces for an AI Agent & CRM platform using Next.js, TypeScript, and Tailwind CSS, focusing on a scalable architecture and smooth user experience.",
+        "achievement2": "Designed and built the frontend for an AI Image Platform, implementing the workspace, state management with Zustand, image-processing flows, result presentation, and REST API integration."
       },
       "training": {
         "title": "Web Developer Trainee",
@@ -169,6 +178,11 @@
           "title": "Macrozone - Meals Tracker Mobile App",
           "description": "A cross-platform mobile application built with React Native and Expo for tracking daily meals, monitoring caloric intake, and managing nutritional details with a clean, intuitive interface and seamless navigation system.",
           "category": "React Native"
+        },
+        "14": {
+          "title": "Taskaty - Task Management Mobile App",
+          "description": "A task management mobile application to manage your daily tasks and boost your productivity",
+          "category": "Mobile APP"
         }
       }
     },

@@ -11,6 +11,23 @@
     ]
   },
   {
+    "id": "training",
+    "type": "training",
+    "achievements": [
+      "achievement1",
+      "achievement2",
+      "achievement3"
+    ]
+  },
+  {
+    "id": "internship",
+    "type": "work",
+    "achievements": [
+      "achievement1",
+      "achievement2"
+    ]
+  },
+  {
     "id": "freelance",
     "type": "work",
     "projects": [
@@ -23,16 +40,7 @@
     ]
   },
   {
-    "id": "training",
-    "type": "training",
-    "achievements": [
-      "achievement1",
-      "achievement2",
-      "achievement3"
-    ]
-  },
-  {
-    "id": "internship",
+    "id": "aydin",
     "type": "work",
     "achievements": [
       "achievement1",

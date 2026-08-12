@@ -148,6 +148,19 @@
     "githubUrl": "https://github.com/AbdulrahmanIsmael/Shop-FullStack"
   },
   {
+    "id": "14",
+    "type": "mobile",
+    "image": "/assets/images/1786567440911-taskaty.png",
+    "tech": [
+      "React Native",
+      "Expo Framework",
+      "React",
+      "Supabase"
+    ],
+    "liveUrl": "",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/Taskaty-App"
+  },
+  {
     "id": "13",
     "type": "mobile",
     "image": "/assets/images/1782086301560-mobile_app.jpeg",
