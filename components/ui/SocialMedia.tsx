@@ -7,8 +7,7 @@ import { useData } from "@/components/providers/DataProvider";
 
 const SocialMedia = ({ social, delay }: { social: string; delay: number }) => {
   const { socials: socialsData } = useData();
-  const socialsLinks: Record<string, string> = socialsData;
-  const href = socialsLinks[social] || "#";
+  const href = socialsData[social] || "#";
 
   return (
     <motion.div

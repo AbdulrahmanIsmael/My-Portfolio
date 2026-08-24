@@ -1,23 +1,29 @@
 "use client";
 
-import * as Si from "react-icons/si";
-import * as Pi from "react-icons/pi";
 import * as Di from "react-icons/di";
+import * as Pi from "react-icons/pi";
 import * as Ri from "react-icons/ri";
+import * as Si from "react-icons/si";
 import * as Tb from "react-icons/tb";
-import { MdStar } from "react-icons/md";
+
+import {
+  SkillCategory,
+  SkillItem,
+  useData,
+} from "@/components/providers/DataProvider";
 
 import { I_appStore } from "@/stores/types/appStore-types";
+import { MdStar } from "react-icons/md";
 import Title from "@/components/ui/Title";
 import { motion } from "framer-motion";
 import useAppStore from "@/stores/store";
 import { useTranslations } from "next-intl";
-import { useData } from "@/components/providers/DataProvider";
 
 // Unified icon pool — same as Skills Manager dashboard
 const ICON_POOL_RAW: Record<
   string,
-  React.ComponentType<{ className?: string; style?: React.CSSProperties }> | undefined
+  | React.ComponentType<{ className?: string; style?: React.CSSProperties }>
+  | undefined
 > = {
   // ─── Frontend ───────────────────────────────────────────────
   SiHtml5: Si.SiHtml5,
@@ -139,24 +145,28 @@ const Skills = () => {
   const catMessages = useTranslations("Portfolio.Skills.categories");
   const { skills: skillsData } = useData();
 
-  // Helper to safely get the category translation, or fallback to the raw key, 
+  // Helper to safely get the category translation, or fallback to the raw key,
   // replacing hyphens with spaces and capitalizing it.
   const getCategoryName = (categoryKey: string) => {
     try {
       const translated = catMessages(categoryKey);
-      // next-intl returns the key itself if not found (or throws based on config), 
+      // next-intl returns the key itself if not found (or throws based on config),
       // but usually we can check if it strictly equals the key or has translation
-      if (translated && translated !== `Portfolio.Skills.categories.${categoryKey}`) {
+      if (
+        translated &&
+        translated !== `Portfolio.Skills.categories.${categoryKey}`
+      ) {
         return translated;
       }
     } catch (e) {
       // Ignore error and fall through to fallback
+      console.error(e || "something went wrong!");
     }
-    
+
     // Fallback: format "my-custom-group" -> "My Custom Group"
     return categoryKey
       .split("-")
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
   };
 
@@ -170,7 +180,7 @@ const Skills = () => {
       </Title>
 
       <div className="container mx-auto flex flex-col gap-8">
-        {skillsData.map((category: any, categoryIndex: number) => (
+        {skillsData.map((category: SkillCategory, categoryIndex: number) => (
           <motion.div
             key={category.category}
             initial={{ opacity: 0, x: arabicLang ? 50 : -50 }}
@@ -189,7 +199,7 @@ const Skills = () => {
 
             {/* Skills Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              {category.skills.map((skill: any, skillIndex: number) => {
+              {category.skills.map((skill: SkillItem, skillIndex: number) => {
                 const IconComp = ICON_POOL[skill.icon] || MdStar;
                 return (
                   <motion.div

@@ -1,35 +1,39 @@
-"use client";
+import type { Metadata } from "next";
+import PortfolioContent from "./PortfolioContent";
 
-import About from "@/components/sections/About";
-import Contact from "@/components/sections/Contact";
-import Experience from "@/components/sections/Experience";
-import { I_appStore } from "@/stores/types/appStore-types";
-import Projects from "@/components/sections/Projects";
-import Showcase from "@/components/sections/Showcase";
-import Skills from "@/components/sections/Skills";
-import { bitcountGridSingle } from "@/styles/fonts";
-import useAppStore from "@/stores/store";
-
-const Portfolio = () => {
-  const { lightMode, arabicLang } = useAppStore((state) => state as I_appStore);
-
-  return (
-    <section
-      dir={arabicLang ? "rtl" : "ltr"}
-      className={`w-screen ${
-        bitcountGridSingle.className
-      } antialiased min-h-screen ${
-        lightMode ? "bg-primaryDark" : "bg-primaryLight"
-      }`}
-    >
-      <Showcase />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Contact />
-    </section>
-  );
+export const metadata: Metadata = {
+  title: "Interactive Portfolio & Projects",
+  description:
+    "Explore the interactive software engineering portfolio of Abdulrahman Ismael. View featured web and mobile applications, check technical skills, professional work experience, and get in touch.",
+  alternates: {
+    canonical: "/portfolio",
+  },
+  openGraph: {
+    title: "Interactive Portfolio & Projects | Abdulrahman Ismael",
+    description:
+      "Explore the interactive software engineering portfolio of Abdulrahman Ismael. Featuring work experience, full-stack projects, and technical expertise.",
+    url: "https://abdulrahman-ismael-portfolio.vercel.app/portfolio",
+    siteName: "Abdulrahman Ismael Portfolio",
+    images: [
+      {
+        url: "/assets/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Abdulrahman Ismael - Projects and Experience Showcase",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Interactive Portfolio & Projects | Abdulrahman Ismael",
+    description:
+      "Explore the interactive software engineering portfolio of Abdulrahman Ismael. Featuring work experience, full-stack projects, and technical expertise.",
+    images: ["/assets/images/og-image.jpg"],
+  },
 };
 
-export default Portfolio;
+export default function Portfolio() {
+  return <PortfolioContent />;
+}

@@ -6,15 +6,27 @@ import { I_appStore } from "@/stores/types/appStore-types";
 import Title from "@/components/ui/Title";
 import { motion } from "framer-motion";
 import useAppStore from "@/stores/store";
-import { useData } from "@/components/providers/DataProvider";
+import { ExperienceItem, useData } from "@/components/providers/DataProvider";
 import { useTranslations } from "next-intl";
+
+interface ProcessedExperience {
+  id: string;
+  type: string;
+  title: string;
+  company: string;
+  location: string;
+  date: string;
+  description: string;
+  achievements?: string[];
+  projects?: { name: string; desc: string }[];
+}
 
 const Experience = () => {
   const { arabicLang, lightMode } = useAppStore((state) => state as I_appStore);
   const experienceMessages = useTranslations("Portfolio.Experience");
   const { experience: experienceData } = useData();
 
-  const experiences = experienceData.map((exp: any) => ({
+  const experiences: ProcessedExperience[] = experienceData.map((exp: ExperienceItem) => ({
     id: exp.id,
     type: exp.type,
     title: experienceMessages(`${exp.id}.title`),
@@ -23,7 +35,7 @@ const Experience = () => {
     date: experienceMessages(`${exp.id}.date`),
     description: experienceMessages(`${exp.id}.description`),
     achievements: exp.achievements
-      ? exp.achievements.map((ach: any) =>
+      ? exp.achievements.map((ach: string) =>
           experienceMessages(`${exp.id}.${ach}`),
         )
       : undefined,
@@ -58,7 +70,7 @@ const Experience = () => {
 
           {/* Experience Items */}
           <div className="space-y-12">
-            {experiences.map((exp: any, index: number) => (
+            {experiences.map((exp, index: number) => (
               <motion.div
                 key={exp.id}
                 initial={{ opacity: 0, x: arabicLang ? 50 : -50 }}
@@ -150,7 +162,7 @@ const Experience = () => {
                     {/* Projects (for freelance) */}
                     {exp.projects && (
                       <div className="space-y-3">
-                        {exp.projects.map((project: any, idx: number) => (
+                        {exp.projects.map((project, idx: number) => (
                           <div
                             key={idx}
                             className={`
@@ -191,7 +203,7 @@ const Experience = () => {
                         className={`space-y-2 ${arabicLang ? "pr-5" : "pl-5"}`}
                       >
                         {exp.achievements.map(
-                          (achievement: any, idx: number) => (
+                          (achievement: string, idx: number) => (
                             <li
                               key={idx}
                               className={`

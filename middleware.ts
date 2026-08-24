@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 import { hashSessionToken } from "@/lib/auth-utils";
 
 export async function middleware(request: NextRequest) {
@@ -11,18 +11,22 @@ export async function middleware(request: NextRequest) {
 
   if (isDashboardPath) {
     const expectedPassword = process.env.DASHBOARD_PASSWORD;
-    const sessionSecret = process.env.SESSION_SECRET || "default_session_secret_hash_salt";
+    const sessionSecret =
+      process.env.SESSION_SECRET || "default_session_secret_hash_salt";
 
     if (!expectedPassword) {
       // If not configured, block access to prevent accidental exposure
       return new NextResponse(
         "Dashboard password configuration is missing on the server. Please check your .env settings.",
-        { status: 500 }
+        { status: 500 },
       );
     }
 
     const sessionCookie = request.cookies.get("portfolio_admin_session")?.value;
-    const correctSessionToken = await hashSessionToken(expectedPassword, sessionSecret);
+    const correctSessionToken = await hashSessionToken(
+      expectedPassword,
+      sessionSecret,
+    );
 
     const isAuthenticated = sessionCookie === correctSessionToken;
 
