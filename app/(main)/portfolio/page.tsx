@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PortfolioContent from "./PortfolioContent";
 
 export const metadata: Metadata = {
-  title: "Interactive Portfolio & Projects",
+  title: "Portfolio & Projects",
   description:
     "Explore the interactive software engineering portfolio of Abdulrahman Ismael. View featured web and mobile applications, check technical skills, professional work experience, and get in touch.",
   alternates: {

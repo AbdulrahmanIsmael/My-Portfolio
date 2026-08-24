@@ -54,7 +54,7 @@ const Showcase = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl lg:text-2xl bg-accentLight w-fit py-1 px-4 rounded-lg text-primaryLight dark:bg-accentDark dark:text-primaryDark font-medium tracking-wide text-center lg:text-start"
+            className="text-lg md:text-xl lg:text-2xl font-semibold bg-accentLight w-fit py-1 px-4 rounded-lg text-primaryLight dark:bg-accentDark dark:text-primaryDark tracking-wide text-center lg:text-start"
           >
             {portfolioMessages("openToWork")}
           </motion.p>
@@ -89,15 +89,16 @@ const Showcase = () => {
           initial={{ x: arabicLang ? -1000 : 500 }}
           animate={{ x: 0 }}
           transition={{ duration: 0.5, ease: "circIn" }}
-          className={`absolute opacity-40 ${
-            arabicLang ? "left-0" : "right-0"
-          } top-1/2 -translate-y-[45%] -z-10`}
+          className={`absolute opacity-30 lg:opacity-90 rounded-full ${
+            arabicLang ? "left-10 md:left-30" : "right-10 md:right-30"
+          } top-1/2 -translate-y-[50%] -z-10`}
         >
           <Image
-            src="/assets/images/personal-image-cutout.png"
+            src="/assets/images/personal-photo.png"
             alt="Personal Image"
             width={500}
             height={500}
+            className="rounded-full hover:opacity-80 transition-all duration-400"
           />
         </motion.div>
       </div>

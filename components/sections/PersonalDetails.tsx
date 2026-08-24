@@ -2,14 +2,17 @@
 
 import BtnLink from "@/components/ui/BtnLink";
 import DownloadCV from "./DownloadCV";
+import { FiLoader } from "react-icons/fi";
 import { I_appStore } from "@/stores/types/appStore-types";
 import { motion } from "framer-motion";
 import useAppStore from "@/stores/store";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 
 const PersonalDetails = () => {
   const { lightMode } = useAppStore((state) => state as I_appStore);
   const homeMessages = useTranslations("Home");
+  const [isNavigating, setIsNavigating] = useState(false);
 
   return (
     <motion.div
@@ -42,9 +45,16 @@ const PersonalDetails = () => {
         {homeMessages("resume")}
       </p>
       <div className="mt-5 flex items-center justify-center gap-5 flex-wrap">
-        <BtnLink href="portfolio">{homeMessages("buttons.whoAmI")}</BtnLink>
+        <BtnLink href="portfolio" clickHandler={() => setIsNavigating(true)}>
+          {homeMessages("buttons.whoAmI")}
+        </BtnLink>
         <DownloadCV />
       </div>
+      {isNavigating && (
+        <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <FiLoader className="animate-spin text-white text-6xl" />
+        </div>
+      )}
     </motion.div>
   );
 };
