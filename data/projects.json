@@ -28,11 +28,12 @@
   {
     "id": "3",
     "type": "frontend",
-    "image": "/assets/images/cinema.png",
+    "image": "/assets/images/1788197057301-ScreenShot_Tool_-20260831195441.png",
     "tech": [
       "React",
       "TypeScript",
-      "Tailwind"
+      "Tailwind",
+      "TanStack Query"
     ],
     "liveUrl": "https://cinemania-teal.vercel.app/",
     "githubUrl": "https://github.com/AbdulrahmanIsmael/Cinemania_website"
@@ -172,5 +173,20 @@
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/AbdulrahmanIsmael/meals-tracker-mobile-app"
+  },
+  {
+    "id": "15",
+    "type": "backend",
+    "image": "/assets/images/1788199213367-ScreenShot_Tool_-20260831205927.png",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Redux-Toolkit",
+      "Tailwind CSS",
+      "Node.js",
+      "Express"
+    ],
+    "liveUrl": "https://bundle-builder-navy.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael"
   }
 ]

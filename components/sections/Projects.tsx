@@ -349,7 +349,7 @@ const Projects = () => {
               } flex gap-2 z-10`}
             >
               <button
-                className="swiper-button-prev group relative w-10 h-10 rounded-full border transition-all hover:bg-opacity-80 flex items-center justify-center"
+                className="hidden! swiper-button-prev group relative w-10 h-10 rounded-full border transition-all hover:bg-opacity-80 items-center justify-center"
                 style={{
                   borderColor: lightMode
                     ? "rgba(0,0,0,0.2)"
@@ -363,7 +363,7 @@ const Projects = () => {
                 ←
               </button>
               <button
-                className="swiper-button-next group relative w-10 h-10 rounded-full border transition-all hover:bg-opacity-80 flex items-center justify-center"
+                className="hidden! swiper-button-next group relative w-10 h-10 rounded-full border transition-all hover:bg-opacity-80 items-center justify-center"
                 style={{
                   borderColor: lightMode
                     ? "rgba(0,0,0,0.2)"

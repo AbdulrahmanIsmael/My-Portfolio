@@ -66,6 +66,14 @@
         "project2": {
           "name": "Students Management System",
           "desc": "Resolved PHP/MySQL backend issues, fixed CORS configuration, and configured the application deployment on cPanel, including server and database integration."
+        },
+        "project3": {
+          "name": "Website hosting and domain connection with SSL Certificate (Deployment)",
+          "desc": "Resolved a domain ownership and DNS configuration issue between Vercel and Spaceship, verifying domain ownership via TXT record and successfully connecting the domain to the Vercel-hosted website"
+        },
+        "project4": {
+          "name": "Developing and Deploying Professional physical training website",
+          "desc": "developed a physical training website from planning, building, testing, and deploying the website\nWebsite Link: https://metnoo.com/"
         }
       },
       "work": {
@@ -126,7 +134,7 @@
         },
         "3": {
           "title": "Cinemania — Movies & TV Platform",
-          "description": "A responsive movie and TV discovery platform built with React Router and React Query, featuring filtering, dynamic routing, and a user-friendly interface for an engaging browsing experience.",
+          "description": "A responsive mobile-first movie and TV series discovery platform built with React Router Dom and TanStack Query, featuring filtering, dynamic routing, and a user-friendly interface for an engaging browsing experience.",
           "category": "React"
         },
         "4": {
@@ -183,6 +191,11 @@
           "title": "Taskaty - Task Management Mobile App",
           "description": "A task management mobile application to manage your daily tasks and boost your productivity",
           "category": "Mobile APP"
+        },
+        "15": {
+          "title": "Bundle Builder - Home Security System Configurator",
+          "description": "Built a full-stack home security bundle configurator, enabling users to customize cameras, monitoring plans, and sensors through a guided multi-step workflow. Implemented real-time pricing, bundle discounts, centralized state management, REST API integration, and an accordion-based UI following reusable component architecture and separation of concerns",
+          "category": "Node.js"
         }
       }
     },
