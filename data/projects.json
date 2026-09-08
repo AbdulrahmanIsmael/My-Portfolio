@@ -13,17 +13,34 @@
     "githubUrl": "https://github.com/AbdulrahmanIsmael/iQuiz-Quizzes-platform"
   },
   {
-    "id": "11",
+    "id": "16",
     "type": "frontend",
-    "image": "/assets/images/1781466976806-ScreenShot_Tool_-20260614225604.png",
+    "image": "/assets/images/1788902263298-Screenshot_2026-09-09_001725.png",
     "tech": [
-      "React",
-      "Redux",
-      "CSS",
-      "Sonner"
+      "Next.js",
+      "Zustand",
+      "Tailwind CSS",
+      "TypeScript",
+      "TanStack Query",
+      "REST API Integration"
     ],
-    "liveUrl": "https://react-task-manager-drab.vercel.app/",
-    "githubUrl": "https://github.com/AbdulrahmanIsmael/React-Task-Manager"
+    "liveUrl": "https://www.almounafis.com/",
+    "githubUrl": "https://www.almounafis.com/"
+  },
+  {
+    "id": "17",
+    "type": "frontend",
+    "image": "/assets/images/1788902598592-Screenshot_2026-09-09_002308.png",
+    "tech": [
+      "Next.js",
+      "Redux",
+      "Tailwind CSS",
+      "TypeScript",
+      "TanStack Query",
+      "REST API Integration"
+    ],
+    "liveUrl": "https://www.zahabweawdeh.com/",
+    "githubUrl": "https://www.zahabweawdeh.com/"
   },
   {
     "id": "3",
@@ -39,16 +56,17 @@
     "githubUrl": "https://github.com/AbdulrahmanIsmael/Cinemania_website"
   },
   {
-    "id": "1",
+    "id": "11",
     "type": "frontend",
-    "image": "/assets/images/seafarer-management-system.png",
+    "image": "/assets/images/1781466976806-ScreenShot_Tool_-20260614225604.png",
     "tech": [
-      "Angular",
-      "TypeScript",
-      "CSS"
+      "React",
+      "Redux",
+      "CSS",
+      "Sonner"
     ],
-    "liveUrl": "https://seafarers-management-system.vercel.app/",
-    "githubUrl": "https://github.com/AbdulrahmanIsmael/Seafarers-Management-System"
+    "liveUrl": "https://react-task-manager-drab.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/React-Task-Manager"
   },
   {
     "id": "5",
@@ -62,30 +80,6 @@
     "githubUrl": "https://github.com/AbdulrahmanIsmael/Real-Time-Assets-Dashboard"
   },
   {
-    "id": "4",
-    "type": "frontend",
-    "image": "/assets/images/teryaq.png",
-    "tech": [
-      "React",
-      "Material UI",
-      "CSS",
-      "Firebase"
-    ],
-    "liveUrl": "https://teryaq-app.vercel.app/",
-    "githubUrl": "https://github.com/AbdulrahmanIsmael/TERYAQ_smart-medicine-reminder"
-  },
-  {
-    "id": "6",
-    "type": "frontend",
-    "image": "/assets/images/events.png",
-    "tech": [
-      "Next.js",
-      "CSS"
-    ],
-    "liveUrl": "https://events-app-cyan-alpha.vercel.app/",
-    "githubUrl": "https://github.com/AbdulrahmanIsmael/Events-Website"
-  },
-  {
     "id": "7",
     "type": "frontend",
     "image": "/assets/images/todogo.png",
@@ -95,17 +89,6 @@
     ],
     "liveUrl": "https://todogo-gold.vercel.app/",
     "githubUrl": "https://github.com/AbdulrahmanIsmael/Todo-List-APP_TodoGo"
-  },
-  {
-    "id": "8",
-    "type": "frontend",
-    "image": "/assets/images/tozan.png",
-    "tech": [
-      "Next.js",
-      "Tailwind CSS"
-    ],
-    "liveUrl": "https://tozan-landing-page.vercel.app/",
-    "githubUrl": "https://github.com/AbdulrahmanIsmael/tozan-landing-page"
   },
   {
     "id": "9",
@@ -121,6 +104,19 @@
     "githubUrl": "https://github.com/AbdulrahmanIsmael/News-Website_Newslyverse"
   },
   {
+    "id": "4",
+    "type": "frontend",
+    "image": "/assets/images/teryaq.png",
+    "tech": [
+      "React",
+      "Material UI",
+      "CSS",
+      "Firebase"
+    ],
+    "liveUrl": "https://teryaq-app.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/TERYAQ_smart-medicine-reminder"
+  },
+  {
     "id": "10",
     "type": "frontend",
     "image": "/assets/images/ecommerce.png",
@@ -132,6 +128,18 @@
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/AbdulrahmanIsmael/shippr-ecommerce"
+  },
+  {
+    "id": "1",
+    "type": "frontend",
+    "image": "/assets/images/seafarer-management-system.png",
+    "tech": [
+      "Angular",
+      "TypeScript",
+      "CSS"
+    ],
+    "liveUrl": "https://seafarers-management-system.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/Seafarers-Management-System"
   },
   {
     "id": "12",
@@ -188,5 +196,27 @@
     ],
     "liveUrl": "https://bundle-builder-navy.vercel.app/",
     "githubUrl": "https://github.com/AbdulrahmanIsmael"
+  },
+  {
+    "id": "6",
+    "type": "frontend",
+    "image": "/assets/images/events.png",
+    "tech": [
+      "Next.js",
+      "CSS"
+    ],
+    "liveUrl": "https://events-app-cyan-alpha.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/Events-Website"
+  },
+  {
+    "id": "8",
+    "type": "frontend",
+    "image": "/assets/images/tozan.png",
+    "tech": [
+      "Next.js",
+      "Tailwind CSS"
+    ],
+    "liveUrl": "https://tozan-landing-page.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/tozan-landing-page"
   }
 ]

@@ -6,23 +6,23 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 
+import { AnimatePresence, motion } from "framer-motion";
 import {
   Autoplay,
   EffectCoverflow,
   Navigation,
   Pagination,
 } from "swiper/modules";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { FiExternalLink, FiGithub, FiX } from "react-icons/fi";
 import { ProjectItem, useData } from "@/components/providers/DataProvider";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useEffect, useState } from "react";
 
 import { I_appStore } from "@/stores/types/appStore-types";
 import Image from "next/image";
 import Link from "next/link";
 import Title from "@/components/ui/Title";
-import { motion } from "framer-motion";
 import useAppStore from "@/stores/store";
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 
 interface Project {
@@ -45,6 +45,18 @@ const Projects = () => {
   const [activeTab, setActiveTab] = useState<
     "all" | "frontend" | "backend" | "fullstack" | "mobile"
   >("all");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedProject]);
 
   const projects: Project[] = (projectsData || []).map(
     (project: ProjectItem) => ({
@@ -189,8 +201,9 @@ const Projects = () => {
                     className="group relative h-full flex w-full"
                   >
                     <div
+                      onClick={() => setSelectedProject(project)}
                       className={`
-                        project-card relative overflow-hidden rounded-2xl h-105 w-full flex flex-col
+                        project-card relative overflow-hidden rounded-2xl h-105 w-full flex flex-col cursor-pointer
                       ${
                         lightMode
                           ? "bg-primaryDark text-textDark"
@@ -227,25 +240,28 @@ const Projects = () => {
                               href={project.liveUrl}
                               target="_blank"
                               rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
                               className="p-3 bg-white/20 hover:bg-white/40 rounded-full transition-all hover:scale-110"
                               title={arabicLang ? "رابط حي" : "Live Demo"}
                             >
                               <FiExternalLink className="w-5 h-5 text-white" />
                             </Link>
                           )}
-                          {project.githubUrl && (
-                            <Link
-                              href={project.githubUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="p-3 bg-white/20 hover:bg-white/40 rounded-full transition-all hover:scale-110"
-                              title={
-                                arabicLang ? "مستودع الكود" : "Source Code"
-                              }
-                            >
-                              <FiGithub className="w-5 h-5 text-white" />
-                            </Link>
-                          )}
+                          {project.githubUrl &&
+                            project.githubUrl.includes("github") && (
+                              <Link
+                                href={project.githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="p-3 bg-white/20 hover:bg-white/40 rounded-full transition-all hover:scale-110"
+                                title={
+                                  arabicLang ? "مستودع الكود" : "Source Code"
+                                }
+                              >
+                                <FiGithub className="w-5 h-5 text-white" />
+                              </Link>
+                            )}
                         </div>
 
                         {/* Type Badge */}
@@ -379,6 +395,195 @@ const Projects = () => {
             </div>
           </div>
         )}
+
+        {/* Project Modal */}
+        <AnimatePresence>
+          {selectedProject && (
+            <div
+              className="fixed inset-0 z-100 flex items-center justify-center p-4 sm:p-6"
+              onClick={() => setSelectedProject(null)}
+            >
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                onClick={(e) => e.stopPropagation()}
+                className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl z-10 flex flex-col ${
+                  lightMode
+                    ? "bg-primaryDark text-textDark"
+                    : "bg-primaryLight text-textLight"
+                } shadow-2xl border ${
+                  lightMode ? "border-subtleDark/20" : "border-subtleLight/20"
+                }`}
+              >
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-md transition-colors"
+                >
+                  <FiX className="w-6 h-6" />
+                </button>
+
+                {selectedProject.image && (
+                  <div className="relative w-full shrink-0 h-64 sm:h-80 md:h-96">
+                    <Image
+                      src={selectedProject.image}
+                      alt={selectedProject.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
+                      <div>
+                        <div
+                          className={`px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase backdrop-blur-md shadow-sm border w-fit mb-3 ${
+                            lightMode
+                              ? "bg-white/90 text-accentDark border-white/50"
+                              : "bg-black/60 text-white border-white/10"
+                          }`}
+                        >
+                          {selectedProject.type}
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">
+                          {selectedProject.title}
+                        </h2>
+                        <div className="text-white/80 font-medium text-lg">
+                          {selectedProject.category}
+                        </div>
+                      </div>
+                      <div className="flex gap-3">
+                        {selectedProject.liveUrl && (
+                          <Link
+                            href={selectedProject.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 bg-white/20 hover:bg-white/40 rounded-full transition-all hover:scale-110 backdrop-blur-md"
+                            title={arabicLang ? "رابط حي" : "Live Demo"}
+                          >
+                            <FiExternalLink className="w-6 h-6 text-white" />
+                          </Link>
+                        )}
+                        {selectedProject.githubUrl &&
+                          selectedProject.githubUrl.includes("github") && (
+                            <Link
+                              href={selectedProject.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="p-3 bg-white/20 hover:bg-white/40 rounded-full transition-all hover:scale-110 backdrop-blur-md"
+                              title={
+                                arabicLang ? "مستودع الكود" : "Source Code"
+                              }
+                            >
+                              <FiGithub className="w-6 h-6 text-white" />
+                            </Link>
+                          )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {!selectedProject.image && (
+                  <div className="p-6 sm:p-8 pt-12 sm:pt-16 pb-0 shrink-0">
+                    <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
+                      <div>
+                        <div
+                          className={`px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase backdrop-blur-md shadow-sm border w-fit mb-3 ${
+                            lightMode
+                              ? "bg-black/5 text-accentDark border-black/10"
+                              : "bg-white/10 text-accentLight border-white/10"
+                          }`}
+                        >
+                          {selectedProject.type}
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-2">
+                          {selectedProject.title}
+                        </h2>
+                        <div
+                          className={`font-medium text-lg ${
+                            lightMode ? "text-textDark/60" : "text-textLight/60"
+                          }`}
+                        >
+                          {selectedProject.category}
+                        </div>
+                      </div>
+                      <div className="flex gap-3">
+                        {selectedProject.liveUrl && (
+                          <Link
+                            href={selectedProject.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`p-3 rounded-full transition-all hover:scale-110 ${
+                              lightMode
+                                ? "bg-black/5 hover:bg-black/10 text-textDark"
+                                : "bg-white/10 hover:bg-white/20 text-white"
+                            }`}
+                            title={arabicLang ? "رابط حي" : "Live Demo"}
+                          >
+                            <FiExternalLink className="w-6 h-6" />
+                          </Link>
+                        )}
+                        {selectedProject.githubUrl &&
+                          selectedProject.githubUrl.includes("github") && (
+                            <Link
+                              href={selectedProject.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`p-3 rounded-full transition-all hover:scale-110 ${
+                                lightMode
+                                  ? "bg-black/5 hover:bg-black/10 text-textDark"
+                                  : "bg-white/10 hover:bg-white/20 text-white"
+                              }`}
+                              title={
+                                arabicLang ? "مستودع الكود" : "Source Code"
+                              }
+                            >
+                              <FiGithub className="w-6 h-6" />
+                            </Link>
+                          )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <div className="p-6 sm:p-8">
+                  <h3 className="text-xl font-bold mb-4">
+                    {arabicLang ? "تفاصيل المشروع" : "Project Details"}
+                  </h3>
+                  <p
+                    className={`text-base sm:text-lg leading-relaxed mb-8 whitespace-pre-line ${
+                      lightMode ? "text-textDark/80" : "text-textLight/80"
+                    }`}
+                  >
+                    {selectedProject.description}
+                  </p>
+
+                  <h3 className="text-xl font-bold mb-4">
+                    {arabicLang ? "التقنيات المستخدمة" : "Technologies Used"}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.tech.map((tech) => (
+                      <div
+                        key={tech}
+                        className={`px-4 py-2 rounded-xl text-sm font-semibold tracking-wide ${
+                          lightMode
+                            ? "bg-subtleDark/10 text-accentDark border border-subtleDark/10"
+                            : "bg-subtleLight/10 text-accentLight border border-subtleLight/10"
+                        }`}
+                      >
+                        {tech}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
