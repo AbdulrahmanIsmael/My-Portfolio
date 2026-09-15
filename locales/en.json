@@ -74,6 +74,14 @@
         "project4": {
           "name": "Developing and Deploying Professional physical training website",
           "desc": "developed a physical training website from planning, building, testing, and deploying the website\nWebsite Link: https://metnoo.com/"
+        },
+        "project5": {
+          "name": "Shopify E-commerce Store Customization & Optimization",
+          "desc": "Customized and optimized a Shopify e-commerce theme using Liquid and JavaScript, focusing on performance, accessibility, RTL support, and responsive user experience. Also handled Shopify theme configuration, third-party app integrations."
+        },
+        "project6": {
+          "name": "Website Server Troubleshooting & Recovery",
+          "desc": "A real-world WordPress recovery project involving live server troubleshooting, cPanel hosting, PHP configuration, security investigation, and backup/recovery. Successfully restored the website and login functionality."
         }
       },
       "work": {
