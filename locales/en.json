@@ -214,6 +214,11 @@
           "title": "Zahab We Awdeh Travel & Tourism",
           "description": "A travel platform for a Saudi company specializing in hotel, flight, and holiday bookings, built with Next.js with a strong focus on performance and SEO to reach a wider audience.",
           "category": "Next.js"
+        },
+        "18": {
+          "title": "Nexus CRM",
+          "description": "A full-featured CRM built for freelancers and independent professionals, managing contacts, a Kanban sales pipeline, projects and tasks, branded PDF invoices, reports, and analytics in one place. Built with Next.js, TypeScript, and Supabase, with full Arabic & English support and dark & light mode.",
+          "category": "CRM"
         }
       }
     },

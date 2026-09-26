@@ -218,5 +218,19 @@
     ],
     "liveUrl": "https://tozan-landing-page.vercel.app/",
     "githubUrl": "https://github.com/AbdulrahmanIsmael/tozan-landing-page"
+  },
+  {
+    "id": "18",
+    "type": "fullstack",
+    "image": "/assets/images/1790439852532-Screenshot_2026-09-26_192318.png",
+    "tech": [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL"
+    ],
+    "liveUrl": "https://crmsystem-brown.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/CRM-System"
   }
 ]
