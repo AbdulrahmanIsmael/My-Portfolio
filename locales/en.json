@@ -11,8 +11,8 @@
     "language": "Language"
   },
   "Home": {
-    "name": "Abdulrahman Ismael",
-    "profession": "Software Engineer",
+    "name": "Abdulrahman Mohammed Ismael",
+    "profession": "Frontend Engineer",
     "resume": "Please Download My Updated CV",
     "buttons": {
       "downloadCV": "Download Resume",
@@ -21,8 +21,8 @@
   },
   "Portfolio": {
     "Showcase": {
-      "title": "Welcome, I am Abdulrahman Ismael",
-      "small": "Software Engineer",
+      "title": "Welcome, I am Abdulrahman Mohammed Ismael",
+      "small": "Frontend Engineer",
       "openToWork": "Open to Work",
       "brief": "I build complete digital products across the full stack — from polished frontends in React, Next.js, and Angular, to robust backends with Node.js and Express, cross-platform mobile apps with React Native, and database systems with SQL, MySQL, and Microsoft SQL Server. Clean architecture, high performance, and maintainable code — every layer crafted with purpose."
     },
@@ -42,8 +42,8 @@
       "title": "About Me",
       "subTitle": "Get to know me further",
       "titleBox": "Who Am I",
-      "profession": "Software Engineer",
-      "desc": "Software Engineer with hands-on experience delivering full-stack solutions across production environments. I build responsive and scalable frontends with React.js, Next.js, and Angular; backend services with Node.js, Express.js, and EJS templating; cross-platform mobile apps with React Native; and work with database systems including SQL, MySQL, and Microsoft SQL Server. I focus on clean, maintainable architecture, performance optimization, SEO, and accessibility — and I thrive in collaborative environments seeking new challenges in growing teams.",
+      "profession": "Frontend Engineer",
+      "desc": "Frontend engineer with hands-on experience delivering web solutions across production environments. I build responsive and scalable frontends with React.js and Next.js, develop my backend skills with Node.js, Express.js, and cross-platform mobile apps with React Native, and work with database systems including MySQL and Microsoft SQL Server. I focus on clean, maintainable architecture, optimized performance, SEO, and accessibility. I thrive in collaborative environments seeking new challenges in growing teams.",
       "contactTitle": "Get In Touch",
       "contactEmail": "Email",
       "contactPhone": "Phone",
@@ -130,24 +130,14 @@
       "subTitle": "Personal projects I've worked on",
       "techStack": "Tech Stack",
       "projects": {
-        "1": {
-          "title": "Seafarer Management System",
-          "description": "An Angular-based management system for seafarers with a scalable component structure, service layer architecture, and comprehensive CRUD operations for managing seafarer data and activation periods.",
-          "category": "Angular"
-        },
         "2": {
           "title": "iQuiz — Quizzes Platform",
           "description": "A responsive and scalable quizzes platform built with TypeScript, Tailwind CSS, and Webpack, integrating Firebase for user authentication and data management.",
-          "category": "TypeScript"
+          "category": "Vanilla JS & Firebase"
         },
         "3": {
           "title": "Cinemania — Movies & TV Platform",
           "description": "A responsive mobile-first movie and TV series discovery platform built with React Router Dom and TanStack Query, featuring filtering, dynamic routing, and a user-friendly interface for an engaging browsing experience.",
-          "category": "React"
-        },
-        "4": {
-          "title": "Teryaq — Graduation Project",
-          "description": "A responsive medication management web application built with React.js and Firebase, featuring real-time control, schedule customization, and an accessibility-focused design to help patients manage their medications.",
           "category": "React"
         },
         "5": {
@@ -155,29 +145,14 @@
           "description": "A real-time investment portfolio dashboard built with Next.js, featuring efficient filtering and sorting, data caching for performance optimization, and a clean architecture with clear separation of concerns.",
           "category": "Next.js"
         },
-        "6": {
-          "title": "Events App",
-          "description": "A platform to browse and explore important events with their full details, built with Next.js for fast, server-rendered pages.",
-          "category": "Next.js"
-        },
         "7": {
           "title": "TodoGo — Todo List App",
           "description": "A task management app where you can add, edit, and delete tasks, earn points for completed ones, and stay organized with a clean, intuitive interface.",
           "category": "React"
         },
-        "8": {
-          "title": "Tozan — Landing Page",
-          "description": "A modern, responsive landing page built with Next.js and Tailwind CSS, designed for startups and companies to present their product and value proposition.",
-          "category": "Next.js"
-        },
         "9": {
           "title": "Newslyverse — News Website",
           "description": "A news website with a clean, user-friendly design that surfaces top daily headlines and breaking news in a streamlined reading experience.",
-          "category": "JavaScript"
-        },
-        "10": {
-          "title": "Shippr — E-Commerce Store",
-          "description": "A responsive e-commerce store with secure authentication, product filtering, and shopping cart functionality, prioritizing clean UI, user experience, and scalable code.",
           "category": "JavaScript"
         },
         "11": {
@@ -198,12 +173,12 @@
         "14": {
           "title": "Taskaty - Task Management Mobile App",
           "description": "A task management mobile application to manage your daily tasks and boost your productivity",
-          "category": "Mobile APP"
+          "category": "React Native"
         },
         "15": {
           "title": "Bundle Builder - Home Security System Configurator",
           "description": "Built a full-stack home security bundle configurator, enabling users to customize cameras, monitoring plans, and sensors through a guided multi-step workflow. Implemented real-time pricing, bundle discounts, centralized state management, REST API integration, and an accordion-based UI following reusable component architecture and separation of concerns",
-          "category": "Node.js"
+          "category": "Node.js & Express"
         },
         "16": {
           "title": "Almounafis Travel & Tourism",
@@ -218,7 +193,7 @@
         "18": {
           "title": "Nexus CRM",
           "description": "A full-featured CRM built for freelancers and independent professionals, managing contacts, a Kanban sales pipeline, projects and tasks, branded PDF invoices, reports, and analytics in one place. Built with Next.js, TypeScript, and Supabase, with full Arabic & English support and dark & light mode.",
-          "category": "CRM"
+          "category": "Next.js & Supabase"
         }
       }
     },
@@ -254,7 +229,7 @@
     }
   },
   "Footer": {
-    "name": "Abdulrahman Ismael",
+    "name": "Abdulrahman Mohammed Ismael",
     "bio": "Software Engineer passionate about building complete, high-performance digital products across Frontend, Backend, Mobile, and Database layers",
     "quickLinks": "Quick Links",
     "followMe": "Follow Me",

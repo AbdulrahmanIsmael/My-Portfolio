@@ -1,16 +1,17 @@
 [
   {
-    "id": "2",
-    "type": "frontend",
-    "image": "/assets/images/iquiz.png",
+    "id": "18",
+    "type": "fullstack",
+    "image": "/assets/images/1790439852532-Screenshot_2026-09-26_192318.png",
     "tech": [
-      "TypeScript",
+      "Next.js",
       "Tailwind CSS",
-      "Webpack",
-      "Firebase"
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL"
     ],
-    "liveUrl": "https://i-quiz-quizzes-platform.vercel.app/",
-    "githubUrl": "https://github.com/AbdulrahmanIsmael/iQuiz-Quizzes-platform"
+    "liveUrl": "https://crmsystem-brown.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/CRM-System"
   },
   {
     "id": "16",
@@ -69,17 +70,6 @@
     "githubUrl": "https://github.com/AbdulrahmanIsmael/React-Task-Manager"
   },
   {
-    "id": "5",
-    "type": "frontend",
-    "image": "/assets/images/dashboard.png",
-    "tech": [
-      "Next.js",
-      "Tailwind CSS"
-    ],
-    "liveUrl": "https://real-time-assets-dashboard-lk28.vercel.app/",
-    "githubUrl": "https://github.com/AbdulrahmanIsmael/Real-Time-Assets-Dashboard"
-  },
-  {
     "id": "7",
     "type": "frontend",
     "image": "/assets/images/todogo.png",
@@ -89,6 +79,17 @@
     ],
     "liveUrl": "https://todogo-gold.vercel.app/",
     "githubUrl": "https://github.com/AbdulrahmanIsmael/Todo-List-APP_TodoGo"
+  },
+  {
+    "id": "5",
+    "type": "frontend",
+    "image": "/assets/images/dashboard.png",
+    "tech": [
+      "Next.js",
+      "Tailwind CSS"
+    ],
+    "liveUrl": "https://real-time-assets-dashboard-lk28.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/Real-Time-Assets-Dashboard"
   },
   {
     "id": "9",
@@ -102,44 +103,6 @@
     ],
     "liveUrl": "",
     "githubUrl": "https://github.com/AbdulrahmanIsmael/News-Website_Newslyverse"
-  },
-  {
-    "id": "4",
-    "type": "frontend",
-    "image": "/assets/images/teryaq.png",
-    "tech": [
-      "React",
-      "Material UI",
-      "CSS",
-      "Firebase"
-    ],
-    "liveUrl": "https://teryaq-app.vercel.app/",
-    "githubUrl": "https://github.com/AbdulrahmanIsmael/TERYAQ_smart-medicine-reminder"
-  },
-  {
-    "id": "10",
-    "type": "frontend",
-    "image": "/assets/images/ecommerce.png",
-    "tech": [
-      "CSS3",
-      "JS",
-      "Gulp",
-      "HTML5"
-    ],
-    "liveUrl": "",
-    "githubUrl": "https://github.com/AbdulrahmanIsmael/shippr-ecommerce"
-  },
-  {
-    "id": "1",
-    "type": "frontend",
-    "image": "/assets/images/seafarer-management-system.png",
-    "tech": [
-      "Angular",
-      "TypeScript",
-      "CSS"
-    ],
-    "liveUrl": "https://seafarers-management-system.vercel.app/",
-    "githubUrl": "https://github.com/AbdulrahmanIsmael/Seafarers-Management-System"
   },
   {
     "id": "12",
@@ -198,39 +161,17 @@
     "githubUrl": "https://github.com/AbdulrahmanIsmael"
   },
   {
-    "id": "6",
-    "type": "frontend",
-    "image": "/assets/images/events.png",
-    "tech": [
-      "Next.js",
-      "CSS"
-    ],
-    "liveUrl": "https://events-app-cyan-alpha.vercel.app/",
-    "githubUrl": "https://github.com/AbdulrahmanIsmael/Events-Website"
-  },
-  {
-    "id": "8",
-    "type": "frontend",
-    "image": "/assets/images/tozan.png",
-    "tech": [
-      "Next.js",
-      "Tailwind CSS"
-    ],
-    "liveUrl": "https://tozan-landing-page.vercel.app/",
-    "githubUrl": "https://github.com/AbdulrahmanIsmael/tozan-landing-page"
-  },
-  {
-    "id": "18",
+    "id": "2",
     "type": "fullstack",
-    "image": "/assets/images/1790439852532-Screenshot_2026-09-26_192318.png",
+    "image": "/assets/images/iquiz.png",
     "tech": [
-      "Next.js",
-      "Tailwind CSS",
       "TypeScript",
-      "Supabase",
-      "PostgreSQL"
+      "Tailwind CSS",
+      "Webpack",
+      "Firebase",
+      "Firebase Firestore (Database)"
     ],
-    "liveUrl": "https://crmsystem-brown.vercel.app/",
-    "githubUrl": "https://github.com/AbdulrahmanIsmael/CRM-System"
+    "liveUrl": "https://i-quiz-quizzes-platform.vercel.app/",
+    "githubUrl": "https://github.com/AbdulrahmanIsmael/iQuiz-Quizzes-platform"
   }
 ]

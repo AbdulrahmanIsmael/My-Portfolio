@@ -109,7 +109,7 @@ const AboutDetails = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className={`text-base md:text-lg leading-relaxed mb-12 text-center max-w-3xl mx-auto ${
+        className={`text-base md:text-lg leading-relaxed mb-12 text-center max-w-7xl mx-auto ${
           lightMode ? "text-textDark/80" : "text-textLight/80"
         }`}
       >
