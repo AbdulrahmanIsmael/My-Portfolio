@@ -98,7 +98,7 @@ const Showcase = () => {
             alt="Personal Image"
             width={500}
             height={500}
-            className="rounded-full hover:opacity-80 transition-all duration-400"
+            className="rounded-full transition-all duration-400 opacity-40"
           />
         </motion.div>
       </div>
