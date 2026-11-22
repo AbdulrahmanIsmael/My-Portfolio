@@ -119,7 +119,7 @@ const Header = () => {
           </nav>
 
           {/* Desktop Switchers */}
-          <div className="max-md:hidden flex flex-col items-center gap-2">
+          <div className="max-md:hidden flex items-center gap-2">
             <Switchers type="mode">
               <span title={lightMode ? "Dark Mode" : "Light Mode"}>
                 {lightMode ? (
